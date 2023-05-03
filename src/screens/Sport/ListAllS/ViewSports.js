@@ -4,6 +4,7 @@ import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
 import SportsTable from "../../../componentes/SportsTable";
 import SportApiService from "../../../services/SportApiService";
+import UserApiService from "../../../services/UserApiService";
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
 
 class ViewSports extends React.Component {
@@ -14,11 +15,24 @@ class ViewSports extends React.Component {
     constructor() {
         super();
         this.service = new SportApiService();
+        this.userService = new UserApiService();
     }
     
     componentDidMount() {
         this.find();
     }
+
+    getLoggedUser = () =>{
+        var value = localStorage.getItem('loggedUser');
+        var user = JSON.parse(value);
+
+        if (user == null) {
+
+            user = " ";
+        }
+
+        return user;
+}
 
     find = () => {
         this.service.find('')
@@ -50,12 +64,18 @@ class ViewSports extends React.Component {
     }
 
     
-    addSportsFavorite = (sportId,userId) => {
-        this.sportsFavorite.addSportsFavorite(sportId,userId)
+    addSportsFavorite = (sportId) => {
+        
+        this.userService.addSportsFavorite(this.getLoggedUser().id,sportId)
+
         .then( Response => {  
+
             showSuccessMessage("Você demonstrou interesse nesse esporte!");
+
         }).catch( error => {
+
             showErrorMessage(error.response.data);
+
         });
     }
 

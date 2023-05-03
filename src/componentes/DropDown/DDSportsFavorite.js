@@ -6,8 +6,21 @@ const DDSportsFavorite = (props) => {
 
     const [sportsFavorite, setSportsFavorite] = React.useState([]); //array vazio aqui no final para prevenir erro de undefined tentando ser mapeado.
 
+    const getLoggedUser = () =>{
+        var value = localStorage.getItem('loggedUser');
+        var user = JSON.parse(value);
+
+        if (user == null) {
+
+            user = " ";
+        }
+
+        return user;
+}
+    
+
     function findSportsFavorite() {
-        axios.get( "http://localhost:8080/api/sport"
+        axios.get( `http://localhost:8080/api/user/sportsFavorite/${getLoggedUser().id}`
         ).then( Response => {
             const sportsFavorite = Response.data;
             setSportsFavorite(sportsFavorite);

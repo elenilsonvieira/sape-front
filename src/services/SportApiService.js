@@ -1,3 +1,4 @@
+import axios from "axios";
 import ApiService from "./ApiService";
 
 export default class SportApiService extends ApiService {
@@ -23,7 +24,11 @@ export default class SportApiService extends ApiService {
     }
 
     addSportsFavorite(sportId, object) {
-        return this.patch(`/addSportsFavorite/add/${sportId}`, object);
+        console.log(sportId)
+        return axios.patch(`http://localhost:8080/api/user/${1}/sportsFavorite/${sportId}`)
+        
+        
+        
     }
 
     /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.

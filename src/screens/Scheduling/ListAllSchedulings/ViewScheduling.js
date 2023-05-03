@@ -118,7 +118,6 @@ class ViewScheduling extends React.Component {
             console.log(error.Response);
         });
     }
- 
     render(){
         return(
             <div>

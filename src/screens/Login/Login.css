@@ -37,7 +37,7 @@
     line-height: 111px;
     text-align: center;
   
-    color: #6DCA41;
+    color: #0c0c0c;
   
   }
 
@@ -63,7 +63,7 @@
     position: absolute;
     width: 200px;
     height: 90px;
-    left: 900px;
+    left: 885px;
     top: 320px;
   
     font-family: 'Imprima';
@@ -83,6 +83,7 @@
     left: 850px;
     top: 360px;
     background-color: #c1ccbc;
+    border-radius: 5px;
 
   }
 
@@ -90,7 +91,7 @@
     position: absolute;
     width: 200px;
     height: 90px;
-    left: 900px;
+    left: 885px;
     top: 410px;
   
     font-family: 'Imprima';
@@ -107,10 +108,11 @@
     position: absolute;
     width: 280px;
     height: 40px;
-    left: 900px;
+    left: 905px;
     top: 440px;
     border: 5px;
     background-color: #c1ccbc;
+    border-radius: 5px;
 
   }
 
@@ -120,8 +122,23 @@
     height: 50px;
     left: 930px;
     top: 535px;
-    
+    font-weight: bolder;
     background: #6DCA41;
     border-radius: 20px;
+    transition: .5s;
     
+}
+
+.set02 button:hover{
+  background-color: #ffffff;
+  color: #6DCA41;
+  border-color: #6DCA41;
+}
+
+#h1{
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: 250px;
+
 }

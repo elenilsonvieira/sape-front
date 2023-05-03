@@ -39,28 +39,31 @@ function RestrictedRoute( {component: Component, show, ...props} ) {
 
 function AppRoutes(props) {
     return (
+
         <BrowserRouter>
             <Switch>
+
             <Route component = { HomePage } path="/" exact/>
             <Route component = { Login } path="/login" />
 
             <RestrictedRoute show={props.isAuthenticated} component = { ListPlaces } path="/listPlaces" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreatePlace } path="/createPlace" />
             <RestrictedRoute show={props.isAuthenticated} component = { UpdatePlace } path="/updatePlace/:id" />
-     
+
             <RestrictedRoute show={props.isAuthenticated} component = { ListSports } path="/listSports" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreateSport } path="/createSport" />
             <RestrictedRoute show={props.isAuthenticated} component = { UpdateSport } path="/updateSport/:id" />
-           
+
 
             <RestrictedRoute show={props.isAuthenticated} component = { ListScheduling } path="/listScheduling" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreateScheduling } path="/createScheduling" />
             <RestrictedRoute show={props.isAuthenticated} component = { ViewPresent } path= "/viewPresent" />
 
             <RestrictedRoute show={props.isAuthenticated} component = { ViewUser } path= "/viewUser" />
-           
+
             </Switch>
         </BrowserRouter>
+        
     );
 }
 

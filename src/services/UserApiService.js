@@ -19,8 +19,12 @@ export default class UserApiService extends ApiService{
     findAll(){
         return this.getAll('/all');
     }
+
     findSportsFavoriteAll(){
         return this.getAll('/all');
     }
-  
+    addSportsFavorite(userId, sportId) {
+        
+        return this.patch(`/${userId}/sportsFavorite/${sportId}`);
+    }
 }

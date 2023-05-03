@@ -18,16 +18,16 @@ function NavBar (props) {
                         
                         <NavbarItem render={props.isAuthenticated} href="/listPlaces" label="Locais" />
                         <NavbarItem render={props.isAuthenticated} href="/createPlace" label="Criar Local" />
-    *                   
+
                         <NavbarItem render={props.isAuthenticated} href="/listSports" label="Esportes" />
                         <NavbarItem render={props.isAuthenticated} href="/createSport" label="Criar Esporte" /> 
-                       
+
                         <NavbarItem render={props.isAuthenticated} href="/createScheduling" label="Criar Agendamento" />
                         <NavbarItem render={props.isAuthenticated} href="/listScheduling" label="Agendamentos" />
                         
                        <NavbarItem render={props.isAuthenticated} href="/viewPresent" label="Agendamentos Confirmados" /> 
             
-                      <NavbarItem render={props.isAuthenticated} href="/viewUser" label="Perfil do Usuário" />
+                      <NavbarItem render={props.isAuthenticated} href="/viewUser"  label="Perfil do Usuário" />
                     
                     </ul>
                 </div>

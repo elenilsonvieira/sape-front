@@ -90,13 +90,13 @@ class ViewUser extends React.Component {
             params = `${params}role=${this.state.role}`;
         }
 
-        if (this.state.selectedSportsFavorate.id !== 0) {
-            if (params !== '?') {
-                params = `${params}&`;
-            }
+        // if (this.state.selectedSportsFavorate.id !== 0) {
+        //     if (params !== '?') {
+        //         params = `${params}&`;
+        //     }
 
-            params = `${params}selectedSportsFavorateId=${this.state.selectedSportsFavorateId}`;
-        }
+        //     params = `${params}selectedSportsFavorateId=${this.state.selectedSportsFavorateId}`;
+        // }
 
         //axios.get(`http://localhost:8080/api/user/${params}`)
         this.service.find(params)

@@ -17,6 +17,7 @@ export class AuthenticationApiService extends ApiService {
         try{   
             const response = await this.post('/login', loginDTO);
 
+            
             const user = response.data.user;
             const token = response.data.token;
 
@@ -70,6 +71,7 @@ export class AuthenticationApiService extends ApiService {
         const response = await this.isTokenValid(tokenDTO);
         return response.data;
     }
+    
 
 }
 

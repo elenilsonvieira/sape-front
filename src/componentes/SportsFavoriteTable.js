@@ -14,7 +14,7 @@ export default props => {
                             Excluir
                     </button>
                     </td>
-                      
+            
                 </td>
             </tr>
         )
