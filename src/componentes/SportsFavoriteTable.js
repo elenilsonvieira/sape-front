@@ -3,7 +3,9 @@ import React from "react";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => {
 
-    const rows = props.sportsFavorite.map( sportsFavorite => {
+    const rows = props.sportsFavorite?.map( sportsFavorite => {
+       
+       console.log(sportsFavorite)
         return (
             <tr key={sportsFavorite.id}>
                 <td>{sportsFavorite.name}</td>

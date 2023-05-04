@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import UserApiService from "../../../services/UserApiService";
 import FormGroup from "../../../componentes/FormGroup";
 import DDSportsFavorite from "../../../componentes/DropDown/DDSportsFavorite";
+import SportsFavoriteTable from "../../../componentes/SportsFavoriteTable";
 
 class ViewUser extends React.Component {
     state = {
@@ -30,13 +31,14 @@ class ViewUser extends React.Component {
     // }
 
     getLoggedUser = () =>{
-        var value = localStorage.getItem('loggedUser');
-        var user = JSON.parse(value);
+        
+        var user = JSON.parse(localStorage.getItem('loggedUser'));
 
         if (user == null) {
 
             user = " ";
         }
+        console.log(user)
 
         return user;
 }
@@ -66,7 +68,7 @@ class ViewUser extends React.Component {
 
     replace = () =>{
 
-        document.getElementById("lab").value = this.state.user.id;
+        
         document.getElementById("name").value = this.state.user.name;
         document.getElementById("registration").value = this.state.user.registration;
        
@@ -135,6 +137,7 @@ class ViewUser extends React.Component {
                 this.replace();
               
                 console.log("user",  this.state.selectedSportsFavorite);
+                console.log("users",  this.state.users);
               
 
             }
@@ -166,11 +169,11 @@ class ViewUser extends React.Component {
                     <fieldset>
                         <h1 className="title">Perfil</h1>
                         
-                        <FormGroup label='ID' htmlFor='lab'>
+                        {/* <FormGroup label='ID' htmlFor='lab'>
                             <input className="form-control-small" type="number" id="lab" value={this.state.user.id}
                             disabled={true}
                             />
-                        </FormGroup>
+                        </FormGroup> */}
 
                         <FormGroup label='Nome' htmlFor='name'>
                             <input className="form-control" type="text" id="name" value={this.state.user.name}disabled={true}
@@ -187,12 +190,11 @@ class ViewUser extends React.Component {
                             onChange={(e) => {this.setState({registration: e.target.value})}}/>
                         </FormGroup>
                    
-                        <FormGroup label='' htmlFor='lab' className="filterOptions">
-                            <DDSportsFavorite id="lab" sports={this.state.selectedSportsFavorite} />
-                        </FormGroup>
+                       
                         <br/>
                         <br/>
                         <button type="button" className="btn btn-primary" onClick={this.create}>Cadastrar novo agendamento</button>
+                        <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite}/>
                     </fieldset>
                     <br/>
                 </header>  
