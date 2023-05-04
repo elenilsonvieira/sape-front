@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootswatch/dist/minty/bootstrap.css';
+import './ViewUser.css'
 import { withRouter } from 'react-router-dom';
 import UserApiService from "../../../services/UserApiService";
 import FormGroup from "../../../componentes/FormGroup";
@@ -17,6 +18,7 @@ class ViewUser extends React.Component {
         users :[],
         user: ''
     }
+     
     constructor() {
         super();
         this.service = new UserApiService();
@@ -129,10 +131,12 @@ class ViewUser extends React.Component {
         
         this.service.find(params)
             .then(response => {
-                const users = response.data;
-                this.setState({ users });
+                const users = response.data;  
                 this.state.user = users[0]
-                this.state.selectedSportsFavorite = this.state.user.sportsFavorite;
+                this.state.selectedSportsFavorite = users[0].sportsFavorite; 
+                const sportsFavorite = this.state.selectedSportsFavorite;
+                this.setState({users});
+                this.setState({ sportsFavorite });
 
                 this.replace();
               
@@ -194,7 +198,11 @@ class ViewUser extends React.Component {
                         <br/>
                         <br/>
                         <button type="button" className="btn btn-primary" onClick={this.create}>Cadastrar novo agendamento</button>
+                      
+                        <br/>
+                        <FormGroup label="Esportes Favoritos">
                         <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite}/>
+                       </FormGroup>
                     </fieldset>
                     <br/>
                 </header>  
