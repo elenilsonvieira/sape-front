@@ -1,10 +1,8 @@
 import React from "react";
 import 'bootswatch/dist/minty/bootstrap.css';
-import './ViewUser.css'
 import { withRouter } from 'react-router-dom';
 import UserApiService from "../../../services/UserApiService";
 import FormGroup from "../../../componentes/FormGroup";
-import DDSportsFavorite from "../../../componentes/DropDown/DDSportsFavorite";
 import SportsFavoriteTable from "../../../componentes/SportsFavoriteTable";
 
 class ViewUser extends React.Component {
@@ -200,7 +198,7 @@ class ViewUser extends React.Component {
                         <button type="button" className="btn btn-primary" onClick={this.create}>Cadastrar novo agendamento</button>
                       
                         <br/>
-                        <FormGroup label="Esportes Favoritos">
+                        <FormGroup className="tittleTable" label="Esportes Favoritos">
                         <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite}/>
                        </FormGroup>
                     </fieldset>
