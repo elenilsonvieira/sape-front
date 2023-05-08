@@ -16,6 +16,7 @@ export default class CreateSc extends React.Component {
         finishTime:"",
         selectedOptionPlace:"",
         selectedOptionSport:"",
+        
     }
 
     constructor() {

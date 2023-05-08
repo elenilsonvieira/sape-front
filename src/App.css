@@ -13,6 +13,14 @@
     color: #dde1db;
 
 }
+
+.userParticipant{
+  position: relative;
+  font-weight: bold;
+ text-align: center;
+  color: #a1a5a0;
+  
+}
 #input{
     position: absolute;
     width: 280px;

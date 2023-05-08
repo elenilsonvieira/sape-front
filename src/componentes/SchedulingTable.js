@@ -15,7 +15,7 @@ export default props => {
                 <GetName id={scheduling.sportId} label="sport"/>
                 <td>{scheduling.status}</td>
                 <GetUserName id = {scheduling.userId} label="user"/>
-                <td>{scheduling.addIsPresent}</td>
+                <td></td>
 
                 <td>
                     <button type="button" title="Confirmar Presença" className="btn btn-success"

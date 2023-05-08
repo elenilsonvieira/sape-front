@@ -34,6 +34,10 @@ export default class SchedulingApiService extends ApiService {
         return this.get(`/confirmedBySport/${sportId}`);
     }
 
+    confirmedByUser(registration) {
+        return this.get(`/user/${registration}`);
+    }
+
     addParticipant(schedulingId, object) {
         return this.patch(`/participation/add/${schedulingId}`, object);
     }
@@ -41,8 +45,8 @@ export default class SchedulingApiService extends ApiService {
     removeParticipant(schedulingId, object) {
         return this.patch(`/participation/remove/${schedulingId}`, object);
     }
-    addIsPresent(schedulingId, object) {
-        return this.patch(`/addIsPresent/add/${schedulingId}`, object);
+    addIsPresent(schedulingId, userRegistration) {
+        return this.patch(`/${schedulingId}/addIsPresent/${userRegistration}`);
     }
    
 }

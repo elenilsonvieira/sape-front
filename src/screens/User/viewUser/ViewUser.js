@@ -171,11 +171,7 @@ class ViewUser extends React.Component {
                     <fieldset>
                         <h1 className="title">Perfil</h1>
                         
-                        {/* <FormGroup label='ID' htmlFor='lab'>
-                            <input className="form-control-small" type="number" id="lab" value={this.state.user.id}
-                            disabled={true}
-                            />
-                        </FormGroup> */}
+                       
 
                         <FormGroup label='Nome' htmlFor='name'>
                             <input className="form-control" type="text" id="name" value={this.state.user.name}disabled={true}

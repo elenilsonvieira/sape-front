@@ -8,6 +8,7 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+import axios from "axios";
 
 class ViewScheduling extends React.Component {
     state = {
@@ -17,6 +18,7 @@ class ViewScheduling extends React.Component {
         date:""
     }
 
+ 
     constructor() {
         super();
         this.service = new SchedulingApiService();
@@ -55,6 +57,11 @@ class ViewScheduling extends React.Component {
         this.find();
     }
 
+    getUserRegistration = () =>{
+        const user = JSON.parse(localStorage.getItem('loggedUser'));
+        return user.registration;
+    }
+
     handleInputChangePlace = (e) => {
         this.setState({selectedPlace: e.target.value}, () => {
             console.log('place selected', this.state.selectedPlace);
@@ -87,12 +94,14 @@ class ViewScheduling extends React.Component {
     }
 
     addParticipant = (schedulingId) => {
-        this.service.addParticipant(schedulingId)
+        console.log("id1= "+schedulingId)
+       // this.service.addParticipant(schedulingId)
+      axios.patch(`http://localhost:8080/api/scheduling/${schedulingId}/addParticipant`, { matricula: this.getUserRegistration() })
         .then( Response => {  
             showSuccessMessage("Você demonstrou interesse em participar da prática!");
             console.log(Response);
         }).catch( error => {
-            showErrorMessage(error.response.data);
+            showErrorMessage(error.response);
             console.log(error.Response);
         });
     }
@@ -108,14 +117,14 @@ class ViewScheduling extends React.Component {
         });
     }
     
-    addIsPresent = (schedulingId) => {
-        this.service.addPresent(schedulingId)
+    addIsPresent =  (schedulingId) => {
+       this.service.addIsPresent(schedulingId,this.getUserRegistration())
         .then( Response => {  
             showSuccessMessage("Presença confirmada nessa prática!");
             console.log(Response);
         }).catch( error => {
-            showErrorMessage(error.response.data);
-            console.log(error.Response);
+            showErrorMessage(error.response);
+            console.log(error.response);
         });
     }
     render(){
@@ -148,7 +157,7 @@ class ViewScheduling extends React.Component {
                         </div>
                         <br/>
                         <br/>
-                        <SchedulingTable schedulings={this.state.scheduling} delete={this.delete}addIsPresent={this.addIsPresent} addParticipant={this.addParticipant}removeParticipant={this.removeParticipant} perfil={this.perfil}/>
+                        <SchedulingTable schedulings={this.state.scheduling} delete={this.delete}addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
                     </fieldset>
                     <br/>
                     <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button>

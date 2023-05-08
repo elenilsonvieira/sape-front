@@ -6,21 +6,35 @@ import UserApiService from "../../../services/UserApiService";
 import UsersPresent from "../../../componentes/UsersPresent";
 
 import { showErrorMessage } from '../../../componentes/Toastr';
+import SchedulingApiService from "../../../services/SchdulingApiService";
+import axios from "axios";
 
 class ViewPresent extends React.Component {
     state = {
-        name:'',
-        users:[]
+        // name:'',
+        // users:[],
+        schedulingUser:[]
+            
+        
     }
+   
     
     constructor() {
         super();
-        this.service = new UserApiService();
+        this.service = new SchedulingApiService();
     }
     
     componentDidMount() {
-        this.find();
+        this.findSchedulingsUser();
+
     }
+
+    getUserRegistration(){
+        const user = JSON.parse(localStorage.getItem('loggedUser'));
+
+        return user.registration;
+    }
+
     delete = (userId) => {
         this.service.delete(userId)
         .then( Response => {
@@ -31,16 +45,29 @@ class ViewPresent extends React.Component {
         });
     }
 
-    find = () => {
-        this.service.find('') // pega todos
+    findSchedulingsUser = () => {
+        this.service.confirmedByUser(this.getUserRegistration()) 
         .then( Response => {
-            const users = Response.data;
-            this.setState({users});
-            console.log(users);
+            const schedulings = Response.data;
+            this.state.schedulingUser = schedulings
+            this.setState({schedulings})
+            console.log(this.state.schedulingUser);
         }).catch( error => {
             console.log(error.response)
         });
     }
+
+
+    //  find = () => {
+    //      this.service.find('') // pega todos
+    //      .then( Response => {
+    //          const users = Response.data;
+    //          this.setState({users});
+    //          console.log(users);
+    //      }).catch( error => {
+    //          console.log(error.response)
+    //      });
+    //  }
 
     create = () => {
         this.props.history.push("/createScheduling");
@@ -55,10 +82,11 @@ class ViewPresent extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <UsersPresent users={this.state.users} delete={this.delete}/>
+                        <UsersPresent schedulings={this.state.schedulingUser} delete={this.delete}/>
+
                     </fieldset>
                     <br/>
-                    <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button>
+                    {/* <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button> */}
                 </header>
             </div>
         )
