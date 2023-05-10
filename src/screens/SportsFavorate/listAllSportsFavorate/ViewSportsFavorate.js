@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import SportsFavoriteTable from "../../../componentes/SportsFavoriteTable";
 import SportsFavoriteApiService from "../../../services/SportsFavoriteApiService";
 import { showErrorMessage } from '../../../componentes/Toastr';
+import UserApiService from "../../../services/UserApiService";
 
 class ViewSportsFavorite extends React.Component {
     state = {
@@ -14,6 +15,34 @@ class ViewSportsFavorite extends React.Component {
     constructor() {
         super();
         this.service = new SportsFavoriteApiService();
+        this.userService = new UserApiService();
+    }
+
+    getLoggedUser = () =>{
+        var value = localStorage.getItem('loggedUser');
+        var user = JSON.parse(value);
+
+        if (user == null) {
+
+            user = " ";
+        }
+
+        return user;
+    }
+
+    removeSportsFavorite = (sportId) => {
+        
+        this.userService.removeSportsFavorite(this.getLoggedUser().id,sportId)
+
+        .then( Response => {  
+
+            showSuccessMessage("Esporte Removido dos favoritos");
+
+        }).catch( error => {
+
+            showErrorMessage(error.response.data);
+            showErrorMessage("Ocorreu um erro ao excluir o esporte, tente novamente!");
+        });
     }
     
     componentDidMount() {
@@ -31,14 +60,14 @@ class ViewSportsFavorite extends React.Component {
     }
 
     delete = (sportsFavoritetId) => {
-        this.service.delete(sportsFavoritetId)
+        this.userService.delete(sportsFavoritetId)
         .then( Response => {
             this.find();
         }).catch( error => {
             showErrorMessage("Ocorreu um erro ao excluir o esporte, tente novamente!");
             console.log(error.Response)
         });
-    }
+    } 
 
     render(){
         return(
@@ -49,7 +78,7 @@ class ViewSportsFavorite extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <SportsFavoriteTable sportsFavorite={this.state.sportsFavorite} delete={this.delete} />
+                        <SportsFavoriteTable sportsFavorite={this.state.sportsFavorite} delete={this.removeSportsFavorite}/>
                     </fieldset>
                 </header>
             </div>
