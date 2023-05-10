@@ -27,4 +27,9 @@ export default class UserApiService extends ApiService{
         
         return this.patch(`/${userId}/sportsFavorite/${sportId}`);
     }
+
+    removeSportsFavorite(userId, sportId) {
+        
+        return this.patch(`/${userId}/removeSportsFavorite/${sportId}`);
+    }
 }
