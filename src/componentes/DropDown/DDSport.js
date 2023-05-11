@@ -27,10 +27,10 @@ const DDSports = (props) => {
               getOptionLabel={(option) => option.name}
               
               onChange={(event, newValue) => {
-                props.onChange(newValue ? newValue.id : null); 
+                props.onChange(newValue ? newValue.id : ""); 
               }}
               renderInput={(params) => (
-                <TextField {...params} label="Esporte" size="medium" variant="outlined" />
+                <TextField {...params} size="small" label="Esporte"  variant="outlined" />
               )}
             />
           );

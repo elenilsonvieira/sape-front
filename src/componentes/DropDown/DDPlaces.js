@@ -33,10 +33,10 @@ import TextField from '@material-ui/core/TextField';
               options={places}
               getOptionLabel={(option) => option.name}
               onChange={(event, newValue) => {
-                props.onChange(newValue ? newValue.id : null); 
+                props.onChange(newValue ? newValue.id : ""); 
               }}
               renderInput={(params) => (
-                <TextField {...params} label="Local" variant="outlined" />
+                <TextField {...params} size="small" label="Local" variant="outlined" />
               )}
             />
           );
