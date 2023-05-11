@@ -1,0 +1,8 @@
+button#btn-upd,button#btn-del{
+    position: relative;
+    left: 18%;
+}
+.container-updateuser{
+    position: relative;
+   left: 26%;
+}

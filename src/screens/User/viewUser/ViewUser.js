@@ -1,5 +1,6 @@
 import React from "react";
 import 'bootswatch/dist/minty/bootstrap.css';
+import './ViewUser.css'
 import { withRouter } from 'react-router-dom';
 import UserApiService from "../../../services/UserApiService";
 import FormGroup from "../../../componentes/FormGroup";
@@ -56,7 +57,7 @@ class ViewUser extends React.Component {
     }
 
     edit = (userId) => {
-        this.props.history.push(`/updateUser/${userId}`);
+        this.props.history.push(`/updateUser/${this.getLoggedUser().id}`);
     }
 
     createUser = () => {
@@ -67,6 +68,7 @@ class ViewUser extends React.Component {
     
     }
 
+  
     replace = () =>{
 
         
@@ -153,7 +155,6 @@ class ViewUser extends React.Component {
 
     findAll = () => {
 
-        //axios.get(`http://localhost:8080/api/user`)
         this.service.findAll()
             .then(response => {
                 const users = response.data;
@@ -174,7 +175,7 @@ class ViewUser extends React.Component {
                         <h1 className="title">Perfil</h1>
                         
                        
-
+                    <div className="container-user">
                         <FormGroup label='Nome' htmlFor='name'>
                             <input className="form-control" type="text" id="name" value={this.state.user.name}disabled={true}
                            />
@@ -193,12 +194,20 @@ class ViewUser extends React.Component {
                        
                         <br/>
                         <br/>
-                        <button type="button" className="btn btn-primary" onClick={this.create}>Cadastrar novo agendamento</button>
-                      
+                        <div className="btn-perfil">
+                            <button type="button" className="btn btn-primary" onClick={this.create}>Cadastrar novo agendamento</button>
+                            <button type="button" className="btn btn-secondary" onClick={this.edit}>Atualizar dados</button>
+                        </div>
                         <br/>
-                        <FormGroup className="tittleTable" label="Esportes Favoritos">
+                        <span id="user-spo" >Esportes Favoritos </span>
+                       <br />
+                   <br />
+
+                       <div id="sportfavorite">
                         <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite}/>
-                       </FormGroup>
+                      </div>
+                       
+                       </div>
                     </fieldset>
                     <br/>
                 </header>  

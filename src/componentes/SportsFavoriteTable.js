@@ -27,7 +27,7 @@ export default props => {
             
             <thead>
                 
-                <tr>
+                <tr className="table-primary">
                     
                     
                     <th scope="col">Nome</th>
