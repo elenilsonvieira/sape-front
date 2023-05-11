@@ -30,20 +30,6 @@ class ViewSportsFavorite extends React.Component {
         return user;
     }
 
-    removeSportsFavorite = (sportId) => {
-        
-        this.userService.removeSportsFavorite(this.getLoggedUser().id,sportId)
-
-        .then( Response => {  
-
-            showSuccessMessage("Esporte Removido dos favoritos");
-
-        }).catch( error => {
-
-            showErrorMessage(error.response.data);
-            showErrorMessage("Ocorreu um erro ao excluir o esporte, tente novamente!");
-        });
-    }
     
     componentDidMount() {
         this.find();
