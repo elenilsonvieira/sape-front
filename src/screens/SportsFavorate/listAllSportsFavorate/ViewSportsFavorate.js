@@ -78,7 +78,7 @@ class ViewSportsFavorite extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <SportsFavoriteTable sportsFavorite={this.state.sportsFavorite} delete={this.removeSportsFavorite}/>
+                        <SportsFavoriteTable sportsFavorite={this.state.sportsfavorite} delete={this.removeSportsFavorite}/>
                     </fieldset>
                 </header>
             </div>

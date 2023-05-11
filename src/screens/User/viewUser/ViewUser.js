@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom';
 import UserApiService from "../../../services/UserApiService";
 import FormGroup from "../../../componentes/FormGroup";
 import SportsFavoriteTable from "../../../componentes/SportsFavoriteTable";
+import { showErrorMessage,showSuccessMessage } from "../../../componentes/Toastr";
 
 class ViewUser extends React.Component {
     state = {
@@ -24,7 +25,6 @@ class ViewUser extends React.Component {
     }
     componentDidMount() {    
         this.find();
-       
     }
 
     // componentWillUnmount() {
@@ -42,7 +42,23 @@ class ViewUser extends React.Component {
         console.log(user)
 
         return user;
-}
+    }
+
+    removeSportsFavorite = (sportId) => {
+            
+        this.service.removeSportsFavorite(this.getLoggedUser().id,sportId)
+
+        .then( Response => {  
+
+            showSuccessMessage("Esporte Removido dos favoritos");
+            this.find();
+
+        }).catch( error => {
+
+            showErrorMessage(error.response.data);
+            showErrorMessage("Ocorreu um erro ao excluir o esporte, tente novamente!");
+        });
+    }
 
     delete = (userId) => {
         //axios.delete(`http://localhost:8080/api/user/${userId}`,
@@ -204,7 +220,7 @@ class ViewUser extends React.Component {
                    <br />
 
                        <div id="sportfavorite">
-                        <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite}/>
+                        <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite} delete={this.removeSportsFavorite}/>
                       </div>
                        
                        </div>

@@ -11,9 +11,9 @@ export default props => {
                 <td>{sportsFavorite.name}</td>
                 <td>
                     <td>
-                    <button className="btn btn-danger" type="button" title="Excluir"
+                    <button className="btn btn-danger" type="button" title="Desfavoritar"
                         onClick={e => props.delete(sportsFavorite.id)}>
-                            Excluir
+                            Desfavoritar
                     </button>
                     </td>
             
