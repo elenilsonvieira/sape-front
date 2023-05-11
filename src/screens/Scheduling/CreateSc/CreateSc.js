@@ -94,13 +94,19 @@ export default class CreateSc extends React.Component {
 
 
     handleInputChangePlace = (e) => {
-        this.setState({selectedOptionPlace: e.target.value}, () => {
-            console.log("Id do Local selecionado: ", this.state.selectedOptionPlace);
+        console.log("place:", e);
+        this.setState({ selectedOptionPlace: e }, () => {
+          console.log('place selected', this.state.selectedOptionPlace);
         });
-    }
+      }
+    // handleInputChangePlace = (e) => {
+    //     this.setState({selectedOptionPlace: e.target.value}, () => {
+    //         console.log("Id do Local selecionado: ", this.state.selectedOptionPlace);
+    //     });
+    // }
 
     handleInputChangeSport = (e) => {
-        this.setState({selectedOptionSport: e.target.value}, () => {
+        this.setState({selectedOptionSport: e}, () => {
             console.log("Id do Esporte selecionado: ", this.state.selectedOptionSport);
         });
     }

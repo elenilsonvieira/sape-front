@@ -80,15 +80,24 @@ class ViewScheduling extends React.Component {
         return user.registration;
     }
 
-    handleInputChangePlace = (e) => {
-        this.setState({selectedPlace: e.target.value}, () => {
-            console.log('place selected', this.state.selectedPlace);
-        })
-    }
+    handleInputChangePlace = (place) => {
+        console.log("place:", place);
+        this.setState({ selectedPlace: place }, () => {
+          console.log('place selected', this.state.selectedPlace);
+        });
+      }
+    // handleInputChangePlace = (place) => {
+    //     const placeId = place ? place.id : null;
+    //     console.log("🚀 ~ file: ViewScheduling.js:85 ~ ViewScheduling ~ placeId:", placeId)
+    //     this.setState({selectedPlace: placeId}, () => {
+    //         console.log('place selected', this.state.selectedPlace);
+    //     })
+    // }
 
-    handleInputChangeSport = (e) => {
-        this.setState({selectedSport: e.target.value}, () => {
-            console.log('sport selected', this.state.selectedSport);
+    handleInputChangeSport = (sport) => {
+        console.log("place:", sport);
+        this.setState({ selectedSport: sport }, () => {
+          console.log('place selected', this.state.selectedSport);
         })
     }
 
@@ -157,7 +166,7 @@ class ViewScheduling extends React.Component {
                                 <div className="card-body">
                                     <h5 className="card-title">Selecione filtros a serem aplicados</h5>
                                     <FormGroup label='Selecionar' htmlFor='lab' className="filterOptions">
-                                        <DDPlaces id="lab" onChange={this.handleInputChangePlace} />
+                                        <DDPlaces   onChange={this.handleInputChangePlace} />
                                     </FormGroup>
                                     <FormGroup label='Selecionar' htmlFor='lab' className="filterOptions">
                                         <DDSports id="lab" onChange={this.handleInputChangeSport} />

@@ -13,3 +13,8 @@ button#btn-upd,button#btn-del{
     font-size: 0.8rem;
     margin-left: 50px;
 }
+
+input#regist,input#upd{
+    background-color:  rgba(165, 42, 42, 0.075);
+    
+}
