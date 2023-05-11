@@ -1,9 +1,9 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
 
-import SchedulingUserPresent from "../../../componentes/SchedulingUserTable";
+import SchedulingUsertable from "../../../componentes/SchedulingUserTable";
 
-import { showErrorMessage } from '../../../componentes/Toastr';
+import { showErrorMessage,showSuccessMessage } from '../../../componentes/Toastr';
 import SchedulingApiService from "../../../services/SchdulingApiService";
 
 
@@ -12,7 +12,6 @@ class ViewPresent extends React.Component {
          users:[],
         schedulingUser:[]
             
-        
     }
    
     
@@ -36,6 +35,36 @@ class ViewPresent extends React.Component {
 
         return user.registration;
     }
+
+    getLoggedUser = () =>{
+        
+        var user = JSON.parse(localStorage.getItem('loggedUser'));
+
+        if (user == null) {
+
+            user = " ";
+        }
+        console.log(user)
+
+        return user;
+    }
+
+    removeIsPresent = (schedulingId) => {
+            
+        this.service.removeIsPresent(schedulingId,this.getLoggedUser().registration)
+
+        .then( Response => {  
+
+            showSuccessMessage("Presença Cancelada");
+            this.findSchedulingsUser();
+
+        }).catch( error => {
+
+            showErrorMessage(error.response.data);
+            showErrorMessage("Ocorreu um erro ao cancelar presença, tente novamente!");
+        });
+    }
+
 
     delete = (userId) => {
         this.service.delete(userId)
@@ -87,7 +116,7 @@ class ViewPresent extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <SchedulingUserPresent schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete}/>
+                        <SchedulingUsertable schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete} removeIsPresent={this.removeIsPresent}/>
 
                     </fieldset>
                     <br/>

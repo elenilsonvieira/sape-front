@@ -51,5 +51,9 @@ export default class SchedulingApiService extends ApiService {
     addIsPresent(schedulingId, userRegistration) {
         return this.patch(`/${schedulingId}/addIsPresent/${userRegistration}`);
     }
+
+    removeIsPresent(schedulingId, userRegistration) {
+        return this.patch(`/${schedulingId}/removeIsPresent/${userRegistration}`);
+    }
    
 }
