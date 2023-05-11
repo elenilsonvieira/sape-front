@@ -1,4 +1,4 @@
-.container-user{
+/* .container-user{
     position: relative;
     height: 690px;
     width: 900px;
@@ -6,11 +6,10 @@
    
   
    
-}
-.btn-perfil{
-    position: relative;
-    left: 22%;
-    margin: 5px;
+} */
+ .btn-perfil{
+   margin-left: 70px;
+   
     
 }
 
@@ -19,13 +18,14 @@ span#user-spo{
     position: absolute;
     width: 400px;
     height: 40px;
-    left: 40%;
+    /* left: 40%; */
     font-size: 1.5rem;
     color: rgb(61, 61, 61);
 }
+
 div#sportfavorite{
     display: flex;
     overflow: auto;
     min-height: 10px;
     max-height: 200px;
-}
+} 

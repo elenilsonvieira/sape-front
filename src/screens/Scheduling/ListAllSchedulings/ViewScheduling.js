@@ -14,6 +14,7 @@ class ViewScheduling extends React.Component {
     state = {
         
         scheduling:[],
+        creator:"",
         selectedPlace:"",
         selectedSport:"",
         date:""

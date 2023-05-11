@@ -53,7 +53,7 @@ export default class UpdateUser extends React.Component {
     
         
         if(!this.state.email) {
-            errors.push('É obrigatório informar um local de referência!');
+            errors.push('É obrigatório informar um email ');
         }
         
         
@@ -100,16 +100,17 @@ export default class UpdateUser extends React.Component {
             <div>
                 <header className="App-header">
                     <fieldset>
-                        <h1 className="title">Atualizar local</h1>
+                        <h1 className="title">Atualizar Dados</h1>
                        <div className="container-updateuser">
-                        <FormGroup label='Name' htmlFor='lab'>
+                        <FormGroup label='Nome' htmlFor='lab'>
                             <input className="form-control" 
                             type="text" id="lab" 
                             value={this.state.name}
                             disabled={true}
                             onChange={(e) => {this.setState({name: e.target.value})}}/>
+                            <span className="span-inputs">O nome não pode ser alterado</span>
                         </FormGroup>
-                        <FormGroup label='email' htmlFor='lab'>
+                        <FormGroup label='Email' htmlFor='lab'>
                             <input className="form-control" type="text" id="lab" value={this.state.email}
                             onChange={(e) => {this.setState({email: e.target.value})}}/>
                         </FormGroup>
@@ -120,6 +121,7 @@ export default class UpdateUser extends React.Component {
                             value={this.state.registration}
                             disabled={true}
                             onChange={({registration: this.state.registration})}/>
+                             <span className="span-inputs">A matricula  não pode ser alterado</span>
                         </FormGroup>
                         <br/>
                         <br/>

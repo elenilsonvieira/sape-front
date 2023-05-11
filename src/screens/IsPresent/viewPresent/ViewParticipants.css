@@ -1,20 +1,21 @@
 .table-users{
     display: flex;
     flex-direction: column;
-    width: 1400px;
+    
     height: 630px;
     margin-top: -20px;
-    margin-left: 300px;
     align-items: center;
     align-content: center ;
     overflow: auto ;
-   border-radius: 10px;
+   border-radius: 5px;
     max-height: 700px;
-    border: 1px solid ;
-    
-  
-    font-size: 1.2rem;
+    border-style: ridge;
+    border: 2px ridge ;
+font-size: 1.2rem;
 }
+
+
+
 .table {
     width: 100%;
     table-layout: fixed;

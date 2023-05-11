@@ -1,6 +1,8 @@
 import React from 'react';
 import { BsEyeFill } from 'react-icons/bs'
 import GetName from './GetPlaceOrSportName';
+import GetNameUser from './GetUserOrNameUser';
+
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => {
@@ -18,8 +20,8 @@ export default props => {
             <GetName id={scheduling.placeId} label="place"/>
             <GetName id={scheduling.sportId} label="sport"/>
             <td>{scheduling.status }</td>
-            <td></td>
-            {/* <GetUserName id = {scheduling.userId} label="user"/> */}
+            
+            <GetNameUser registration = {scheduling.creator} label="user"/>
            
             
              <td>

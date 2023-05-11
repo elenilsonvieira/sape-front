@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import SportsTable from "../../../componentes/SportsTable";
 import SportApiService from "../../../services/SportApiService";
 import UserApiService from "../../../services/UserApiService";
-import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+import { showSuccessMessage, showErrorMessage, confirmarExclusaoEsporte } from '../../../componentes/Toastr';
 
 class ViewSports extends React.Component {
     state = {
@@ -45,7 +45,10 @@ class ViewSports extends React.Component {
         });
     }
 
+    
+
     delete = (sportId) => {
+       
         this.service.delete(sportId)
         .then( Response => {
             this.find();

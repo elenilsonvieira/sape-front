@@ -61,10 +61,10 @@ export default class CreateSc extends React.Component {
             return false;
         }
 
-        const getUserName = () => {
+        const getUserRegistration = () => {
             const user = JSON.parse(localStorage.getItem("loggedUser"));
 
-            return user.name;
+            return user.registration;
         }
 
         this.service.create(
@@ -74,13 +74,14 @@ export default class CreateSc extends React.Component {
                 scheduledFinishTime: this.state.finishTime,
                 placeId: this.state.selectedOptionPlace,
                 sportId: this.state.selectedOptionSport,
-
-                
-                creator: getUserName()            }
+                creator: getUserRegistration() 
+            }          
         ).then( Response => {
+
             showSuccessMessage("Prática agendada com sucesso!");
             console.log(Response);
             this.props.history.push("/listScheduling");
+
         }).catch( error => {
             showErrorMessage(error.response.data);
             console.log(error.Response);

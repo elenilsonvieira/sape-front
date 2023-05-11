@@ -1,8 +1,15 @@
 button#btn-upd,button#btn-del{
     position: relative;
-    left: 18%;
+    left: 13%;
+    margin-left: 70px;
 }
 .container-updateuser{
     position: relative;
    left: 26%;
+}
+
+.span-inputs{
+    color: red;
+    font-size: 0.8rem;
+    margin-left: 50px;
 }

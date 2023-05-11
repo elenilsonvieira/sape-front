@@ -1,7 +1,7 @@
 import toastr from 'toastr';
 
 toastr.options = {
-    "closeButton": false,
+    "closeButton": true,
     "debug": false,
     "newestOnTop": false,
     "progressBar": false,
@@ -10,13 +10,16 @@ toastr.options = {
     "onclick": null,
     "showDuration": "300",
     "hideDuration": "1000",
-    "timeOut": "5000",
+    "timeOut": "2000",
     "extendedTimeOut": "1000",
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
     "hideMethod": "fadeOut"
-  }
+   
+   
+}
+    
 
   export function showMessage(title, message, type) {
     toastr[type] (message, title);
@@ -33,3 +36,6 @@ toastr.options = {
   export function showSuccessMessage(message) {
     showMessage('Sucesso', message, 'success');
   }
+  
+
+  

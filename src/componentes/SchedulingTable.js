@@ -5,7 +5,12 @@ import GetUserName from "./GetUserOrNameUser";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => {
 
+   
+    
     const rows = props.schedulings.map( scheduling => {
+  
+
+     
 
         return (
             <tr key={scheduling.id}>
@@ -14,8 +19,8 @@ export default props => {
                 <td>{scheduling.scheduledFinishTime}</td>
                 <GetName id={scheduling.placeId} label="place"/>
                 <GetName id={scheduling.sportId} label="sport"/>
-                <td>{scheduling.status}</td>
-                <GetUserName id = {scheduling.userId} label="user"/>
+                <td >{scheduling.status}</td>
+                <GetUserName registration = {scheduling.creator} label="user"/>
                 <td>
                 
                 <BsEyeFill className='visu-participant'

@@ -1,8 +1,7 @@
 import React from "react";
 import { withRouter } from 'react-router-dom';
 
-import UserApiService from "../../../services/UserApiService";
-import UserPresent from "../../../componentes/UserPresent";
+import SchedulingUserPresent from "../../../componentes/SchedulingUserTable";
 
 import { showErrorMessage } from '../../../componentes/Toastr';
 import SchedulingApiService from "../../../services/SchdulingApiService";
@@ -88,7 +87,7 @@ class ViewPresent extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <UserPresent schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete}/>
+                        <SchedulingUserPresent schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete}/>
 
                     </fieldset>
                     <br/>
