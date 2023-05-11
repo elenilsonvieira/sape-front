@@ -9,7 +9,7 @@ const GetPlaceOrSportName = (props) => {
         findName();
     });
 
-    async function findName() {
+async function findName() {
         let namefind= "";
         if(props.label === "place") {
             try {

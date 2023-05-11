@@ -21,6 +21,9 @@ export default class SchedulingApiService extends ApiService {
     find(id) {
         return this.get(`/${id}`);
     }
+    findAllParticpants(id) {
+        return this.get(`/participation/${id}`);
+    }
 
     findWithFilter(filters) {
         return this.getWithFilter(`/useFilter${filters}`);

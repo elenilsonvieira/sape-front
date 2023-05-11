@@ -21,6 +21,16 @@
   color: #a1a5a0;
   
 }
+
+.visu-participant{
+  margin-left: 35px;
+  cursor: pointer;
+  color: #8f8f8f;
+
+}
+.visu-participant:hover {
+  color: rgb(0, 0, 0);
+}
 #input{
     position: absolute;
     width: 280px;

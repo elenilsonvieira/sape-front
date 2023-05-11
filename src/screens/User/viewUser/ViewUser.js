@@ -64,6 +64,7 @@ class ViewUser extends React.Component {
     }
     create = () =>{
         this.props.history.push('/createScheduling')
+    
     }
 
     replace = () =>{
@@ -71,6 +72,7 @@ class ViewUser extends React.Component {
         
         document.getElementById("name").value = this.state.user.name;
         document.getElementById("registration").value = this.state.user.registration;
+         
        
     }
 

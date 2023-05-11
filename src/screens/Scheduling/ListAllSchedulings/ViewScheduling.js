@@ -12,6 +12,7 @@ import axios from "axios";
 
 class ViewScheduling extends React.Component {
     state = {
+        
         scheduling:[],
         selectedPlace:"",
         selectedSport:"",
@@ -28,8 +29,20 @@ class ViewScheduling extends React.Component {
         this.service.find('')
         .then( Response => {
             const scheduling = Response.data;
+            console.log("🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:", scheduling)
             this.setState({scheduling: scheduling});
-            console.log(scheduling);
+            
+        }).catch( error => {
+            console.log(error.Response)
+        });
+    }
+    findAllParticpants = (schedulingId) => {
+        this.service.findAllParticpants(schedulingId)
+        .then( Response => {
+            const users = Response.data;
+            console.log("🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:", users)
+            this.setState({users: users});
+            
         }).catch( error => {
             console.log(error.Response)
         });
@@ -43,6 +56,10 @@ class ViewScheduling extends React.Component {
             showErrorMessage(error.response.data);
             console.log(error.Response)
         });
+    }
+
+    viewParticipants = (schedulingId) => {	
+        this.props.history.push(`/viewParticipants/${schedulingId}`);
     }
 
     create = () => {
@@ -118,6 +135,7 @@ class ViewScheduling extends React.Component {
     }
     
     addIsPresent =  (schedulingId) => {
+       console.log("🚀 ~ file: ViewScheduling.js:138 ~ ViewScheduling ~ schedulingId:", schedulingId)
        this.service.addIsPresent(schedulingId,this.getUserRegistration())
         .then( Response => {  
             showSuccessMessage("Presença confirmada nessa prática!");
@@ -157,7 +175,7 @@ class ViewScheduling extends React.Component {
                         </div>
                         <br/>
                         <br/>
-                        <SchedulingTable schedulings={this.state.scheduling} delete={this.delete}addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
+                        <SchedulingTable schedulings={this.state.scheduling} viewParticipants={this.viewParticipants} delete={this.delete}addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
                     </fieldset>
                     <br/>
                     <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button>

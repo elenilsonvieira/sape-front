@@ -2,17 +2,15 @@ import React from "react";
 import { withRouter } from 'react-router-dom';
 
 import UserApiService from "../../../services/UserApiService";
-
-import UsersPresent from "../../../componentes/UsersPresent";
+import UserPresent from "../../../componentes/UserPresent";
 
 import { showErrorMessage } from '../../../componentes/Toastr';
 import SchedulingApiService from "../../../services/SchdulingApiService";
-import axios from "axios";
+
 
 class ViewPresent extends React.Component {
     state = {
-        // name:'',
-        // users:[],
+         users:[],
         schedulingUser:[]
             
         
@@ -25,8 +23,13 @@ class ViewPresent extends React.Component {
     }
     
     componentDidMount() {
+        
         this.findSchedulingsUser();
 
+    }
+
+    viewParticipants = (schedulingId) => {	
+        this.props.history.push(`/viewParticipants/${schedulingId}`);
     }
 
     getUserRegistration(){
@@ -58,16 +61,19 @@ class ViewPresent extends React.Component {
     }
 
 
-    //  find = () => {
-    //      this.service.find('') // pega todos
-    //      .then( Response => {
-    //          const users = Response.data;
-    //          this.setState({users});
-    //          console.log(users);
-    //      }).catch( error => {
-    //          console.log(error.response)
-    //      });
-    //  }
+    find = (schedulingId) => {
+        console.log("🚀 ~ file: ViewParticipants.js:43 ~ ViewParticipants ~ schedulingId:", schedulingId)
+        this.service.findAllParticpants(schedulingId) // pega todos
+        .then( Response => {
+            const users = Response.data;
+            
+            this.setState({users});
+            console.log("🚀 ~ file: ViewParticipants.js:60 ~ ViewParticipants ~ users:", users)
+            this.state.users = users;
+        }).catch( error => {
+            console.log(error)
+        });
+    }
 
     create = () => {
         this.props.history.push("/createScheduling");
@@ -82,7 +88,7 @@ class ViewPresent extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <UsersPresent schedulings={this.state.schedulingUser} delete={this.delete}/>
+                        <UserPresent schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete}/>
 
                     </fieldset>
                     <br/>

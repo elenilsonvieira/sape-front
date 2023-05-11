@@ -1,0 +1,38 @@
+.table-users{
+    display: flex;
+    flex-direction: column;
+    width: 1400px;
+    height: 630px;
+    margin-top: -20px;
+    margin-left: 300px;
+    align-items: center;
+    align-content: center ;
+    overflow: auto ;
+   border-radius: 10px;
+    max-height: 700px;
+    border: 1px solid ;
+    
+  
+    font-size: 1.2rem;
+}
+.table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+.table thead {
+    position: sticky;
+    top: 0;
+
+   
+  }
+  
+  .table th {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    
+    
+  }
+  

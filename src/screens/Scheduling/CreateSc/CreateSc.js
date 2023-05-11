@@ -16,6 +16,7 @@ export default class CreateSc extends React.Component {
         finishTime:"",
         selectedOptionPlace:"",
         selectedOptionSport:"",
+        creator:"",
         
     }
 
@@ -60,14 +61,22 @@ export default class CreateSc extends React.Component {
             return false;
         }
 
+        const getUserName = () => {
+            const user = JSON.parse(localStorage.getItem("loggedUser"));
+
+            return user.name;
+        }
+
         this.service.create(
             {
                 scheduledDate: this.state.date,
                 scheduledStartTime: this.state.startTime,
                 scheduledFinishTime: this.state.finishTime,
                 placeId: this.state.selectedOptionPlace,
-                sportId: this.state.selectedOptionSport
-            }
+                sportId: this.state.selectedOptionSport,
+
+                
+                creator: getUserName()            }
         ).then( Response => {
             showSuccessMessage("Prática agendada com sucesso!");
             console.log(Response);

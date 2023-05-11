@@ -1,4 +1,5 @@
 import React from "react";
+import { BsEyeFill } from "react-icons/bs";
 import GetName from "./GetPlaceOrSportName";
 import GetUserName from "./GetUserOrNameUser";
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -15,7 +16,16 @@ export default props => {
                 <GetName id={scheduling.sportId} label="sport"/>
                 <td>{scheduling.status}</td>
                 <GetUserName id = {scheduling.userId} label="user"/>
-                <td></td>
+                <td>
+                
+                <BsEyeFill className='visu-participant'
+                    size={20} 
+                    title='ver participantes'
+                    onClick={e => props.viewParticipants(scheduling.id)}
+                 />
+                
+                </td> 
+
 
                 <td>
                     <button type="button" title="Confirmar Presença" className="btn btn-success"
@@ -47,7 +57,7 @@ export default props => {
                     <th scope="col">Esporte</th>
                     <th scope="col">Status</th>
                     <th scope="col">Agendado por:</th>
-                    <th/>
+                    <th>Participantes</th>
                     <th scope="col">Presença Confirmada?</th>
                     <th scope="col">ação:</th>
                 </tr>

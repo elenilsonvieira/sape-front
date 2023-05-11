@@ -19,6 +19,7 @@ import { AuthConsumer } from "./SessionProvider";
 import ViewUser from "../screens/User/viewUser/ViewUser";
 
 import ViewPresent from "../screens/IsPresent/viewPresent/ViewPresent"; 
+import ViewParticipants from "../screens/IsPresent/viewPresent/ViewParticipants";
 
 function RestrictedRoute( {component: Component, show, ...props} ) {
     return(
@@ -44,7 +45,13 @@ function AppRoutes(props) {
             <Switch>
 
             <Route component = { HomePage } path="/" exact/>
-            <Route component = { Login } path="/login" />
+            <Route path="/login">
+                {props.isAuthenticated ? (
+                <Redirect to="/" />
+                ) : (
+                 <Login />
+                )}
+            </Route>
 
             <RestrictedRoute show={props.isAuthenticated} component = { ListPlaces } path="/listPlaces" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreatePlace } path="/createPlace" />
@@ -58,8 +65,9 @@ function AppRoutes(props) {
             <RestrictedRoute show={props.isAuthenticated} component = { ListScheduling } path="/listScheduling" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreateScheduling } path="/createScheduling" />
             <RestrictedRoute show={props.isAuthenticated} component = { ViewPresent } path= "/viewPresent" />
-
             <RestrictedRoute show={props.isAuthenticated} component = { ViewUser } path= "/viewUser" />
+
+            <RestrictedRoute show={props.isAuthenticated} component = { ViewParticipants } path= "/viewParticipants/:id" />
 
             </Switch>
         </BrowserRouter>

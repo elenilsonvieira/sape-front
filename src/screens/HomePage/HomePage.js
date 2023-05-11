@@ -19,8 +19,10 @@ export default class HomePage extends React.Component {
 
     verifyLogged(){   
         const user = JSON.parse(localStorage.getItem('loggedUser'));
+        console.log("🚀 ~ file: HomePage.js:22 ~ HomePage ~ verifyLogged ~ user:", user)
 
-        if(user){
+        
+        if(user !== null){
             this.setState(  {isLoggedIn: !this.state.isLoggedIn});       
         }     
     }
