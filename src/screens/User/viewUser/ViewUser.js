@@ -61,7 +61,6 @@ class ViewUser extends React.Component {
     }
 
     delete = (userId) => {
-        //axios.delete(`http://localhost:8080/api/user/${userId}`,
         this.service.delete(userId)
             .then(response => {
                 this.find();
@@ -97,55 +96,9 @@ class ViewUser extends React.Component {
     find = () => {
         var params = '?';
 
-        // if (this.state.id !== 0) {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
+       
             params = `${params}id=${this.getLoggedUser().id}`;
-        // }
-
-        // if (this.state.name !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}name=${this.state.name}`;
-        // }
-
-        // if (this.state.email !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}email=${this.state.email}`;
-        // }
-
-        // if (this.state.username !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}registration=${this.state.registration}`;
-        // }
-
-        // if (this.state.role.name !== '') {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}role=${this.state.role}`;
-        // }
-
-        // if (this.state.selectedSportsFavorite.id !== 0) {
-        //     if (params !== '?') {
-        //         params = `${params}&`;
-        //     }
-
-        //     params = `${params}selectedSportsFavoriteId=${this.state.selectedSportsFavoriteId}`;
-        // }
-
-        //axios.get(`http://localhost:8080/api/user/${params}`)
+       
         
         this.service.find(params)
             .then(response => {
@@ -193,17 +146,17 @@ class ViewUser extends React.Component {
                        
                     <div className="container-user">
                         <FormGroup label='Nome' htmlFor='name'>
-                            <input className="form-control" type="text" id="name" value={this.state.user.name}disabled={true}
+                            <input className="form-control" type="text" id="name" value={this.state.user.name || ''}disabled={true}
                            />
                         </FormGroup>
 
                         <FormGroup label='Email' htmlFor='lab'>
-                            <input className="form-control" type="text" id="email" value={this.state.user.email}disabled={true}
+                            <input className="form-control" type="text" id="email" value={this.state.user.email || ''}disabled={true}
                             />
                         </FormGroup>
 
                         <FormGroup label='Matrícula' htmlFor='lab'>
-                            <input className="form-control" type="text" id="registration" value={this.state.user['registration']}disabled={true}
+                            <input className="form-control" type="text" id="registration" value={this.state.user['registration'] || ''}disabled={true}
                             onChange={(e) => {this.setState({registration: e.target.value})}}/>
                         </FormGroup>
                    

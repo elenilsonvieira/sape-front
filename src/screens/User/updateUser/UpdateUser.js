@@ -105,20 +105,20 @@ export default class UpdateUser extends React.Component {
                         <FormGroup label='Nome' htmlFor='upd'>
                             <input className="form-control" 
                             type="text" id="upd" 
-                            value={this.state.name}
+                            value={this.state.name || ''}
                             disabled={true}
                             onChange={(e) => {this.setState({name: e.target.value})}}/>
                             <span className="span-inputs">O nome não pode ser alterado</span>
                         </FormGroup>
                         <FormGroup label='Email' htmlFor='email'>
-                            <input className="form-control" type="text" id="email" value={this.state.email}
+                            <input className="form-control" type="text" id="email" value={this.state.email || ''}
                             onChange={(e) => {this.setState({email: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Matricula' htmlFor='regist'>
                             <input className="form-control" 
                             type="text" 
                             id="regist" 
-                            value={this.state.registration}
+                            value={this.state.registration || ''}
                             disabled={true}
                             onChange={({registration: this.state.registration})}/>
                              <span className="span-inputs">A matricula  não pode ser alterado</span>
