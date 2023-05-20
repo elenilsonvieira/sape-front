@@ -4,7 +4,7 @@
     justify-content: space-evenly;
     font-family: sans-serif;
     text-align: center;
-
+  	margin-top: -30px;
     font-family: 'Imprima';
     font-style: normal;
     font-weight: 400;
@@ -45,6 +45,8 @@ label {
     margin-left: 60px;
     color: #6DCA41;
   }
+
+  
 
   .form-control {
     margin-right: 53px;

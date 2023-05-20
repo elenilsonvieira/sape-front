@@ -29,14 +29,14 @@ import TextField from '@material-ui/core/TextField';
        
         
           return (
-            <Autocomplete
-              options={places}
+            <Autocomplete 
+              options={places} 
               getOptionLabel={(option) => option.name}
               onChange={(event, newValue) => {
-                props.onChange(newValue ? newValue.id : ""); 
+                props.onChange(newValue ? newValue.id : "");                                                          
               }}
               renderInput={(params) => (
-                <TextField {...params} size="small" label="Local" variant="outlined" />
+                <TextField {...params} size="small" label="Local" variant="outlined" /> 
               )}
             />
           );

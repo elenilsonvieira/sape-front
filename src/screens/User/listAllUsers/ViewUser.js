@@ -150,7 +150,7 @@ class ViewUser extends React.Component {
                         </FormGroup>
                         <FormGroup label='Selecionar' htmlFor='lab' className="filterOptions">
                                         <DDSportsFavorate id="lab" onChange={this.handleInputChangeSport} />
-                                    </FormGroup>
+                                 </FormGroup>
                         <br/>
                         <br/>
                         <button type="button" className="btn btn-primary" onClick={this.put}>Atualizar</button>

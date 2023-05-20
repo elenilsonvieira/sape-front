@@ -15,7 +15,7 @@ export default class UpdateUser extends React.Component {
         registration:"",
         
     }
-       
+
     
     constructor() {
         super();
@@ -51,15 +51,12 @@ export default class UpdateUser extends React.Component {
         const errors = [];
         
     
-        
-        if(!this.state.email) {
-            errors.push('É obrigatório informar um email ');
+        if(!this.state.email){
+            errors.push('Campo Email é obrigatório!');
+        }else if(!this.state.email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)){
+            errors.push('Informe um email válido!');
         }
-        
-        
-
         return errors;
-
     }
 
     put = () => {
@@ -77,7 +74,7 @@ export default class UpdateUser extends React.Component {
                 name: this.state.name,
                 email: this.state.email,
                 registration: this.state.registration,
-               
+
             }
         ).then(response => {
             showSuccessMessage("Usuario atualizado com sucesso!");
@@ -89,8 +86,6 @@ export default class UpdateUser extends React.Component {
         });
     }
 
-   
-
     cancel = () => {
         this.props.history.push("/viewUser");
     }
@@ -101,7 +96,8 @@ export default class UpdateUser extends React.Component {
                 <header className="App-header">
                     <fieldset>
                         <h1 className="title">Atualizar Dados</h1>
-                       <div className="container-updateuser">
+                            <div className="container-updateuser">
+                                
                         <FormGroup label='Nome' htmlFor='upd'>
                             <input className="form-control" 
                             type="text" id="upd" 
@@ -110,10 +106,12 @@ export default class UpdateUser extends React.Component {
                             onChange={(e) => {this.setState({name: e.target.value})}}/>
                             <span className="span-inputs">O nome não pode ser alterado</span>
                         </FormGroup>
+
                         <FormGroup label='Email' htmlFor='email'>
                             <input className="form-control" type="text" id="email" value={this.state.email || ''}
                             onChange={(e) => {this.setState({email: e.target.value})}}/>
                         </FormGroup>
+
                         <FormGroup label='Matricula' htmlFor='regist'>
                             <input className="form-control" 
                             type="text" 
@@ -123,6 +121,7 @@ export default class UpdateUser extends React.Component {
                             onChange={({registration: this.state.registration})}/>
                              <span className="span-inputs">A matricula  não pode ser alterado</span>
                         </FormGroup>
+
                         <br/>
                         <br/>
                         <button id="btn-upd" onClick={this.put} type="button" className="btn btn-primary">Atualizar</button>

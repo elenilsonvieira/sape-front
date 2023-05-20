@@ -99,6 +99,7 @@ class ViewUser extends React.Component {
        
             params = `${params}id=${this.getLoggedUser().id}`;
        
+            console.log("🚀 ~ file: ViewUser.js:102 ~ ViewUser ~ this.getLoggedUser().id:", this.getLoggedUser().id)
         
         this.service.find(params)
             .then(response => {
@@ -143,11 +144,11 @@ class ViewUser extends React.Component {
                     <fieldset>
                         <h1 className="title">Perfil</h1>
                         
-                       
+                        
                     <div className="container-user">
                         <FormGroup label='Nome' htmlFor='name'>
                             <input className="form-control" type="text" id="name" value={this.state.user.name || ''}disabled={true}
-                           />
+                        />
                         </FormGroup>
 
                         <FormGroup label='Email' htmlFor='lab'>
@@ -159,8 +160,8 @@ class ViewUser extends React.Component {
                             <input className="form-control" type="text" id="registration" value={this.state.user['registration'] || ''}disabled={true}
                             onChange={(e) => {this.setState({registration: e.target.value})}}/>
                         </FormGroup>
-                   
-                       
+                    
+                        
                         <br/>
                         <br/>
                         <div className="btn-perfil">
@@ -169,14 +170,14 @@ class ViewUser extends React.Component {
                         </div>
                         <br/>
                         <span id="user-spo" >Esportes Favoritos </span>
-                       <br />
-                   <br />
+                    <br />
+                    <br />
 
-                       <div id="sportfavorite">
+                    <div id="sportfavorite">
                         <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite} delete={this.removeSportsFavorite}/>
-                      </div>
-                       
-                       </div>
+                    </div>
+
+                    </div>
                     </fieldset>
                     <br/>
                 </header>  

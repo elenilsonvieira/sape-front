@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React from "react";
 import "./ViewScheduling.css";
 import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
@@ -20,6 +20,7 @@ class ViewScheduling extends React.Component {
         date:""
     }
 
+   
  
     constructor() {
         super();
@@ -52,6 +53,7 @@ class ViewScheduling extends React.Component {
     delete = (schedulingId) => {
         this.service.delete(schedulingId)
         .then( Response => {
+            showSuccessMessage("Agendamento excluído com sucesso!")
             this.find();
         }).catch( error => {
             showErrorMessage(error.response.data);
@@ -79,6 +81,10 @@ class ViewScheduling extends React.Component {
         const user = JSON.parse(localStorage.getItem('loggedUser'));
         return user.registration;
     }
+    getUserEmail = () =>{
+        const user = JSON.parse(localStorage.getItem('loggedUser'));
+        return user.email;
+    }
 
     handleInputChangePlace = (place) => {
         console.log("place:", place);
@@ -86,13 +92,7 @@ class ViewScheduling extends React.Component {
           console.log('place selected', this.state.selectedPlace);
         });
       }
-    // handleInputChangePlace = (place) => {
-    //     const placeId = place ? place.id : null;
-    //     console.log("🚀 ~ file: ViewScheduling.js:85 ~ ViewScheduling ~ placeId:", placeId)
-    //     this.setState({selectedPlace: placeId}, () => {
-    //         console.log('place selected', this.state.selectedPlace);
-    //     })
-    // }
+
 
     handleInputChangeSport = (sport) => {
         console.log("place:", sport);
@@ -149,11 +149,27 @@ class ViewScheduling extends React.Component {
        this.service.addIsPresent(schedulingId,this.getUserRegistration())
         .then( Response => {  
             showSuccessMessage("Presença confirmada nessa prática!");
+            
+             this.sendEmail();
+          
             console.log(Response);
         }).catch( error => {
             showErrorMessage(error.response);
             console.log(error.response);
         });
+    }
+
+    sendEmail =()=>{
+        axios.post('http://localhost:8080/email/send-email', 
+        {
+            name: "Rafael",
+            toEmail:"rafarecen1@gmail.com",
+            subject: "Você demonstrou interesse em participar da prática!"
+            
+
+        }
+     
+            )
     }
     render(){
         return(

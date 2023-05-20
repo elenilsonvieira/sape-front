@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsEyeFill } from "react-icons/bs";
 import GetName from "./GetPlaceOrSportName";
 import GetUserName from "./GetUserOrNameUser";
 // eslint-disable-next-line import/no-anonymous-default-export
 export default props => {
 
-   
+    
     
     const rows = props.schedulings.map( scheduling => {
   
@@ -27,18 +27,18 @@ export default props => {
                     size={20} 
                     title='ver participantes'
                     onClick={e => props.viewParticipants(scheduling.id)}
-                 />
+                />
                 
                 </td> 
 
 
                 <td>
                     <button type="button" title="Confirmar Presença" className="btn btn-success"
-                            onClick={e => props.addIsPresent(scheduling.id)}>
+                        onClick={e => props.addIsPresent(scheduling.id) }  >
                                 Sim
                     </button>
                 </td> 
-                 <td>
+                    <td>
                     <button type="button" title="Excluir" className="btn btn-danger"
                         onClick={e => props.delete(scheduling.id)}>
                             Excluir
