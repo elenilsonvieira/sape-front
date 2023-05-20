@@ -5,6 +5,7 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport"; 
 import SchedulingApiService from "../../../services/SchdulingApiService";
+import axios from "axios";
 
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
 
@@ -82,11 +83,26 @@ export default class CreateSc extends React.Component {
             console.log(Response);
             this.props.history.push("/listScheduling");
 
+            this.sendEmail(this.state.selectedOptionSport);
         }).catch( error => {
             showErrorMessage(error.response.data);
             console.log(error.Response);
         });
     }
+    sendEmail =(sportId)=>{
+        axios.post(`http://localhost:8080/email/notify/favoritesportscheduling/${sportId}`
+        
+        ).then(Response => {
+                    console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Response:", Response.data)
+                   
+                    
+                }).catch(Error => {
+                console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Error:", Error.data)
+                
+                })
+                
+        }
+
 
     cancel = () => {
         this.props.history.push("/listScheduling");

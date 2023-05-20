@@ -150,7 +150,7 @@ class ViewScheduling extends React.Component {
         .then( Response => {  
             showSuccessMessage("Presença confirmada nessa prática!");
             
-             this.sendEmail();
+             this.sendEmail(schedulingId);
           
             console.log(Response);
         }).catch( error => {
@@ -159,17 +159,18 @@ class ViewScheduling extends React.Component {
         });
     }
 
-    sendEmail =()=>{
-        axios.post('http://localhost:8080/email/send-email', 
-        {
-            name: "Rafael",
-            toEmail:"rafarecen1@gmail.com",
-            subject: "Você demonstrou interesse em participar da prática!"
+    sendEmail =(schedulingId)=>{
+    axios.post(`http://localhost:8080/email/notify/${schedulingId}`
+    
+    ).then(Response => {
+                console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Response:", Response.data)
+               
+                
+            }).catch(Error => {
+            console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Error:", Error.data)
             
-
-        }
-     
-            )
+            })
+            
     }
     render(){
         return(

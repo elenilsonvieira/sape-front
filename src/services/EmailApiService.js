@@ -6,5 +6,11 @@ export default class EmailApiService extends ApiService{
     sendMailConfirmationPresent(object){
         return this.post('', object);
     }
+    sendMailSportFavoriteScheduling(object){
+        return this.post('', object);
+    }
+    sendMailConfirmationPresent(object){
+        return this.post('', object);
+    }
     
 }
