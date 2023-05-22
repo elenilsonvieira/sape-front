@@ -1,16 +1,15 @@
+import ApiService from './ApiService';
 export default class EmailApiService extends ApiService{
     
     constructor(){
-        super('');
+        super('email');
     }
-    sendMailConfirmationPresent(object){
-        return this.post('', object);
+    notifySchedulingParticipants(schedulingId){
+        return this.post(`/notify/${schedulingId}`);
     }
-    sendMailSportFavoriteScheduling(object){
-        return this.post('', object);
+    notifyFavoriteSportScheduling(sportId){
+        return this.post(`/notify/favoritesportscheduling/${sportId}`);
     }
-    sendMailConfirmationPresent(object){
-        return this.post('', object);
-    }
+    
     
 }

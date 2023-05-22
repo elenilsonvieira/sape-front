@@ -5,9 +5,9 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport"; 
 import SchedulingApiService from "../../../services/SchdulingApiService";
-import axios from "axios";
-
+import EmailApiService from "../../../services/EmailApiService";
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+
 
 export default class CreateSc extends React.Component {
     
@@ -24,6 +24,7 @@ export default class CreateSc extends React.Component {
     constructor() {
         super();
         this.service = new SchedulingApiService();
+        this.emailService = new EmailApiService();
     }
 
     validate = () => {
@@ -90,8 +91,7 @@ export default class CreateSc extends React.Component {
         });
     }
     sendEmail =(sportId)=>{
-        axios.post(`http://localhost:8080/email/notify/favoritesportscheduling/${sportId}`
-        
+       this.emailService.notifyFavoriteSportScheduling(sportId
         ).then(Response => {
                     console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Response:", Response.data)
                    

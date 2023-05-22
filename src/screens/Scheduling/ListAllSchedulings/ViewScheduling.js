@@ -8,6 +8,7 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+import EmailApiService from "../../../services/EmailApiService";
 import axios from "axios";
 
 class ViewScheduling extends React.Component {
@@ -25,6 +26,7 @@ class ViewScheduling extends React.Component {
     constructor() {
         super();
         this.service = new SchedulingApiService();
+        this.emailService = new EmailApiService();
     }
 
     find = () => {
@@ -160,9 +162,8 @@ class ViewScheduling extends React.Component {
     }
 
     sendEmail =(schedulingId)=>{
-    axios.post(`http://localhost:8080/email/notify/${schedulingId}`
-    
-    ).then(Response => {
+    this.emailService.notifySchedulingParticipants(schedulingId)  
+    .then(Response => {
                 console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Response:", Response.data)
                
                 
