@@ -12,3 +12,13 @@ fieldset {
   width: 30px;
   margin-left: 55px;
 }
+
+.filterUser {
+  display: inline-block;
+  inline-size: 100px;
+  width: 300px;
+  margin-right: 25px;
+  padding: 5px 0;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+}

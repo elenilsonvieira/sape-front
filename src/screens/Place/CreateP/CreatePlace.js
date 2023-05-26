@@ -5,6 +5,7 @@ import FormGroup from "../../../componentes/FormGroup";
 import PlaceApiService from "../../../services/PlaceApiService";
 
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
+import DDUsers from "../../../componentes/DropDown/DDUsers";
 
 export default class CreatePlace extends React.Component {
     state = {
@@ -12,13 +13,20 @@ export default class CreatePlace extends React.Component {
         placeReference:"",
         capacityMax:"",
         isPublic: false,
-        nameResponsible:""
+        responsible: ""
     }
 
     constructor() {
         super();
         this.service = new PlaceApiService();
     }
+
+    handleInputChangeUser = (user) => {
+        console.log("user:", user);
+        this.setState({ responsible: user }, () => {
+          console.log('user selected', this.state.responsible);
+        });
+      }
     
     handleChange = () => {
         this.setState({
@@ -44,13 +52,14 @@ export default class CreatePlace extends React.Component {
         if (!this.state.capacityMax){
             errors.push('É obrigatório informar a capacidade máxima do local!');
         }
-        if (!this.state.nameResponsible){
-            errors.push('É obrigatório informar o nome responsável pelo local!');
+        if (!this.state.responsible){
+            errors.push('É obrigatório informar um responsável pelo local!');
         }
 
         return errors;
 
     }
+    
 
     post = () => {
         const errors = this.validate();
@@ -68,7 +77,7 @@ export default class CreatePlace extends React.Component {
                 reference: this.state.placeReference,
                 maximumCapacityParticipants: this.state.capacityMax,
                 public: this.state.isPublic,
-                nameResponsible: this.state.nameResponsible
+                responsible: this.state.responsible
              }
         ) 
         .then( response =>
@@ -106,9 +115,8 @@ export default class CreatePlace extends React.Component {
                         <FormGroup label='É público?' htmlFor='lab'>
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
-                        <FormGroup label='Nome do responsável pelo local' htmlFor='lab'>
-                            <input className="form-control" type="text" id="lab"
-                            onChange={(e) => {this.setState({nameResponsible: e.target.value})}}/>
+                        <FormGroup label='Nome do responsável pelo local' htmlFor='lab' className="filterUser">
+                             <DDUsers   onChange={this.handleInputChangeUser} />   
                         </FormGroup>
                         <br/>
                         <br/>
