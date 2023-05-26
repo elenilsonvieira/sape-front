@@ -5,7 +5,6 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport"; 
 import SchedulingApiService from "../../../services/SchdulingApiService";
-import EmailApiService from "../../../services/EmailApiService";
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
 
 
@@ -24,7 +23,6 @@ export default class CreateSc extends React.Component {
     constructor() {
         super();
         this.service = new SchedulingApiService();
-        this.emailService = new EmailApiService();
     }
 
     validate = () => {
@@ -69,7 +67,7 @@ export default class CreateSc extends React.Component {
             return user.registration;
         }
 
-        this.service.create(
+       this.service.create(
             {
                 scheduledDate: this.state.date,
                 scheduledStartTime: this.state.startTime,
@@ -84,24 +82,11 @@ export default class CreateSc extends React.Component {
             console.log(Response);
             this.props.history.push("/listScheduling");
 
-            this.sendEmail(this.state.selectedOptionSport);
         }).catch( error => {
             showErrorMessage(error.response.data);
             console.log(error.Response);
         });
     }
-    sendEmail =(sportId)=>{
-       this.emailService.notifyFavoriteSportScheduling(sportId
-        ).then(Response => {
-                    console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Response:", Response.data)
-                   
-                    
-                }).catch(Error => {
-                console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Error:", Error.data)
-                
-                })
-                
-        }
 
 
     cancel = () => {

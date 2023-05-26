@@ -8,7 +8,6 @@ import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
 import { showSuccessMessage, showErrorMessage } from '../../../componentes/Toastr';
-import EmailApiService from "../../../services/EmailApiService";
 import axios from "axios";
 
 class ViewScheduling extends React.Component {
@@ -26,7 +25,6 @@ class ViewScheduling extends React.Component {
     constructor() {
         super();
         this.service = new SchedulingApiService();
-        this.emailService = new EmailApiService();
     }
 
     find = () => {
@@ -150,10 +148,7 @@ class ViewScheduling extends React.Component {
        console.log("🚀 ~ file: ViewScheduling.js:138 ~ ViewScheduling ~ schedulingId:", schedulingId)
        this.service.addIsPresent(schedulingId,this.getUserRegistration())
         .then( Response => {  
-            showSuccessMessage("Presença confirmada nessa prática!");
-            
-             this.sendEmail(schedulingId);
-          
+            showSuccessMessage("Presença confirmada nessa prática!");          
             console.log(Response);
         }).catch( error => {
             showErrorMessage(error.response);
@@ -161,18 +156,7 @@ class ViewScheduling extends React.Component {
         });
     }
 
-    sendEmail =(schedulingId)=>{
-    this.emailService.notifySchedulingParticipants(schedulingId)  
-    .then(Response => {
-                console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Response:", Response.data)
-               
-                
-            }).catch(Error => {
-            console.log("🚀 ~ file: ViewScheduling.js:178 ~ ViewScheduling ~ Error:", Error.data)
-            
-            })
-            
-    }
+   
     render(){
         return(
             <div>
