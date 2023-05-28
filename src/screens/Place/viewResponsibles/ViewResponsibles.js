@@ -3,7 +3,7 @@ import UsersTable from "../../../componentes/UsersTable";
 import PlaceApiService from "../../../services/PlaceApiService";
 import { withRouter } from 'react-router-dom';
 
-import { showErrorMessage } from '../../../componentes/Toastr';
+import { showErrorMessage, showSuccessMessage } from '../../../componentes/Toastr';
 
 class ViewResponsibles extends React.Component {
     state = {
@@ -26,7 +26,6 @@ class ViewResponsibles extends React.Component {
     componentDidMount() {
         const id = this.props.match.params.id;
         this.find(id);
-
     }
 
 
@@ -36,12 +35,26 @@ class ViewResponsibles extends React.Component {
     }
     
 
-    delete = (userId) => {
-        this.service.delete(userId)
+    removeResponsibles = (userId) => {
+        const placeId = this.props.match.params.id;
+        this.service.removeResponsibles(placeId, userId)
         .then( Response => {
-            this.find();
+            this.find(placeId);
+            showSuccessMessage("Responsável Removimo com Sucesso!")
         }).catch( error => {
-            showErrorMessage("Ocorreu um erro ao excluir, tente novamente!");
+            showErrorMessage("Ocorreu um erro ao remover, tente novamente!");
+            console.log(error.Response)
+        });
+    }
+
+    addResponsibles = (userId) => {
+        const placeId = this.props.match.params.id;
+        this.service.addResponsibles(placeId, userId)
+        .then( Response => {
+            this.find(placeId);
+            showSuccessMessage("Responsável Adicionado com Sucesso!")
+        }).catch( error => {
+            showErrorMessage("Ocorreu um erro ao adicionar, tente novamente!");
             console.log(error.Response)
         });
     }
@@ -80,7 +93,7 @@ class ViewResponsibles extends React.Component {
                         <br/>
                         <div className="table-users"> 
 
-                            <UsersTable user={this.state.responsibles}  delete={this.delete}  />
+                            <UsersTable user={this.state.responsibles}  delete={this.removeResponsibles}  />
                             
                         </div>
 

@@ -25,12 +25,12 @@ export default class PlaceApiService extends ApiService {
     getResponsibles(placeId){
        return this.get(`/getResponsibles/${placeId}`)
     }
-    addResponsibles(placeId,userRegistration){
-      return this.patch(`/${placeId}/addResponsibles/${userRegistration}`)
+    addResponsibles(placeId,userId){
+      return this.patch(`/${placeId}/addResponsibles/${userId}`)
     }
 
-    removeResponsibles(placeId,userRegistration){
-       return this.patch(`/${placeId}/removeResponsibles/${userRegistration}`)
+    removeResponsibles(placeId,userId){
+       return this.patch(`/${placeId}/removeResponsibles/${userId}`)
     }
     /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
     find(params) {
