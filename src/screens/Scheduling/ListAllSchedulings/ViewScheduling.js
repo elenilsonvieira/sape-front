@@ -187,7 +187,7 @@ class ViewScheduling extends React.Component {
                         </div>
                         <br/>
                         <br/>
-                        <SchedulingTable schedulings={this.state.scheduling} viewParticipants={this.viewParticipants} delete={this.delete}addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
+                        <SchedulingTable schedulings={this.state.scheduling} viewParticipants={this.viewParticipants} delete={this.delete} addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
                     </fieldset>
                     <br/>
                     <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button>

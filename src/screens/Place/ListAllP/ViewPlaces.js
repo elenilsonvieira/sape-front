@@ -31,6 +31,10 @@ class ViewPlaces extends React.Component {
         });
     }
 
+    viewResponsibles = (placeId) => {
+        this.props.history.push(`/viewResponsibles/${placeId}`);
+    }
+
     delete = (placeId) => {
         this.service.delete(placeId)
         .then( Response => {
@@ -58,7 +62,7 @@ class ViewPlaces extends React.Component {
                         <br/>
                         <br/>
                         <br/>
-                        <PlacesTable places={this.state.places} delete={this.delete} edit={this.edit} />
+                        <PlacesTable places={this.state.places} viewResponsibles={this.viewResponsibles} delete={this.delete} edit={this.edit} />
                     </fieldset>
                     <br/>
                     <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo local</button>

@@ -7,6 +7,7 @@ import Login from "../screens/Login/Login";
 import CreatePlace from "../screens/Place/CreateP/CreatePlace";
 import UpdatePlace from "../screens/Place/UpdateP/UpdatePlace";
 import ListPlaces from "../screens/Place/ListAllP/ViewPlaces";
+import ViewResponsibles from "../screens/Place/viewResponsibles/ViewResponsibles";
 
 import CreateSport from "../screens/Sport/CreateS/CreateSport";
 import UpdateSport from "../screens/Sport/UpdateS/UpdateSport";
@@ -57,6 +58,9 @@ function AppRoutes(props) {
             <RestrictedRoute show={props.isAuthenticated} component = { ListPlaces } path="/listPlaces" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreatePlace } path="/createPlace" />
             <RestrictedRoute show={props.isAuthenticated} component = { UpdatePlace } path="/updatePlace/:id" />
+            <RestrictedRoute show={props.isAuthenticated} component = { ViewResponsibles } path="/viewResponsibles/:id" />
+            
+
 
             <RestrictedRoute show={props.isAuthenticated} component = { ListSports } path="/listSports" />
             <RestrictedRoute show={props.isAuthenticated} component = { CreateSport } path="/createSport" />
