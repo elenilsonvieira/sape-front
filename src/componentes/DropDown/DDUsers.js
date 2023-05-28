@@ -32,7 +32,7 @@ const DDUsers = (props) => {
           options={users} 
           getOptionLabel={(option) => option.name}
           onChange={(event, newValue) => {
-            props.onChange(newValue ? newValue.registration: "");                                                          
+            props.onChange(newValue ? newValue : "");                                                          
           }}
           renderInput={(params) => (
             <TextField {...params} size="small" label="Usuarios" variant="outlined" /> 
