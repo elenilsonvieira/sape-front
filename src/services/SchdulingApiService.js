@@ -21,8 +21,15 @@ export default class SchedulingApiService extends ApiService {
     find(id) {
         return this.get(`/${id}`);
     }
+    approveScheduling(schedulingId) {
+        return this.patch(`/approvedScheduling/${schedulingId}`);
+    }
+    
     findAllParticpants(id) {
         return this.get(`/participation/${id}`);
+    }
+    findAllSchedulingPendingByPlaceResponsible(userRegistration) {
+        return this.get(`/ResponsiblePlace/${userRegistration}`);
     }
 
     findWithFilter(filters) {
@@ -56,4 +63,6 @@ export default class SchedulingApiService extends ApiService {
         return this.patch(`/${schedulingId}/removeIsPresent/${userRegistration}`);
     }
    
+
+    
 }

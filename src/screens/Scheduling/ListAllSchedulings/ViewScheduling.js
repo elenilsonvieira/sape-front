@@ -64,6 +64,9 @@ class ViewScheduling extends React.Component {
     viewParticipants = (schedulingId) => {	
         this.props.history.push(`/viewParticipants/${schedulingId}`);
     }
+    viewSchedulingPending = () => {	
+        this.props.history.push(`/viewSchedulingPending`);
+    }
 
     create = () => {
         this.props.history.push("/createScheduling");
@@ -191,6 +194,7 @@ class ViewScheduling extends React.Component {
                     </fieldset>
                     <br/>
                     <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button>
+                    <button onClick={this.viewSchedulingPending} type="button" className="btn btn-danger" title="Aguardando aprovação">Agendamentos pendentes</button>
                 </header>
             </div>
         )

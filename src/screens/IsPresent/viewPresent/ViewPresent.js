@@ -29,6 +29,9 @@ class ViewPresent extends React.Component {
     viewParticipants = (schedulingId) => {	
         this.props.history.push(`/viewParticipants/${schedulingId}`);
     }
+    viewSchedulingPending = () => {	
+        this.props.history.push(`/viewParticipants/`);
+    }
 
     getUserRegistration(){
         const user = JSON.parse(localStorage.getItem('loggedUser'));

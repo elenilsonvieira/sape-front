@@ -1,0 +1,30 @@
+.filterUser{
+    display: inline-block;
+  inline-size: 100px;
+  width: 300px;
+  left: 100px;
+  margin-right: 25px;
+  padding: 5px 0;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  
+  
+}
+
+.cont{
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    justify-items: center;
+   left: 40%;
+   bottom: 7px;
+   padding: 40px;
+ 
+}
+
+button#btn-res{
+position: absolute;
+bottom: 2px;
+left: 90px;
+
+}

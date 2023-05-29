@@ -2,14 +2,16 @@ import React from "react";
 import UsersTable from "../../../componentes/UsersTable";
 import PlaceApiService from "../../../services/PlaceApiService";
 import { withRouter } from 'react-router-dom';
-
+import DDUsers from "../../../componentes/DropDown/DDUsers";
 import { showErrorMessage, showSuccessMessage } from '../../../componentes/Toastr';
+import "./ViewResponsibles.css";
+import FormGroup from "../../../componentes/FormGroup";
 
 class ViewResponsibles extends React.Component {
     state = {
-        name:'',
-        responsibles:[],
-        schedulingUser:[]
+        
+        user: ''
+        
             
         
     }
@@ -47,9 +49,9 @@ class ViewResponsibles extends React.Component {
         });
     }
 
-    addResponsibles = (userId) => {
+    addResponsibles = () => {
         const placeId = this.props.match.params.id;
-        this.service.addResponsibles(placeId, userId)
+        this.service.addResponsibles(placeId, this.state.user.registration)
         .then( Response => {
             this.find(placeId);
             showSuccessMessage("Responsável Adicionado com Sucesso!")
@@ -58,6 +60,13 @@ class ViewResponsibles extends React.Component {
             console.log(error.Response)
         });
     }
+
+    handleInputChangeUser = (user) => {
+        console.log("user:", user);
+        this.setState({ user: user }, () => {
+          console.log('user selected', this.state.user);
+        });
+      }
 
    
        find = (placeId) => {
@@ -96,6 +105,16 @@ class ViewResponsibles extends React.Component {
                             <UsersTable user={this.state.responsibles}  delete={this.removeResponsibles}  />
                             
                         </div>
+                        <div className="cont">
+             
+                              <FormGroup className="filterUser">
+                                <DDUsers onChange={this.handleInputChangeUser}/>
+                                <button id="btn-res" className="btn btn-primary" onClick={this.addResponsibles}>adicionar responsavel</button>
+                            </FormGroup> 
+
+                            
+                            </div>
+                       
 
 
                     </fieldset>

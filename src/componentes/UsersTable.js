@@ -12,10 +12,7 @@ export default props => {
                 <td>{user.registration}</td>
                 <td>
                 <td>
-                {/* <button type="button" title="Edit" className="btn btn-warning"
-                        onClick={e => props.edit(user.id)}>
-                            Atualizar
-                    </button> */}
+                
                     <button type="button" title="Excluir" className="btn btn-danger"
                         onClick={e => props.delete(user.id)}>
                             Excluir

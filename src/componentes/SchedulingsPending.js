@@ -1,5 +1,5 @@
 import React from 'react';
-import { BsEyeFill } from 'react-icons/bs'
+
 import GetName from './GetPlaceOrSportName';
 import GetNameUser from './GetUserOrNameUser';
 
@@ -24,19 +24,13 @@ export default props => {
             <GetNameUser registration = {scheduling.creator} label="user"/>
 
             
-            <td>
-                <BsEyeFill className='visu-participant'
-                size={20}  
-                title='ver participantes'
-                onClick={e => props.viewParticipants(scheduling.id)} />
-                
-        </td> 
+           
 
             <td>
-                <button type="button" title="Cancelar Presença" className="btn btn-danger"
-                         onClick={e => props.removeIsPresent(scheduling.id)}
+                <button type="button" title="Cancelar Presença" className="btn btn-primary"
+                         onClick={e => props.approveScheduling(scheduling.id)}
                         >
-                            Cancelar Presença
+                            Confirmar
                 </button>
             </td> 
             
@@ -59,9 +53,9 @@ return(
                 <th scope="col">Esporte</th>
                 <th scope="col">Status</th>
                 <th scope="col">Agendado por:</th>
-                <th scope="col">Participantes</th>
                 
-                <th scope="col">Presença Confirmada?</th>
+                
+                <th scope="col">Confirmar Agendamento?</th>
                 
                 
             </tr>

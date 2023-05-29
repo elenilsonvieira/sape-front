@@ -22,6 +22,7 @@ import ViewUser from "../screens/User/viewUser/ViewUser";
 import ViewPresent from "../screens/IsPresent/viewPresent/ViewPresent"; 
 import ViewParticipants from "../screens/IsPresent/viewPresent/ViewParticipants";
 import UpdateUser from "../screens/User/updateUser/UpdateUser";
+import ViewSchedulingPending from "../screens/Scheduling/ListAllSchedulings/ViewSchedulingPending";
 
 function RestrictedRoute( {component: Component, show, ...props} ) {
     return(
@@ -71,6 +72,8 @@ function AppRoutes(props) {
             <RestrictedRoute show={props.isAuthenticated} component = { CreateScheduling } path="/createScheduling" />
             <RestrictedRoute show={props.isAuthenticated} component = { ViewPresent } path= "/viewPresent" />
             <RestrictedRoute show={props.isAuthenticated} component = { ViewParticipants } path= "/viewParticipants/:id" />
+            <RestrictedRoute show={props.isAuthenticated} component = { ViewSchedulingPending } path= "/viewSchedulingPending" />
+
 
             <RestrictedRoute show={props.isAuthenticated} component = { ViewUser } path= "/viewUser" />
             <RestrictedRoute show={props.isAuthenticated} component = { UpdateUser } path= "/updateUser/:id" />
