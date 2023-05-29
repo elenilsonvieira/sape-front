@@ -51,7 +51,7 @@ class ViewResponsibles extends React.Component {
 
     addResponsibles = () => {
         const placeId = this.props.match.params.id;
-        this.service.addResponsibles(placeId, this.state.user.registration)
+        this.service.addResponsibles(placeId, this.state.user.id)
         .then( Response => {
             this.find(placeId);
             showSuccessMessage("Responsável Adicionado com Sucesso!")
