@@ -14,8 +14,11 @@ export default class UserApiService extends ApiService{
     delete(id){
         return super.delete(`/${id}`)
     }
-    find(params){
-        return this.get(`/${params}`);
+    find(userId){
+        return this.get(`/${userId}`);
+    }
+    findByRegistration(userRegistration){
+        return this.get(`/registration/${userRegistration}`);
     }
     findAll(){
         return this.getAll('/all');

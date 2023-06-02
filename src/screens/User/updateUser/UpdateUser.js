@@ -13,6 +13,10 @@ export default class UpdateUser extends React.Component {
         name:"",
         email:"",
         registration:"",
+        roles:"",
+        sportsFavorite:""
+        
+
         
     }
 
@@ -22,8 +26,8 @@ export default class UpdateUser extends React.Component {
         this.service = new UserApiService();
     }
 
-    findById = (placeId) => {
-        this.service.find(placeId)
+    findById = (userId) => {
+        this.service.find(userId)
         .then( response =>
             {
                 const user = response.data;
@@ -31,9 +35,13 @@ export default class UpdateUser extends React.Component {
                 const name = user.name;
                 const email = user.email;
                 const registration = user.registration;
+                const sportsFavorite =user.sportsFavorite;
+                const roles = user.roles;
+
+
                 
 
-                this.setState({id, name, email, registration}); 
+                this.setState({id, name, email, registration,roles, sportsFavorite }); 
                 console.log("🚀 ~ file: UpdateUser.js:17 ~ UpdateUser ~ registration:", registration);
             }
         ).catch( error => {
@@ -74,6 +82,10 @@ export default class UpdateUser extends React.Component {
                 name: this.state.name,
                 email: this.state.email,
                 registration: this.state.registration,
+                roles: this.state.roles,
+                sportsFavorite: this.state.sportsFavorite
+
+
 
             }
         ).then(response => {

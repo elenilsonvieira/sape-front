@@ -66,45 +66,7 @@ class viewSchedulingPending extends React.Component {
 
     }
 
-    // removeIsPresent = (schedulingId) => {
-            
-    //     this.service.removeIsPresent(schedulingId,this.getLoggedUser().registration)
-
-    //     .then( Response => {  
-
-    //         showSuccessMessage("Presença Cancelada");
-    //         this.findSchedulingsUser();
-
-    //     }).catch( error => {
-
-    //         showErrorMessage(error.response.data);
-    //         showErrorMessage("Ocorreu um erro ao cancelar presença, tente novamente!");
-    //     });
-    // }
-
-
-    // delete = (userId) => {
-    //     this.service.delete(userId)
-    //     .then( Response => {
-    //         this.find();
-    //     }).catch( error => {
-    //         showErrorMessage("Ocorreu um erro ao excluir, tente novamente!");
-    //         console.log(error.Response)
-    //     });
-    // }
-
-    // findSchedulingsUser = () => {
-    //     this.service.confirmedByUser(this.getUserRegistration()) 
-    //     .then( Response => {
-    //         const schedulings = Response.data;
-    //         this.state.schedulingUser = schedulings
-    //         this.setState({schedulings})
-    //         console.log(this.state.schedulingUser);
-    //     }).catch( error => {
-    //         console.log(error.response)
-    //     });
-    // }
-
+    
 
     find = () => {
         

@@ -3,11 +3,7 @@ import React from 'react';
 import GetName from './GetPlaceOrSportName';
 import GetNameUser from './GetUserOrNameUser';
 
-
-// eslint-disable-next-line import/no-anonymous-default-export
 export default props => {
-
-
 
     const rows = props.schedulings?.map( scheduling => {
         
@@ -23,21 +19,14 @@ export default props => {
             
             <GetNameUser registration = {scheduling.creator} label="user"/>
 
-            
-           
-
             <td>
                 <button type="button" title="Cancelar Presença" className="btn btn-primary"
-                         onClick={e => props.approveScheduling(scheduling.id)}
+                        onClick={e => props.approveScheduling(scheduling.id)}
                         >
                             Confirmar
                 </button>
             </td> 
-            
-             
-            
-            
-           
+
         </tr>
     )
 });
@@ -53,11 +42,8 @@ return(
                 <th scope="col">Esporte</th>
                 <th scope="col">Status</th>
                 <th scope="col">Agendado por:</th>
-                
-                
                 <th scope="col">Confirmar Agendamento?</th>
-                
-                
+
             </tr>
         </thead>
         <tbody >

@@ -116,7 +116,7 @@ export default class CreatePlace extends React.Component {
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
                         <FormGroup label='Nome do responsável pelo local' htmlFor='lab' className="filterUser">
-                             <DDUsers   onChange={this.handleInputChangeUser} />   
+                            <DDUsers   onChange={this.handleInputChangeUser} />   
                         </FormGroup>
                         <br/>
                         <br/>

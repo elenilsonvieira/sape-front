@@ -24,7 +24,7 @@ class ViewUser extends React.Component {
         this.service = new UserApiService();
     }
     componentDidMount() {    
-        this.find();
+        this.find(this.getLoggedUser().registration);
     }
 
     // componentWillUnmount() {
@@ -51,7 +51,7 @@ class ViewUser extends React.Component {
         .then( Response => {  
 
             showSuccessMessage("Esporte Removido dos favoritos");
-            this.find();
+            this.find(this.getLoggedUser().registration);
 
         }).catch( error => {
 
@@ -93,27 +93,21 @@ class ViewUser extends React.Component {
        
     }
 
-    find = () => {
-        var params = '?';
-
-       
-            params = `${params}id=${this.getLoggedUser().id}`;
-       
-            console.log("🚀 ~ file: ViewUser.js:102 ~ ViewUser ~ this.getLoggedUser().id:", this.getLoggedUser().id)
-        
-        this.service.find(params)
+    find = (userRegistration) => {
+  
+        this.service.findByRegistration(userRegistration)
             .then(response => {
                 const users = response.data;  
-                this.state.user = users[0]
-                this.state.selectedSportsFavorite = users[0].sportsFavorite; 
+                this.state.user = users
+                this.state.selectedSportsFavorite = users.sportsFavorite; 
                 const sportsFavorite = this.state.selectedSportsFavorite;
                 this.setState({users});
                 this.setState({ sportsFavorite });
 
                 this.replace();
               
-                console.log("user",  this.state.selectedSportsFavorite);
-                console.log("users",  this.state.users);
+                console.log("sportFavoritos=",  this.state.selectedSportsFavorite);
+                console.log("users=",  this.state.users);
               
 
             }
