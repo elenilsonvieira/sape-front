@@ -13,7 +13,7 @@ export default class CreatePlace extends React.Component {
         placeReference:"",
         capacityMax:"",
         isPublic: false,
-        responsible: ""
+        responsibles:[]
     }
 
     constructor() {
@@ -24,7 +24,7 @@ export default class CreatePlace extends React.Component {
     handleInputChangeUser = (user) => {
         console.log("user:", user);
         this.setState({ responsible: user }, () => {
-          console.log('user selected', this.state.responsible);
+          console.log('user selected', this.state.responsibles.push(user));
         });
       }
     
@@ -55,6 +55,9 @@ export default class CreatePlace extends React.Component {
         if (!this.state.responsible){
             errors.push('É obrigatório informar um responsável pelo local!');
         }
+        if (this.state.capacityMax<0){
+            errors.push('Capacidade Máxima deve ser um número positivo!');
+        }
 
         return errors;
 
@@ -77,7 +80,7 @@ export default class CreatePlace extends React.Component {
                 reference: this.state.placeReference,
                 maximumCapacityParticipants: this.state.capacityMax,
                 public: this.state.isPublic,
-                responsible: this.state.responsible
+                responsibles: this.state.responsibles
              }
         ) 
         .then( response =>

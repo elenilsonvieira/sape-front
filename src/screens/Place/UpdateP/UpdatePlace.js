@@ -109,9 +109,14 @@ export default class UpdatePlace extends React.Component {
         return (
             <div>
                 <header className="App-header">
+<<<<<<< HEAD
                     <h1 className="title">Atualizar local</h1>
                     <fieldset className="field-upPlace">
                        
+=======
+                    <fieldset>
+                        <h1 className="title">Atualizar local</h1>
+>>>>>>> 9eb224a0fdb801f0d2f94b01ea04d2521029ba01
                         <FormGroup label='Nome' htmlFor='lab'>
                             <input className="form-control" type="text" id="lab" value={this.state.placeName}
                             onChange={(e) => {this.setState({placeName: e.target.value})}}/>
@@ -121,6 +126,7 @@ export default class UpdatePlace extends React.Component {
                             autoComplete="off"
                             onChange={(e) => {this.setState({placeReference: e.target.value})}}/>
                         </FormGroup>
+<<<<<<< HEAD
                         <FormGroup className="capacity-upd" label='Capacidade total de pessoas' htmlFor='lab03'>
                             <input className="form-control-small" type="number" id="lab"
                             min={1}
@@ -129,6 +135,13 @@ export default class UpdatePlace extends React.Component {
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup className="isPublic-upd" label='É público?' htmlFor='lab'>
+=======
+                        <FormGroup label='Capacidade total de pessoas' htmlFor='lab03'>
+                            <input className="form-control-small" type="number" id="lab"
+                            onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
+                        </FormGroup>
+                        <FormGroup label='É público?' htmlFor='lab'>
+>>>>>>> 9eb224a0fdb801f0d2f94b01ea04d2521029ba01
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
                         <br/>
