@@ -58,19 +58,22 @@ export default class CreateSport extends React.Component {
     render() {
         return (
             <div>
-                <header className="App-header">
-                    <fieldset>
-                    <h1 className="title">Criar esporte</h1>
-                        <FormGroup label='Nome' htmlFor='lab'>
+                <header className="App-header"> 
+                <h1 className="title">Criar esporte</h1>
+                    <fieldset className="field-sport">
+                   
+                        <FormGroup label='Nome' htmlFor='lab' className="forms-sport">
                             <input className="form-control" type="text" id="lab"
+                            placeholder="Digite o nome do esporte"
                             onChange={(e) => {this.setState({sportName: e.target.value})}}/>
                         </FormGroup>
                         <br/>
                         <br/>
-                        <button type="button" className="btn btn-primary" onClick={this.post} >Salvar</button>
-                        <button onClick={this.cancel} type="button" className="btn btn-danger">Cancelar</button>
+                        <button type="button" className="btn btn-primary btnsSport" onClick={this.post} >Salvar</button>
+                        <button onClick={this.cancel} type="button " className="btn btn-danger btnsSport">Cancelar</button>
                     </fieldset>
                 </header>
+                <footer className="footer-sport"></footer>
             </div>
         )
     }

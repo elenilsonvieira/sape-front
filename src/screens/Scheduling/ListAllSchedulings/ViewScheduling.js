@@ -183,19 +183,27 @@ class ViewScheduling extends React.Component {
                                     
                                     <br/>
                                     <br/>
-                                    <button onClick={this.filterSearch} type="button" className="btn btn-primary buttonFilter">Aplicar Filtro</button>
-                                    <button onClick={this.find} type="button" className="btn btn-primary buttonFilter btn btn-danger">Mostrar Todos</button>
-                                </div>
+                                    <button onClick={this.filterSearch} type="button" className="btn btn-success buttonFilter">Aplicar Filtro</button>
+                                    <button onClick={this.find} type="button" className="buttonFilter btn btn-info">Mostrar Todos</button>
+                                    <button onClick={this.create} type="button" className="btn btn-primary btnSc">Cadastrar novo agendamento</button>
+                                     <button onClick={this.viewSchedulingPending} type="button" className="btn btn-danger btnScPen" title="Aguardando aprovação">Agendamentos pendentes</button>
+
+                               </div>
                             </h3>
                         </div>
                         <br/>
                         <br/>
-                        <SchedulingTable schedulings={this.state.scheduling} viewParticipants={this.viewParticipants} delete={this.delete} addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
+                        <fieldset className="field-viewsched">
+                        <div className="table-schedfilter">
+                                 <SchedulingTable schedulings={this.state.scheduling} viewParticipants={this.viewParticipants} delete={this.delete} addIsPresent={this.addIsPresent} addParticipant={this.addParticipant} removeParticipant={this.removeParticipant} perfil={this.perfil}/>
+                    	</div>
+
+                        </fieldset>
+                       
                     </fieldset>
                     <br/>
-                    <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button>
-                    <button onClick={this.viewSchedulingPending} type="button" className="btn btn-danger" title="Aguardando aprovação">Agendamentos pendentes</button>
                 </header>
+                <footer className="footer-sche"></footer>
             </div>
         )
     }

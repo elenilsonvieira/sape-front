@@ -113,18 +113,23 @@ class ViewPresent extends React.Component {
     render(){
         return(
             <div>
-                <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Participação Confirmada</h1>
+                <header className="App-header">  
+                <h1 className="title">Participação Confirmada</h1>
+                    <fieldset className="field-usersched">
+                      
                         <br/>
                         <br/>
                         <br/>
-                        <SchedulingUsertable schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete} removeIsPresent={this.removeIsPresent}/>
+                        <div className="table-sched">
+                            <SchedulingUsertable schedulings={this.state.schedulingUser} viewParticipants={this.viewParticipants} delete={this.delete} removeIsPresent={this.removeIsPresent}/>
+                        </div>
+                        
 
                     </fieldset>
                     <br/>
                     {/* <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button> */}
                 </header>
+                <footer className="footer-usersched"></footer>
             </div>
         )
     }

@@ -88,17 +88,23 @@ class viewSchedulingPending extends React.Component {
         return(
             <div>
                 <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Agendamentos Aguardando Confirmação</h1>
+                   <h1 className="title">Agendamentos Aguardando Confirmação</h1>
+                     <fieldset className="field-pendingsc">
+                       
                         <br/>
                         <br/>
                         <br/>
-                        <SchedulingsPending schedulings={this.state.schedulingsPending} delete={this.delete} approveScheduling={this.approveScheduling}/>
+                        <div className="table-sched">
+
+                     <SchedulingsPending schedulings={this.state.schedulingsPending} delete={this.delete} approveScheduling={this.approveScheduling}/>
+                        </div>
+                       
 
                     </fieldset>
                     <br/>
                     {/* <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo agendamento</button> */}
                 </header>
+                <footer className="footer-viewpendingsc"></footer>
             </div>
         )
     }

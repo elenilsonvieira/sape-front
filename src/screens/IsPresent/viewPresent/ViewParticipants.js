@@ -65,12 +65,12 @@ class ViewParticipants extends React.Component {
         return(
             <div>
                 <header className="App-header">
-                    <fieldset className="fields">
-                        <h1 className="title">Participação Confirmada</h1>
+                 <h1 className="title">Participação Confirmada</h1>
+                     <fieldset className="field-usersched">
                         <br/>
                         <br/>
                         <br/>
-                        <div className="table-users"> 
+                        <div className="table-all"> 
 
                             <UsersPresent users={this.state.users} delete={this.delete}  />
                             
@@ -81,6 +81,7 @@ class ViewParticipants extends React.Component {
                     <br/>
                     
             </header>
+            <footer className="footer-usersched"></footer>
             </div>
         )
     }

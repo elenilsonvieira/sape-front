@@ -16,9 +16,11 @@ class ViewUser extends React.Component {
         role: '',
         selectedSportsFavorite:[],
         users :[],
-        user: ''
+        user: '',
+        showFavorites: false
     }
      
+   
     constructor() {
         super();
         this.service = new UserApiService();
@@ -30,7 +32,10 @@ class ViewUser extends React.Component {
     // componentWillUnmount() {
     //     this.clear();
     // }
-
+    handleShowFavorites = () => {
+        this.setState({ showFavorites: !this.state.showFavorites });
+      };
+    
     getLoggedUser = () =>{
         
         var user = JSON.parse(localStorage.getItem('loggedUser'));
@@ -134,9 +139,10 @@ class ViewUser extends React.Component {
     render() {
         return (
             <div>
-                <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Perfil</h1>
+                <header className="App-header">  
+            <h1 className="title">Perfil</h1>
+
+                    <fieldset className="fieldset-user">
                         
                         
                     <div className="container-user">
@@ -158,23 +164,36 @@ class ViewUser extends React.Component {
                         
                         <br/>
                         <br/>
-                        <div className="btn-perfil">
-                            <button type="button" className="btn btn-primary" onClick={this.create}>Cadastrar novo agendamento</button>
-                            <button type="button" className="btn btn-secondary" onClick={this.edit}>Atualizar dados</button>
-                        </div>
+                        
+                            <button type="button" className="btn btn-primary btn-perfil" onClick={this.create}>Cadastrar novo agendamento</button>
+                            <button type="button" className="btn btn-secondary btn-perfil" onClick={this.edit}>Atualizar dados</button>
+                           
+                            <button type="button" className="btn btn-info btn-perfil" onClick={this.handleShowFavorites}>
+                                Meus esportes favoritos
+                            </button>
                         <br/>
-                        <span id="user-spo" >Esportes Favoritos </span>
+                       
+                       
                     <br />
                     <br />
+                
+                    
+                   
 
-                    <div id="sportfavorite">
-                        <SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite} delete={this.removeSportsFavorite}/>
                     </div>
-
-                    </div>
-                    </fieldset>
+                    </fieldset> 
+                    
+                    
+                   
                     <br/>
-                </header>  
+                    {this.state.showFavorites && ( 
+                        <div className="minitela">
+   
+                                 {<SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite} delete={this.removeSportsFavorite}/>}
+  
+                        </div>
+                )}
+                </header>  <footer className="footer-user"></footer> 
             </div>
         )
     }
