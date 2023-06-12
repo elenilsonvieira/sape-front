@@ -131,7 +131,7 @@ export default class UpdatePlace extends React.Component {
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
 
-                     <FormGroup className="isPublic-upd" label='É público?' htmlFor='lab'>
+                         <FormGroup className="isPublic-upd" label='É público?' htmlFor='lab'>
 
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>

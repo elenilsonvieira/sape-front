@@ -33,7 +33,7 @@ export default props => {
         </td> 
 
             <td>
-                <button type="button" title="Cancelar Presença" className="btn btn-danger"
+                <button type="button" title="Cancelar Presença" className="btn btn-danger btn-cancelSc"
                          onClick={e => props.removeIsPresent(scheduling.id)}
                         >
                             Cancelar Presença

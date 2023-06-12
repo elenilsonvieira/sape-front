@@ -176,15 +176,10 @@ class ViewUser extends React.Component {
                        
                     <br />
                     <br />
-                
-                    
-                   
 
                     </div>
                     </fieldset> 
-                    
-                    
-                   
+
                     <br/>
                     {this.state.showFavorites && ( 
                         <div className="minitela">
@@ -193,7 +188,8 @@ class ViewUser extends React.Component {
   
                         </div>
                 )}
-                </header>  <footer className="footer-user"></footer> 
+                </header>  
+                <footer className="footer-user"></footer> 
             </div>
         )
     }

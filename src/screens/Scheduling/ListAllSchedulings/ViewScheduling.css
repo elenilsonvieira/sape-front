@@ -112,11 +112,11 @@
         background-color: rgba(125, 192, 119, 0.12);
   }
 
-  .btn-confirm, .btn-del{
+  .btn-confirm, .btn-del,.btn-confirmSc,.btn-cancelSc{
     display: flex;
     margin: -3px;
   }
- 
+
   
 
   .footer-sche{
@@ -160,6 +160,7 @@
       right: 10px;
       bottom: 10px;
     }
+   
 
     .table-schedpend{
       font-size: 10px;
@@ -190,4 +191,5 @@
       margin-top: 10px;
       margin-left: 10px;
     }
+    
   }

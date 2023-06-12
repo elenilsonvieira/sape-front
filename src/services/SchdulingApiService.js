@@ -18,8 +18,8 @@ export default class SchedulingApiService extends ApiService {
         return super.delete(`/${id}`);
     }
 
-    find(id) {
-        return this.get(`/${id}`);
+    find() {
+        return this.get('');
     }
     approveScheduling(schedulingId) {
         return this.patch(`/approvedScheduling/${schedulingId}`);

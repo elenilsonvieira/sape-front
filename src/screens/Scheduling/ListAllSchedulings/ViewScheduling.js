@@ -28,7 +28,7 @@ class ViewScheduling extends React.Component {
     }
 
     find = () => {
-        this.service.find('')
+        this.service.find()
         .then( Response => {
             const scheduling = Response.data;
             console.log("🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:", scheduling)
@@ -38,6 +38,7 @@ class ViewScheduling extends React.Component {
             console.log(error.Response)
         });
     }
+
     findAllParticpants = (schedulingId) => {
         this.service.findAllParticpants(schedulingId)
         .then( Response => {

@@ -64,6 +64,11 @@ span#user-spo{
     /* Outros estilos desejados */
   }
 
+  .btn-desfavoritar{
+    display: flex;
+    margin: -3px;
+  }
+
   @media screen and (max-width: 768px) {
     .btn-perfil {
       right: 0px;
