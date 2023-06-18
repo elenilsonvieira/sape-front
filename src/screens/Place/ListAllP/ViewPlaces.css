@@ -1,0 +1,45 @@
+.table-places{
+    display: table;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0px;
+    background-color: rgb(41, 216, 25);
+}
+.footer-viewplace{
+   position: fixed;
+    width: 100%;
+    height: 25px;
+    bottom: 0px;
+    background-color: rgb(41, 216, 25);
+}
+.buttons-table{
+    display: flex;
+    position:  relative;
+    width: auto;
+    right: 90px;
+     margin: -10px;
+    
+    
+}
+
+.btn-viewplace{
+    position: relative;
+    width: auto;
+    top: 0px;
+    margin-right: 90px;
+}
+
+.field-viewplace{
+    width: 90%;
+    height: 600px;
+        margin-top: 10px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        align-content: center;
+        background-color: rgba(125, 192, 119, 0.12);
+        
+}

@@ -12,7 +12,8 @@ export default class UpdatePlace extends React.Component {
         placeName:"",
         placeReference:"",
         capacityMax:"",
-        isPublic: false
+        isPublic: false,
+        responsibles:[]
     }
     
     constructor() {
@@ -30,8 +31,11 @@ export default class UpdatePlace extends React.Component {
                 const placeReference = place.reference;
                 const capacityMax = place.maximumCapacityParticipants;
                 const isPublic = place.isPublic;
+                const responsibles = place.responsibles;
+                
 
-                this.setState({id, placeName, placeReference, capacityMax, isPublic});
+                this.setState({id, placeName, placeReference, capacityMax, isPublic, responsibles});
+                console.log(place);
             }
         ).catch( error => {
             console.log(error.response);
@@ -78,7 +82,8 @@ export default class UpdatePlace extends React.Component {
                 name: this.state.placeName,
                 reference: this.state.placeReference,
                 maximumCapacityParticipants: this.state.capacityMax,
-                public: this.state.isPublic
+                public: this.state.isPublic,
+                responsibles: this.state.responsibles
             }
         ).then(response => {
             showSuccessMessage("Local atualizado com sucesso!");
@@ -104,27 +109,39 @@ export default class UpdatePlace extends React.Component {
         return (
             <div>
                 <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Atualizar local</h1>
-                        <FormGroup label='ID' htmlFor='lab'>
-                            <input className="form-control-small" type="number" id="lab" value={this.state.id} disabled={true}
-                            onChange={(e) => {this.setState({id: e.target.value})}}/>
-                        </FormGroup>
+
+                    <h1 className="title">Atualizar local</h1>
+                    <fieldset className="field-upPlace">
+                       
                         <FormGroup label='Nome' htmlFor='lab'>
                             <input className="form-control" type="text" id="lab" value={this.state.placeName}
                             onChange={(e) => {this.setState({placeName: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Referência' htmlFor='lab'>
                             <input className="form-control" type="text" id="lab" value={this.state.placeReference}
+                            autoComplete="off"
                             onChange={(e) => {this.setState({placeReference: e.target.value})}}/>
+                        </FormGroup>
+
+                        <FormGroup className="capacity-upd" label='Capacidade total de pessoas' htmlFor='lab03'>
+                            <input className="form-control-small" type="number" id="lab"
+                            min={1}
+                            max={250}
+                            autoComplete="off"
+                            onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
+                        </FormGroup>
+
+                         <FormGroup className="isPublic-upd" label='É público?' htmlFor='lab'>
+
+                            <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
                         <br/>
                         <br/>
-                        <button onClick={this.put} type="button" className="btn btn-primary">Atualizar</button>
-                        <button onClick={this.cancel} type="button" className="btn btn-danger">Cancelar</button>
+                        <button onClick={this.put} type="button" className="btn btn-primary btn-upPlace">Atualizar</button>
+                        <button onClick={this.cancel} type="button" className="btn btn-danger btn-upPlace">Cancelar</button>
                     </fieldset>
                 </header> 
-                
+                <footer className="footer-upPlace"></footer>
             </div>
             
         )

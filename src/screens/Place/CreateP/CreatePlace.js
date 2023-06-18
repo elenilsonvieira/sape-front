@@ -1,5 +1,5 @@
 import React from "react";
-import './CreatePlace.css'
+import './CreatePlace.css';
 import 'bootswatch/dist/minty/bootstrap.css';
 import FormGroup from "../../../componentes/FormGroup";
 import PlaceApiService from "../../../services/PlaceApiService";
@@ -13,7 +13,7 @@ export default class CreatePlace extends React.Component {
         placeReference:"",
         capacityMax:"",
         isPublic: false,
-        responsible: ""
+        responsibles:[]
     }
 
     constructor() {
@@ -24,7 +24,7 @@ export default class CreatePlace extends React.Component {
     handleInputChangeUser = (user) => {
         console.log("user:", user);
         this.setState({ responsible: user }, () => {
-          console.log('user selected', this.state.responsible);
+          console.log('user selected', this.state.responsibles.push(user));
         });
       }
     
@@ -52,8 +52,11 @@ export default class CreatePlace extends React.Component {
         if (!this.state.capacityMax){
             errors.push('É obrigatório informar a capacidade máxima do local!');
         }
-        if (!this.state.responsible){
+        if (!this.state.responsibles){
             errors.push('É obrigatório informar um responsável pelo local!');
+        }
+        if (this.state.capacityMax<0){
+            errors.push('Capacidade Máxima deve ser um número positivo!');
         }
 
         return errors;
@@ -77,7 +80,7 @@ export default class CreatePlace extends React.Component {
                 reference: this.state.placeReference,
                 maximumCapacityParticipants: this.state.capacityMax,
                 public: this.state.isPublic,
-                responsible: this.state.responsible
+                responsibles: this.state.responsibles
              }
         ) 
         .then( response =>
@@ -98,34 +101,46 @@ export default class CreatePlace extends React.Component {
         return (
             <div>
                 <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Criar local</h1>
+                    <h1 className="title">Criar local</h1>
+                    <fieldset className="field-place">
+                        
                         <FormGroup label='Nome' htmlFor='lab01'>
                             <input className="form-control" type="text" id="lab"
+                            placeholder="Digite o nome do local"
+                            maxLength={25}
                             onChange={(e) => {this.setState({placeName: e.target.value})}}/>
                         </FormGroup>
                         <FormGroup label='Referência' htmlFor='lab02'>
                             <input className="form-control" type="text" id="lab"
+                            placeholder="Digite uma referência para o local"
+                            autoComplete="off"
                             onChange={(e) => {this.setState({placeReference: e.target.value})}}/>
                         </FormGroup>
-                        <FormGroup label='Capacidade total de pessoas' htmlFor='lab03'>
-                            <input className="form-control-small" type="number" id="lab"
+                        <FormGroup label='Capacidade total de pessoas' htmlFor='lab03' className="capacity">
+                            <input className="form-control-small" type="number"
+                             id="lab"
+                             autoComplete="off"
+                             placeholder="0"
+                            min={0}
                             onChange={(e) => {this.setState({capacityMax: e.target.value})}}/>
                         </FormGroup>
-                        <FormGroup label='É público?' htmlFor='lab'>
+                        <FormGroup className="isPublic" label='É público?' htmlFor='lab'>
                             <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault" defaultChecked={this.state.isPublic} onChange={this.handleChange}/>
                         </FormGroup>
-                        <FormGroup label='Nome do responsável pelo local' htmlFor='lab' className="filterUser">
-                            <DDUsers   onChange={this.handleInputChangeUser} />   
+                        <FormGroup label='Nome do responsável pelo local' htmlFor='lab' className="filterUserPlace">
+                            <DDUsers className="ddusers"  onChange={this.handleInputChangeUser} label="Responsável"/>   
                         </FormGroup>
                         <br/>
                         <br/>
-                        <button onClick={this.post} type="button" className="btn btn-primary">Salvar</button>
-                        <button onClick={this.cancel} type="button" className="btn btn-danger">Cancelar</button>
+                        <button onClick={this.post} type="button" className="btn btn-primary btn-place">Salvar</button>
+                        <button onClick={this.cancel} type="button" className="btn btn-danger btn-place">Cancelar</button>
                         <br/>
             
                     </fieldset>
                 </header>
+                <footer className="footer-place"></footer>
+                
+
             </div>
         )
     }

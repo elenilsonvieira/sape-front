@@ -1,4 +1,5 @@
 import React from "react";
+import './ViewUser.css';
 import 'bootswatch/dist/minty/bootstrap.css';
 import { withRouter } from 'react-router-dom';
 import UserApiService from "../../../services/UserApiService";
@@ -130,8 +131,8 @@ class ViewUser extends React.Component {
         return (
             <div>
                 <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Atualizar Perfil</h1>
+               <h1 className="title">Atualizar Perfil</h1>
+                    <fieldset className="">
                         <FormGroup label='ID' htmlFor='lab'>
                             <input className="form-control-small" type="number" id="lab" value={this.state.id} disabled={true}
                             onChange={(e) => {this.setState({id: e.target.value})}}/>

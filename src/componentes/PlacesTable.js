@@ -7,8 +7,7 @@ export default props => {
 
     const rows = props.places.map( place => {
         return (
-            <tr key={place.id}>
-                <td>{place.id}</td>
+            <tr key={place.id}>              
                 <td>{place.name}</td>
                 <td>{place.reference}</td>
                 <td>{place.maximumCapacityParticipants}</td>
@@ -16,10 +15,13 @@ export default props => {
                     size={20} 
                     title='ver Responsáveis'
                     onClick={e => props.viewResponsibles(place.id)}
-                /></td>
+                />
+                </td>
                 <td>{place.public ? "Sim" : "Não"}</td>
                 <td>
-                    <button type="button" title="Edit" className="btn btn-warning"
+                    <div className="buttons-table">
+                        
+                        <button type="button" title="Edit" className="btn btn-warning"
                         onClick={e => props.edit(place.id)}>
                             Atualizar
                     </button>
@@ -27,6 +29,8 @@ export default props => {
                         onClick={e => props.delete(place.id)}>
                             Excluir
                     </button>
+                    </div>
+                    
                 </td>
             </tr>
         )
@@ -35,8 +39,7 @@ export default props => {
     return(
         <table className="table table-hover">
             <thead>
-                <tr>
-                    <th scope="col">Id</th>
+                <tr className="table-primary">
                     <th scope="col">Nome</th>
                     <th scope="col">Referência</th>
                     <th scope="col">Capacidade</th>

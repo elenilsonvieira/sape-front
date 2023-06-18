@@ -35,7 +35,7 @@ const DDUsers = (props) => {
             props.onChange(newValue ? newValue : "");                                                          
           }}
           renderInput={(params) => (
-            <TextField {...params} size="small" label="Usuarios" variant="outlined" /> 
+            <TextField {...params} size="small" label={props.label} variant="outlined" /> 
           )}
         />
       );

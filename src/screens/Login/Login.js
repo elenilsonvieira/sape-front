@@ -34,7 +34,7 @@ class Login extends React.Component {
         return (
 
             <div className="cont">
-                <header className="App-header">
+                <header >
                     <fieldset className="set02">
                         <h3>Sistema de Agendamentos de Práticas Esportivas</h3>
                         <h1 id="h1">SAPE</h1>

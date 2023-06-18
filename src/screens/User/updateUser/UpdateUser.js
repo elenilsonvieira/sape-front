@@ -106,9 +106,10 @@ export default class UpdateUser extends React.Component {
         return (
             <div>
                 <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Atualizar Dados</h1>
-                            <div className="container-updateuser">
+                    <h1 className="title">Atualizar Dados</h1>
+                    <fieldset className="fieldset-updateUser">
+                        
+                        <div className="container-updateuser">
                                 
                         <FormGroup label='Nome' htmlFor='upd'>
                             <input className="form-control" 
@@ -141,6 +142,7 @@ export default class UpdateUser extends React.Component {
                     </div>
                     </fieldset>
                 </header> 
+                <footer className="footer-updateUser"></footer>
                 
             </div>
             

@@ -77,21 +77,22 @@ class ViewResponsibles extends React.Component {
         return(
             <div>
                 <header className="App-header">
-                    <fieldset className="fields">
-                        <h1 className="title">Responsáveis pelo Local</h1>
+                      <h1 className="title">Responsáveis pelo Local</h1>
+                    <fieldset className="field-viewResponsibles">
+                      
                         <br/>
                         <br/>
                         <br/>
-                        <div className="table-users"> 
+                        <div className="table-all" > 
 
                             <UsersTable user={this.state.responsibles}  delete={this.removeResponsibles}  />
                             
                         </div>
                         <div className="cont-resp">
              
-                              <FormGroup className="filterUser">
+                              <FormGroup className="filterUserResponsibles">
                                 <DDUsers onChange={this.handleInputChangeUser}/>
-                                <button id="btn-res" className="btn btn-primary" onClick={this.addResponsibles}>adicionar responsavel</button>
+                                <button  className="btn btn-primary btn-res" onClick={this.addResponsibles}>adicionar responsavel</button>
                             </FormGroup> 
 
                             
@@ -103,6 +104,7 @@ class ViewResponsibles extends React.Component {
                     <br/>
                     
             </header>
+            <footer className="footer-viewResponsibles"></footer>
             </div>
         )
     }

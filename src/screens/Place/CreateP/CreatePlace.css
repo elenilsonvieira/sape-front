@@ -1,24 +1,93 @@
 button {
-  margin-right: 5px;
-  margin-left: 5px;
+  margin: 15px;
+ 
 }
 
-fieldset {
+.btn-place{
+  position: relative;
+  width: 120px;
+ bottom: 150px;
+ left: 35%;
+  transition: ease-in 1s;
+ 
+}
+
+/* fieldset {
   margin-bottom: 30px;
+} */
+
+.App-header{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+ 
 }
 
+.capacity{
+  position: relative;
+  width: 400px;
+  left: 500px;
+  bottom: 130px;
+ 
+}
+
+.field-place{
+  width: 1000px;
+  height: 550px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(125, 192, 119, 0.12);
+  
+}
 .form-check-input {
   height: 30px;
   width: 30px;
-  margin-left: 55px;
+  margin-left: 60px;
 }
 
-.filterUser {
-  display: inline-block;
-  inline-size: 100px;
-  width: 300px;
-  margin-right: 25px;
-  padding: 5px 0;
-  font-size: 1.2rem;
-  border-radius: 0.3rem;
+.form-control-small{
+  height: 30px;
+  width: 60px;
+  margin-left: 60px;
+
+}
+
+.filterUserPlace {
+  position: relative;
+  width: 400px;
+  left: 52px;
+  bottom: 220px;
+ 
+
+}
+
+.isPublic{
+  position: relative;
+  width: 400px;
+  left: 502px;
+  bottom:150px;
+}
+
+
+
+
+.footer-place{
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+  background-color: rgb(41, 216, 25);
+  
+  
+
+}
+
+.form-control::placeholder {
+  align-items: end;
+  justify-items: end;
+  align-content: end;
+  justify-content: end;
+  color: rgba(0, 0, 0, 0.3);
 }

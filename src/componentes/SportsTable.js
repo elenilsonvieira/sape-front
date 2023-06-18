@@ -7,9 +7,10 @@ export default props => {
         return (
             <tr key={sport.id}>
                 <td>{sport.name}</td>
+                <td></td>
                 <td>
-                    <td>
-                    <button className="btn btn-danger" type="button" title="Favoritar"
+                    <td className="btn-sport">
+                    <button className="btn btn-info" type="button" title="Favoritar"
                         onClick={e => props.addSportsFavorite(sport.id)}>
                             Favoritar
                     </button>
@@ -27,8 +28,9 @@ export default props => {
     return(
         <table className="table table-hover">
             <thead>
-                <tr>
+                <tr className='table-primary'>
                     <th scope="col">Nome</th>
+                    <th></th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>

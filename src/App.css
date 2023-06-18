@@ -4,13 +4,14 @@
     justify-content: space-evenly;
     font-family: sans-serif;
     text-align: center;
-  	margin-top: -30px;
+  	margin-top: 55px;
+    width: 100%;
     font-family: 'Imprima';
     font-style: normal;
     font-weight: 400;
     font-size: 50px;
     line-height: 111px;
-    color: #dde1db;
+    color: #ffffff;
 
 }
 
@@ -42,16 +43,17 @@
 /* usado nas tabelas em "components" */
 label {
     width: 100%;
-    margin-left: 60px;
+    text-align: start;
     color: #6DCA41;
+    
   }
 
-  
+ 
 
   .form-control {
     margin-right: 53px;
     margin-left: 53px;
-    max-width: 800px;
+    max-width: 400px;
     text-align: center;
     box-sizing: border-box;
     border-radius: 6px;
@@ -67,3 +69,8 @@ label {
     border-radius: 6px;
     
   }  
+  
+  .col-form-label{
+    text-align: start;
+    margin-left: 50px;
+  }

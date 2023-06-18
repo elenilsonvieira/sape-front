@@ -20,7 +20,7 @@ export default props => {
             <GetNameUser registration = {scheduling.creator} label="user"/>
 
             <td>
-                <button type="button" title="Cancelar Presença" className="btn btn-primary"
+                <button type="button" title="Cancelar Presença" className="btn btn-primary btn-confirmSc"
                         onClick={e => props.approveScheduling(scheduling.id)}
                         >
                             Confirmar
@@ -34,7 +34,7 @@ export default props => {
 return(
     <table className="table table-hover">
         <thead>
-            <tr >
+            <tr className='table-primary'>
                 <th scope="col">Data</th>
                 <th scope="col">Início</th>
                 <th scope="col">Fim</th>

@@ -33,13 +33,13 @@ export default props => {
 
 
                 <td>
-                    <button type="button" title="Confirmar Presença" className="btn btn-success"
+                    <button type="button" title="Confirmar Presença" className="btn btn-success btn-confirm"
                         onClick={e => props.addIsPresent(scheduling.id) }  >
                                 Sim
                     </button>
                 </td> 
                     <td>
-                    <button type="button" title="Excluir" className="btn btn-danger"
+                    <button type="button" title="Excluir" className="btn btn-danger btn-del"
                         onClick={e => props.delete(scheduling.id)}>
                             Excluir
                     </button>
@@ -54,7 +54,7 @@ export default props => {
     return(
         <table className="table table-hover">
             <thead>
-                <tr>
+                <tr className='table-primary'>
                     <th scope="col">Data</th>
                     <th scope="col">Início</th>
                     <th scope="col">Fim</th>

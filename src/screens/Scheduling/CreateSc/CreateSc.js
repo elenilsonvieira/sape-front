@@ -116,8 +116,8 @@ export default class CreateSc extends React.Component {
         return (
             <div>
                 <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Agendar prática</h1>
+                                           <h1 className="title">Agendar prática</h1>
+                    <fieldset className="fieldset-sched">
                         <FormGroup label='Data' htmlFor='lab01' className="FieldSetSc">
                             <input className="form-control noMargin" type="date" id="lab"
                             onChange={(e) => {this.setState({date: e.target.value})}}/>
@@ -132,20 +132,23 @@ export default class CreateSc extends React.Component {
                         </FormGroup>
                         <br />
                         <br />
-                        <FormGroup label='Selecione o local' htmlFor='lab04' className="FieldSetSc">
-                            <DDPlaces id="lab" onChange={this.handleInputChangePlace} />
+                        <FormGroup label='Selecione o local' htmlFor='lab04' className="FieldSetDDsP">
+                            <DDPlaces className="dds" id="noMargin" onChange={this.handleInputChangePlace} />
                         </FormGroup>
-                        <FormGroup label='Selecione o esporte' htmlFor='lab05' className="FieldSetSc">
-                            <DDSports id="lab" onChange={this.handleInputChangeSport} />
+                        <FormGroup label='Selecione o esporte' htmlFor='lab05' className="FieldSetDDsS">
+                            <DDSports className="dds" id="noMargin" onChange={this.handleInputChangeSport} />
                         </FormGroup>
                         <br/>
                         <br/>
                         <br />
-                        <button onClick={this.post} type="button" className="btn btn-primary">Salvar</button>
-                        <button onClick={this.cancel} type="button" className="btn btn-danger">Cancelar</button>
+                        <button onClick={this.post} type="button" className="btn btn-primary btnsCreateSc">Salvar</button>
+                        <button onClick={this.cancel} type="button" className="btn btn-danger btnsCreateSc">Cancelar</button>
                     </fieldset>
-                </header>
+                </header>                    
+                <footer className="foot"></footer>
+
             </div>
+            
         )
     }
 }

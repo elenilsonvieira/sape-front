@@ -13,7 +13,7 @@ export default props => {
                 <td>
                 <td>
                 
-                    <button type="button" title="Excluir" className="btn btn-danger"
+                    <button type="button" title="Excluir" className="btn btn-danger btndelres"
                         onClick={e => props.delete(user.id)}>
                             Excluir
                     </button>
@@ -27,7 +27,7 @@ export default props => {
 
         <table className="table table-hover">
             <thead>
-                <tr>
+                <tr className='table-primary'>
                     <th scope="col">Nome</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Matrícula</th>

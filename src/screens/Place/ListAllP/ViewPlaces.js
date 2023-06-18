@@ -56,17 +56,23 @@ class ViewPlaces extends React.Component {
     render(){
         return(
             <div>
-                <header className="App-header">
-                    <fieldset>
-                        <h1 className="title">Locais</h1>
+                <header className="App-header"> 
+                <h1 className="title">Locais</h1>
+                    <fieldset className="field-viewplace">
+                       
                         <br/>
                         <br/>
                         <br/>
-                        <PlacesTable places={this.state.places} viewResponsibles={this.viewResponsibles} delete={this.delete} edit={this.edit} />
+                        <div className="table-all">
+                            <PlacesTable places={this.state.places} viewResponsibles={this.viewResponsibles} delete={this.delete} edit={this.edit} />
+                        </div>
+                        
+                        
                     </fieldset>
                     <br/>
-                    <button onClick={this.create} type="button" className="btn btn-primary">Cadastrar novo local</button>
+                    <button onClick={this.create} type="button" className="btn-viewplace btn btn-primary">Cadastrar novo local</button>
                 </header>
+                <footer className="footer-viewplace"></footer>
             </div>
         )
     }

@@ -1,13 +1,9 @@
-.filterUser{
-    display: inline-block;
-  inline-size: 100px;
+.filterUserResponsibles{
+ 
+  position: relative;
   width: 300px;
-  left: 100px;
-  margin-right: 25px;
-  padding: 5px 0;
-  font-size: 1.2rem;
-  border-radius: 0.3rem;
-  
+  top: 80px;
+
   
 }
 
@@ -22,9 +18,32 @@
  
 }
 
-button#btn-res{
+.btn-res{
 position: absolute;
-bottom: 2px;
-left: 90px;
+top: 80px;
+left: 40px;
 
+}
+
+.field-viewResponsibles{
+  width: 90%;
+height: 650px;
+margin-top: 10px;
+border-radius: 10px;
+box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+background-color: rgba(125, 192, 119, 0.12);
+}
+
+.footer-viewResponsibles{
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+  background-color: rgb(41, 216, 25);
+}
+
+.btndelres{
+  display: flex;
+  margin: -1px;
+  margin-left: -20px;
 }

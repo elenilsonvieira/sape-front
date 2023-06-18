@@ -86,16 +86,21 @@ class ViewSports extends React.Component {
         return(
             <div>
                 <header className="App-header">
-                    <fieldset>
-                    <h1 className="title">Esportes</h1>
+                <h1 className="title">Esportes</h1>
+                    <fieldset className="field-viewSport">
+                    
                         <br/>
                         <br/>
                         <br/>
-                        <SportsTable sports={this.state.sports} delete={this.delete} edit={this.edit} addSportsFavorite={this.addSportsFavorite}/>
+                        <div className="table-sport">
+                <SportsTable sports={this.state.sports} delete={this.delete} edit={this.edit} addSportsFavorite={this.addSportsFavorite}/>
+ 
+                        </div>
                     </fieldset>
                     <br/>
                     <button onClick={this.create} type="button" className="btn btn-primary">Novo Esporte</button>
                 </header>
+                <footer className="footer-viewsport"></footer>
             </div>
         )
     }
