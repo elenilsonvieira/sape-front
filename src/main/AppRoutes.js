@@ -4,10 +4,12 @@ import {Route, BrowserRouter, Switch, Redirect} from 'react-router-dom';
 import HomePage from "../screens/HomePage/HomePage";
 import Login from "../screens/Login/Login";
 
+
 import CreatePlace from "../screens/Place/CreateP/CreatePlace";
 import UpdatePlace from "../screens/Place/UpdateP/UpdatePlace";
 import ListPlaces from "../screens/Place/ListAllP/ViewPlaces";
 import ViewResponsibles from "../screens/Place/viewResponsibles/ViewResponsibles";
+import calendario from "../screens/calendar/Calendar";
 
 import CreateSport from "../screens/Sport/CreateS/CreateSport";
 import UpdateSport from "../screens/Sport/UpdateS/UpdateSport";
@@ -77,7 +79,8 @@ function AppRoutes(props) {
 
             <RestrictedRoute show={props.isAuthenticated} component = { ViewUser } path= "/viewUser" />
             <RestrictedRoute show={props.isAuthenticated} component = { UpdateUser } path= "/updateUser/:id" />
-
+            <RestrictedRoute show={props.isAuthenticated} component = { calendario } path= "/Calendar" />
+            
 
             </Switch>
         </BrowserRouter>
