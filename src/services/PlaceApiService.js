@@ -1,38 +1,37 @@
-import ApiService from './ApiService';
+import ApiService from "./ApiService";
 
 export default class PlaceApiService extends ApiService {
-    
-    constructor() {
-        super('/place')
-    }
+  constructor() {
+    super("/place");
+  }
 
-    create(object) {
-        return this.post('', object);
-    }
+  create(object) {
+    return this.post("", object);
+  }
 
-    update(id, object) {
-        return this.put(`/${id}`, object);
-    }
+  update(id, object) {
+    return this.put(`/${id}`, object);
+  }
 
-    delete(id) {
-        return super.delete(`/${id}`);
-    }
+  delete(id) {
+    return super.delete(`/${id}`);
+  }
 
-    find(id) {
-        return this.get(`/${id}`);
-    }
+  find(id) {
+    return this.get(`/${id}`);
+  }
 
-    getResponsibles(placeId){
-       return this.get(`/getResponsibles/${placeId}`)
-    }
-    addResponsibles(placeId,userId){
-      return this.patch(`/${placeId}/addResponsibles/${userId}`)
-    }
+  getResponsibles(placeId) {
+    return this.get(`/getResponsibles/${placeId}`);
+  }
+  addResponsibles(placeId, userId) {
+    return this.patch(`/${placeId}/addResponsibles/${userId}`);
+  }
 
-    removeResponsibles(placeId,userId){
-       return this.patch(`/${placeId}/removeResponsibles/${userId}`)
-    }
-    /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
+  removeResponsibles(placeId, userId) {
+    return this.patch(`/${placeId}/removeResponsibles/${userId}`);
+  }
+  /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
     find(params) {
         return this.get(`${params}`);
     }

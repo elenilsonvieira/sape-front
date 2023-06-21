@@ -1,24 +1,25 @@
-.btn-perfil{
-    position: relative;
-    right: 70px;
-    
+.btn-perfil {
+  position: relative;
+  right: 70px;
 
-    
-}
-.container-user{
-    
-    position: relative;
-    left: 100px;
-    
+
+
 }
 
-span#user-spo{
-    position: absolute;
-    width: 400px;
-    height: 40px;
-    /* left: 40%; */
-    font-size: 1.5rem;
-    color: rgb(61, 61, 61);
+.container-user {
+
+  position: relative;
+  left: 100px;
+
+}
+
+span#user-spo {
+  position: absolute;
+  width: 400px;
+  height: 40px;
+  /* left: 40%; */
+  font-size: 1.5rem;
+  color: rgb(61, 61, 61);
 }
 
 
@@ -30,85 +31,88 @@ span#user-spo{
     max-height: 200px;
 }  */
 
-.fieldset-user{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    width: 1000px;
-    margin-top: 10px;
-    height: 450px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
-    background-color: rgba(125, 192, 119, 0.12);
+.fieldset-user {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 1000px;
+  margin-top: 10px;
+  height: 450px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(125, 192, 119, 0.12);
 }
-.footer-user{
-    position: fixed;
-    width: 100%;
-    height: 25px;
-    bottom: 0px;
-    background-color: rgb(41, 216, 25);
+
+.footer-user {
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+  background-color: rgb(41, 216, 25);
 }
+
 .minitela {
-    /* position: absolute; */
-    width: 1000px;
-    height: 300px;
-    max-height: 240px;
-    margin-top: 0px;
-    /* top: 49%;
+  /* position: absolute; */
+  width: 1000px;
+  height: 300px;
+  max-height: 240px;
+  margin-top: 0px;
+  /* top: 49%;
     left: 59%;
     transform: translate(10%, -60%); */
-    overflow: auto;
-    background-color: rgba(125, 192, 119, 0.12);
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 10px rgba(19, 19, 19, 0.212);
-    /* Outros estilos desejados */
+  overflow: auto;
+  background-color: rgba(125, 192, 119, 0.12);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(19, 19, 19, 0.212);
+  /* Outros estilos desejados */
+}
+
+.btn-desfavoritar {
+  display: flex;
+  margin: -3px;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-perfil {
+    right: 0px;
   }
 
-  .btn-desfavoritar{
-    display: flex;
-    margin: -3px;
+  .container-user {
+    left: 30px;
   }
 
-  @media screen and (max-width: 768px) {
-    .btn-perfil {
-      right: 0px;
-    }
-  
-    .container-user {
-      left: 30px;
-    }
-  
-    span#user-spo {
-      width: 100%;
-      font-size: 1.2rem;
-    }
-  
-    .fieldset-user {
-        width: auto;
-      height: auto;
-      padding: 10px;
-    }
+  span#user-spo {
+    width: 100%;
+    font-size: 1.2rem;
+  }
 
-    .form-control {
-        width: 210px;
-    }
-    .minitela {
-        width: 340px;
-    }
+  .fieldset-user {
+    width: auto;
+    height: auto;
+    padding: 10px;
   }
-  
-  /* Estilos para telas menores que 480px */
-  @media screen and (max-width: 480px) {
-    .btn-perfil {
-      display: block;
-      margin: 10px auto;
-    }
-  
-    .container-user {
-      left: 0;
-    }
-  
-    span#user-spo {
-      font-size: 1rem;
-    }
+
+  .form-control {
+    width: 210px;
   }
+
+  .minitela {
+    width: 340px;
+  }
+}
+
+/* Estilos para telas menores que 480px */
+@media screen and (max-width: 480px) {
+  .btn-perfil {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .container-user {
+    left: 0;
+  }
+
+  span#user-spo {
+    font-size: 1rem;
+  }
+}

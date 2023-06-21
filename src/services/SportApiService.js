@@ -2,36 +2,26 @@ import axios from "axios";
 import ApiService from "./ApiService";
 
 export default class SportApiService extends ApiService {
-    
-    constructor() {
-        super('/sport')
-    }
+  constructor() {
+    super("/sport");
+  }
 
-    create(object) {
-        return this.post('', object);
-    }
+  create(object) {
+    return this.post("", object);
+  }
 
-    update(id, object) {
-        return this.put(`/${id}`, object);
-    }
+  update(id, object) {
+    return this.put(`/${id}`, object);
+  }
 
-    delete(id) {
-        return super.delete(`/${id}`);
-    }
+  delete(id) {
+    return super.delete(`/${id}`);
+  }
 
-    find(id) {
-        return this.get(`/${id}`);
-    }
-
-    addSportsFavorite(sportId, object) {
-        console.log(sportId)
-        return axios.patch(`http://localhost:8080/api/user/${1}/sportsFavorite/${sportId}`)
-        
-        
-        
-    }
-
-    /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
+  find(id) {
+    return this.get(`/${id}`);
+  }
+  /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
     find(params) {
         return this.get(`${params}`);
     }

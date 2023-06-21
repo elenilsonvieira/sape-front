@@ -1,126 +1,126 @@
-.set02{
-    position: absolute;
-    width: 734px;
-    height: 1053px;
-    left: -30px;
-    top: -29px;
-  
-  }
-
-.set02 h3{
-    background-color:#6DCA41;
-    align-items: center;
-    justify-content: space-evenly;
-    font-family: sans-serif;
-    text-align: center;
-
-    font-family: 'Imprima';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 111px;
-    color: #dde1db;
+.set02 {
+  position: absolute;
+  width: 734px;
+  height: 1053px;
+  left: -30px;
+  top: -29px;
 
 }
 
-.set02 h1{ 
-    position: absolute;
-    width: 219px;
-    height: 417px;
-    left: 145px;
-    top: 270px;
-  
-    font-family: 'Imprima';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 93px;
-    line-height: 111px;
-    text-align: center;
-  
-    color: #6DCA41;
-  
-  }
+.set02 h3 {
+  background-color: #6DCA41;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: sans-serif;
+  text-align: center;
 
-.set02 h2{
-    position: absolute;
-    width: 478px;
-    height: 238px;
-    left: 835px;
-    top: 80px;
-  
-    font-family: 'Imprima';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: left;
-  
-    color: #6DCA41;
-  
-  }
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 111px;
+  color: #dde1db;
 
-#lab01{
-    position: absolute;
-    width: 200px;
-    height: 40px;
-    left: 900px;
-    top: 320px;
-  
-    font-family: 'Imprima';
-    font-style: normal;
-    font-weight: 40px;
-    font-size: 20px;
-    line-height: 15px;
-  
-    color: #606b5a;
+}
 
-  }
+.set02 h1 {
+  position: absolute;
+  width: 219px;
+  height: 417px;
+  left: 145px;
+  top: 270px;
 
-  #input01{
-    position: absolute;
-    width: 280px;
-    height: 25px;
-    left: 900px;
-    top: 360px;
-    background-color: #c1ccbc;
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 93px;
+  line-height: 111px;
+  text-align: center;
 
-  }
+  color: #6DCA41;
 
-  #lab02{
-    position: absolute;
-    width: 200px;
-    height: 83px;
-    left: 900px;
-    top: 410px;
-  
-    font-family: 'Imprima';
-    font-style: normal;
-    font-weight: 40px;
-    font-size: 20px;
-    line-height: 15px;
-  
-    color: #606b5a;
+}
 
-  }
+.set02 h2 {
+  position: absolute;
+  width: 478px;
+  height: 238px;
+  left: 835px;
+  top: 80px;
 
-#input02{
-    position: absolute;
-    width: 280px;
-    height: 35px;
-    left: 1px;
-    top: 420px;
-    border: 5px;
-    background-color: #c1ccbc;
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: left;
 
-  }
+  color: #6DCA41;
 
-#input03{
-    position: absolute;
-    width: 280px;
-    height: 25px;
-    left: 1px;
-    top: 480px;
-    border: 15px;
-    background-color: #c1ccbc;
+}
+
+#lab01 {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  left: 900px;
+  top: 320px;
+
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 40px;
+  font-size: 20px;
+  line-height: 15px;
+
+  color: #606b5a;
+
+}
+
+#input01 {
+  position: absolute;
+  width: 280px;
+  height: 25px;
+  left: 900px;
+  top: 360px;
+  background-color: #c1ccbc;
+
+}
+
+#lab02 {
+  position: absolute;
+  width: 200px;
+  height: 83px;
+  left: 900px;
+  top: 410px;
+
+  font-family: 'Imprima';
+  font-style: normal;
+  font-weight: 40px;
+  font-size: 20px;
+  line-height: 15px;
+
+  color: #606b5a;
+
+}
+
+#input02 {
+  position: absolute;
+  width: 280px;
+  height: 35px;
+  left: 1px;
+  top: 420px;
+  border: 5px;
+  background-color: #c1ccbc;
+
+}
+
+#input03 {
+  position: absolute;
+  width: 280px;
+  height: 25px;
+  left: 1px;
+  top: 480px;
+  border: 15px;
+  background-color: #c1ccbc;
 
 }

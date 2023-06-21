@@ -1,68 +1,64 @@
-import ApiService from './ApiService';
+import ApiService from "./ApiService";
 
 export default class SchedulingApiService extends ApiService {
-    
-    constructor() {
-        super('/scheduling')
-    }
+  constructor() {
+    super("/scheduling");
+  }
 
-    create(object) {
-        return this.post('', object);
-    }
+  create(object) {
+    return this.post("", object);
+  }
 
-    update(id, object) {
-        return this.put(`/${id}`, object);
-    }
+  update(id, object) {
+    return this.put(`/${id}`, object);
+  }
 
-    delete(id) {
-        return super.delete(`/${id}`);
-    }
+  delete(id) {
+    return super.delete(`/${id}`);
+  }
 
-    find() {
-        return this.get('');
-    }
-    approveScheduling(schedulingId) {
-        return this.patch(`/approvedScheduling/${schedulingId}`);
-    }
-    
-    findAllParticpants(id) {
-        return this.get(`/participation/${id}`);
-    }
-    findAllSchedulingPendingByPlaceResponsible(userRegistration) {
-        return this.get(`/ResponsiblePlace/${userRegistration}`);
-    }
+  find() {
+    return this.get("");
+  }
+  approveScheduling(schedulingId) {
+    return this.patch(`/approvedScheduling/${schedulingId}`);
+  }
 
-    findWithFilter(filters) {
-        return this.getWithFilter(`/useFilter${filters}`);
-    }
+  findAllParticpants(id) {
+    return this.get(`/participation/${id}`);
+  }
+  findAllSchedulingPendingByPlaceResponsible(userRegistration) {
+    return this.get(`/ResponsiblePlace/${userRegistration}`);
+  }
 
-    confirmedByPlaceId(placeId) {
-        return this.get(`/confirmedByPlace/${placeId}`);
-    }
+  findWithFilter(filters) {
+    return this.getWithFilter(`/useFilter${filters}`);
+  }
 
-    confirmedBySport(sportId) {
-        return this.get(`/confirmedBySport/${sportId}`);
-    }
+  confirmedByPlaceId(placeId) {
+    return this.get(`/confirmedByPlace/${placeId}`);
+  }
 
-    confirmedByUser(registration) {
-        return this.get(`/user/${registration}`);
-    }
+  confirmedBySport(sportId) {
+    return this.get(`/confirmedBySport/${sportId}`);
+  }
 
-    addParticipant(schedulingId, object) {
-        return this.patch(`/participation/add/${schedulingId}`, object);
-    }
+  confirmedByUser(registration) {
+    return this.get(`/user/${registration}`);
+  }
 
-    removeParticipant(schedulingId, object) {
-        return this.patch(`/participation/remove/${schedulingId}`, object);
-    }
-    addIsPresent(schedulingId, userRegistration) {
-        return this.patch(`/${schedulingId}/addIsPresent/${userRegistration}`);
-    }
+  addParticipant(schedulingId, object) {
+    return this.patch(`/participation/add/${schedulingId}`, object);
+  }
 
-    removeIsPresent(schedulingId, userRegistration) {
-        return this.patch(`/${schedulingId}/removeIsPresent/${userRegistration}`);
-    }
-   
+  removeParticipant(schedulingId, object) {
+    return this.patch(`/participation/remove/${schedulingId}`, object);
+  }
+  addIsPresent(schedulingId, userRegistration) {
+    return this.patch(`/${schedulingId}/addIsPresent/${userRegistration}`);
+  }
 
-    
+  removeIsPresent(schedulingId, userRegistration) {
+    return this.patch(`/${schedulingId}/removeIsPresent/${userRegistration}`);
+  }
 }

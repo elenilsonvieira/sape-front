@@ -1,4 +1,4 @@
-.HomePage1{
+.HomePage1 {
   position: absolute;
   width: 734px;
   height: 998px;
@@ -9,7 +9,7 @@
 
 }
 
-.HomePage1 h1{
+.HomePage1 h1 {
   position: absolute;
   width: 419px;
   height: 617px;
@@ -23,10 +23,10 @@
   line-height: 111px;
   text-align: center;
 
-  color: #FFFFFF;   
+  color: #FFFFFF;
 }
-  
-.HomePage1 h2{
+
+.HomePage1 h2 {
   position: absolute;
   width: 314px;
   height: 83px;
@@ -39,10 +39,10 @@
   font-size: 91px;
   line-height: 111px;
 
-  color: #6DCA41; 
+  color: #6DCA41;
 }
 
-.HomePage1 h3{
+.HomePage1 h3 {
   position: absolute;
   width: 478px;
   height: 238px;
@@ -60,7 +60,7 @@
 
 }
 
-.HomePage1 button{
+.HomePage1 button {
   position: absolute;
   width: 387px;
   height: 51px;

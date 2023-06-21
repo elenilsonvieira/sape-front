@@ -1,19 +1,19 @@
-.set02{
+.set02 {
   position: absolute;
   width: 734px;
   height: 1053px;
   left: -30px;
   top: 29px;
- 
+
 }
 
-.set02 h3{
-  background-color:#6DCA41;
+.set02 h3 {
+  background-color: #6DCA41;
   align-items: center;
   justify-content: space-evenly;
   font-family: sans-serif;
   text-align: center;
-margin-top: 150px;
+  margin-top: 150px;
   font-family: 'Imprima';
   font-style: normal;
   font-weight: 400;
@@ -23,13 +23,13 @@ margin-top: 150px;
 
 }
 
-.set02 h1{ 
+.set02 h1 {
   position: absolute;
   width: 219px;
   height: 417px;
   left: 345px;
   top: 170px;
-margin-top: 100px;
+  margin-top: 100px;
   font-family: 'Imprima';
   font-style: normal;
   font-weight: 400;
@@ -41,13 +41,13 @@ margin-top: 100px;
 
 }
 
-.set02 h2{
+.set02 h2 {
   position: absolute;
   width: 478px;
   height: 358px;
   left: 835px;
   top: 80px;
-margin-top: 100px;
+  margin-top: 100px;
   font-family: 'Imprima';
   font-style: normal;
   font-weight: 400;
@@ -59,7 +59,7 @@ margin-top: 100px;
 
 }
 
-#lab1{
+#lab1 {
   position: absolute;
   width: 200px;
   height: 90px;
@@ -76,7 +76,7 @@ margin-top: 100px;
 
 }
 
-#input1{
+#input1 {
   position: absolute;
   width: 280px;
   height: 40px;
@@ -87,7 +87,7 @@ margin-top: 100px;
 
 }
 
-#lab2{
+#lab2 {
   position: absolute;
   width: 200px;
   height: 90px;
@@ -104,7 +104,7 @@ margin-top: 100px;
 
 }
 
-#input2{
+#input2 {
   position: absolute;
   width: 280px;
   height: 40px;
@@ -116,7 +116,7 @@ margin-top: 100px;
 
 }
 
-.set02 button{
+.set02 button {
   position: absolute;
   width: 206px;
   height: 50px;
@@ -126,19 +126,19 @@ margin-top: 100px;
   background: #6DCA41;
   border-radius: 20px;
   transition: .5s;
-  
+
 }
 
-.set02 button:hover{
-background-color: #ffffff;
-color: #6DCA41;
-border-color: #6DCA41;
+.set02 button:hover {
+  background-color: #ffffff;
+  color: #6DCA41;
+  border-color: #6DCA41;
 }
 
-#h1{
-position: absolute;
-width: 0px;
-height: 0px;
-left: 250px;
+#h1 {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: 250px;
 
 }

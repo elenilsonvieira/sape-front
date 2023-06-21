@@ -1,4 +1,4 @@
-.table-sport{
+.table-sport {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -6,29 +6,30 @@
     height: 600px;
     margin-top: -20px;
     align-items: center;
-    align-content: center ;
-    overflow: auto ;
-   border-radius: 10px;
+    align-content: center;
+    overflow: auto;
+    border-radius: 10px;
     max-height: 700px;
-    
-    
-   
-font-size: 1.2rem;
+
+
+
+    font-size: 1.2rem;
 }
 
-.field-viewSport{
+.field-viewSport {
     width: 90%;
     height: 600px;
-        margin-top: 10px;
-        border-radius: 10px;
-        box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
-        align-items: center;
-        justify-content: center;
-        justify-items: center;
-        align-content: center;
-        background-color: rgba(125, 192, 119, 0.12);
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    background-color: rgba(125, 192, 119, 0.12);
 }
-.footer-viewsport{
+
+.footer-viewsport {
     position: fixed;
     width: 100%;
     height: 25px;
@@ -36,10 +37,10 @@ font-size: 1.2rem;
     background-color: rgb(41, 216, 25);
 }
 
-.btn-sport{
-   display: flex;
-   width: 50%;
-   margin: -15px;
-   margin-left: -100px;
-    
+.btn-sport {
+    display: flex;
+    width: 50%;
+    margin: -15px;
+    margin-left: -100px;
+
 }

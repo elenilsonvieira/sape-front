@@ -1,54 +1,50 @@
-import React from 'react';
+import React from "react";
 
-import GetName from './GetPlaceOrSportName';
-import GetNameUser from './GetUserOrNameUser';
+import GetName from "./GetPlaceOrSportName";
+import GetNameUser from "./GetUserOrNameUser";
 
-export default props => {
+export default (props) => {
+  const rows = props.schedulings?.map((scheduling) => {
+    return (
+      <tr key={scheduling.id}>
+        <td>{scheduling.scheduledDate}</td>
+        <td>{scheduling.scheduledStartTime}</td>
+        <td>{scheduling.scheduledFinishTime}</td>
+        <GetName id={scheduling.placeId} label="place" />
+        <GetName id={scheduling.sportId} label="sport" />
+        <td>{scheduling.status}</td>
 
-    const rows = props.schedulings?.map( scheduling => {
-        
-        return (
+        <GetNameUser registration={scheduling.creator} label="user" />
 
-            <tr key={scheduling.id} >
-            <td>{scheduling.scheduledDate}</td>
-            <td>{scheduling.scheduledStartTime}</td>
-            <td>{scheduling.scheduledFinishTime}</td>
-            <GetName id={scheduling.placeId} label="place"/>
-            <GetName id={scheduling.sportId} label="sport"/>
-            <td>{scheduling.status }</td>
-            
-            <GetNameUser registration = {scheduling.creator} label="user"/>
+        <td>
+          <button
+            type="button"
+            title="Cancelar Presença"
+            className="btn btn-primary btn-confirmSc"
+            onClick={(e) => props.approveScheduling(scheduling.id)}
+          >
+            Confirmar
+          </button>
+        </td>
+      </tr>
+    );
+  });
 
-            <td>
-                <button type="button" title="Cancelar Presença" className="btn btn-primary btn-confirmSc"
-                        onClick={e => props.approveScheduling(scheduling.id)}
-                        >
-                            Confirmar
-                </button>
-            </td> 
-
-        </tr>
-    )
-});
-
-return(
+  return (
     <table className="table table-hover">
-        <thead>
-            <tr className='table-primary'>
-                <th scope="col">Data</th>
-                <th scope="col">Início</th>
-                <th scope="col">Fim</th>
-                <th scope="col">Local</th>
-                <th scope="col">Esporte</th>
-                <th scope="col">Status</th>
-                <th scope="col">Agendado por:</th>
-                <th scope="col">Confirmar Agendamento?</th>
-
-            </tr>
-        </thead>
-        <tbody >
-            {rows}
-        </tbody>
+      <thead>
+        <tr className="table-primary">
+          <th scope="col">Data</th>
+          <th scope="col">Início</th>
+          <th scope="col">Fim</th>
+          <th scope="col">Local</th>
+          <th scope="col">Esporte</th>
+          <th scope="col">Status</th>
+          <th scope="col">Agendado por:</th>
+          <th scope="col">Confirmar Agendamento?</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
     </table>
-)
-}
+  );
+};

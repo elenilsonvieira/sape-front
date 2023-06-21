@@ -1,198 +1,222 @@
 import React from "react";
-import 'bootswatch/dist/minty/bootstrap.css';
-import './ViewUser.css'
-import { withRouter } from 'react-router-dom';
+import "bootswatch/dist/minty/bootstrap.css";
+import "./ViewUser.css";
+import { withRouter } from "react-router-dom";
 import UserApiService from "../../../services/UserApiService";
 import FormGroup from "../../../componentes/FormGroup";
 import SportsFavoriteTable from "../../../componentes/SportsFavoriteTable";
-import { showErrorMessage,showSuccessMessage } from "../../../componentes/Toastr";
+import {
+  showErrorMessage,
+  showSuccessMessage,
+} from "../../../componentes/Toastr";
 
 class ViewUser extends React.Component {
-    state = {
-        id: '',
-        name: '',
-        email: '',
-        registration: '',
-        role: '',
-        selectedSportsFavorite:[],
-        users :[],
-        user: '',
-        showFavorites: false
+  state = {
+    id: "",
+    name: "",
+    email: "",
+    registration: "",
+    role: "",
+    selectedSportsFavorite: [],
+    users: [],
+    user: "",
+    showFavorites: false,
+  };
+
+  constructor() {
+    super();
+    this.service = new UserApiService();
+  }
+  componentDidMount() {
+    this.find(this.getLoggedUser().registration);
+  }
+
+  // componentWillUnmount() {
+  //     this.clear();
+  // }
+  handleShowFavorites = () => {
+    this.setState({ showFavorites: !this.state.showFavorites });
+  };
+
+  getLoggedUser = () => {
+    var user = JSON.parse(localStorage.getItem("loggedUser"));
+
+    if (user == null) {
+      user = " ";
     }
-     
-   
-    constructor() {
-        super();
-        this.service = new UserApiService();
-    }
-    componentDidMount() {    
+    console.log(user);
+
+    return user;
+  };
+
+  removeSportsFavorite = (sportId) => {
+    this.service
+      .removeSportsFavorite(this.getLoggedUser().id, sportId)
+
+      .then((Response) => {
+        showSuccessMessage("Esporte Removido dos favoritos");
         this.find(this.getLoggedUser().registration);
-    }
+      })
+      .catch((error) => {
+        showErrorMessage(error.response.data);
+        showErrorMessage(
+          "Ocorreu um erro ao excluir o esporte, tente novamente!"
+        );
+      });
+  };
 
-    // componentWillUnmount() {
-    //     this.clear();
-    // }
-    handleShowFavorites = () => {
-        this.setState({ showFavorites: !this.state.showFavorites });
-      };
-    
-    getLoggedUser = () =>{
-        
-        var user = JSON.parse(localStorage.getItem('loggedUser'));
+  delete = (userId) => {
+    this.service
+      .delete(userId)
+      .then((response) => {
+        this.find();
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
 
-        if (user == null) {
+  edit = (userId) => {
+    this.props.history.push(`/updateUser/${this.getLoggedUser().id}`);
+  };
 
-            user = " ";
-        }
-        console.log(user)
+  createUser = () => {
+    this.props.history.push(`/createUser`);
+  };
+  create = () => {
+    this.props.history.push("/createScheduling");
+  };
 
-        return user;
-    }
+  replace = () => {
+    document.getElementById("name").value = this.state.user.name;
+    document.getElementById("registration").value =
+      this.state.user.registration;
+  };
 
-    removeSportsFavorite = (sportId) => {
-            
-        this.service.removeSportsFavorite(this.getLoggedUser().id,sportId)
+  find = (userRegistration) => {
+    this.service
+      .findByRegistration(userRegistration)
+      .then((response) => {
+        const users = response.data;
+        this.state.user = users;
+        this.state.selectedSportsFavorite = users.sportsFavorite;
+        const sportsFavorite = this.state.selectedSportsFavorite;
+        this.setState({ users });
+        this.setState({ sportsFavorite });
 
-        .then( Response => {  
+        this.replace();
 
-            showSuccessMessage("Esporte Removido dos favoritos");
-            this.find(this.getLoggedUser().registration);
+        console.log("sportFavoritos=", this.state.selectedSportsFavorite);
+        console.log("users=", this.state.users);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
 
-        }).catch( error => {
+  findAll = () => {
+    this.service
+      .findAll()
+      .then((response) => {
+        const users = response.data;
+        this.setState({ users });
+        console.log(users);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  };
 
-            showErrorMessage(error.response.data);
-            showErrorMessage("Ocorreu um erro ao excluir o esporte, tente novamente!");
-        });
-    }
+  render() {
+    return (
+      <div>
+        <header className="App-header">
+          <h1 className="title">Perfil</h1>
 
-    delete = (userId) => {
-        this.service.delete(userId)
-            .then(response => {
-                this.find();
-            }
-            ).catch(error => {
-                console.log(error.response);
-            }
-            );
-    }
+          <fieldset className="fieldset-user">
+            <div className="container-user">
+              <FormGroup label="Nome" htmlFor="name">
+                <input
+                  className="form-control"
+                  type="text"
+                  id="name"
+                  value={this.state.user.name || ""}
+                  disabled={true}
+                />
+              </FormGroup>
 
-    edit = (userId) => {
-        this.props.history.push(`/updateUser/${this.getLoggedUser().id}`);
-    }
+              <FormGroup label="Email" htmlFor="lab">
+                <input
+                  className="form-control"
+                  type="text"
+                  id="email"
+                  value={this.state.user.email || ""}
+                  disabled={true}
+                />
+              </FormGroup>
 
-    createUser = () => {
-        this.props.history.push(`/createUser`);
-    }
-    create = () =>{
-        this.props.history.push('/createScheduling')
-    
-    }
+              <FormGroup label="Matrícula" htmlFor="lab">
+                <input
+                  className="form-control"
+                  type="text"
+                  id="registration"
+                  value={this.state.user["registration"] || ""}
+                  disabled={true}
+                  onChange={(e) => {
+                    this.setState({ registration: e.target.value });
+                  }}
+                />
+              </FormGroup>
 
-  
-    replace = () =>{
+              <br />
+              <br />
 
-        
-        document.getElementById("name").value = this.state.user.name;
-        document.getElementById("registration").value = this.state.user.registration;
-         
-       
-    }
+              <button
+                type="button"
+                className="btn btn-primary btn-perfil"
+                onClick={this.create}
+              >
+                Cadastrar novo agendamento
+              </button>
+              <button
+                type="button"
+                className="btn btn-secondary btn-perfil"
+                onClick={this.edit}
+              >
+                Atualizar dados
+              </button>
 
-    find = (userRegistration) => {
-  
-        this.service.findByRegistration(userRegistration)
-            .then(response => {
-                const users = response.data;  
-                this.state.user = users
-                this.state.selectedSportsFavorite = users.sportsFavorite; 
-                const sportsFavorite = this.state.selectedSportsFavorite;
-                this.setState({users});
-                this.setState({ sportsFavorite });
+              <button
+                type="button"
+                className="btn btn-info btn-perfil"
+                onClick={this.handleShowFavorites}
+              >
+                Meus esportes favoritos
+              </button>
+              <br />
 
-                this.replace();
-              
-                console.log("sportFavoritos=",  this.state.selectedSportsFavorite);
-                console.log("users=",  this.state.users);
-              
-
-            }
-            ).catch(error => {
-                console.log(error.response);
-            }
-            );
-    }
-
-    findAll = () => {
-
-        this.service.findAll()
-            .then(response => {
-                const users = response.data;
-                this.setState({ users });
-                console.log(users);
-            }
-            ).catch(error => {
-                console.log(error.response);
-            }
-            );
-    }
-
-    render() {
-        return (
-            <div>
-                <header className="App-header">  
-            <h1 className="title">Perfil</h1>
-
-                    <fieldset className="fieldset-user">
-                        
-                        
-                    <div className="container-user">
-                        <FormGroup label='Nome' htmlFor='name'>
-                            <input className="form-control" type="text" id="name" value={this.state.user.name || ''}disabled={true}
-                        />
-                        </FormGroup>
-
-                        <FormGroup label='Email' htmlFor='lab'>
-                            <input className="form-control" type="text" id="email" value={this.state.user.email || ''}disabled={true}
-                            />
-                        </FormGroup>
-
-                        <FormGroup label='Matrícula' htmlFor='lab'>
-                            <input className="form-control" type="text" id="registration" value={this.state.user['registration'] || ''}disabled={true}
-                            onChange={(e) => {this.setState({registration: e.target.value})}}/>
-                        </FormGroup>
-                    
-                        
-                        <br/>
-                        <br/>
-                        
-                            <button type="button" className="btn btn-primary btn-perfil" onClick={this.create}>Cadastrar novo agendamento</button>
-                            <button type="button" className="btn btn-secondary btn-perfil" onClick={this.edit}>Atualizar dados</button>
-                           
-                            <button type="button" className="btn btn-info btn-perfil" onClick={this.handleShowFavorites}>
-                                Meus esportes favoritos
-                            </button>
-                        <br/>
-                       
-                       
-                    <br />
-                    <br />
-
-                    </div>
-                    </fieldset> 
-
-                    <br/>
-                    {this.state.showFavorites && ( 
-                        <div className="minitela">
-   
-                                 {<SportsFavoriteTable sportsFavorite={this.state.selectedSportsFavorite} delete={this.removeSportsFavorite}/>}
-  
-                        </div>
-                )}
-                </header>  
-                <footer className="footer-user"></footer> 
+              <br />
+              <br />
             </div>
-        )
-    }
+          </fieldset>
+
+          <br />
+          {this.state.showFavorites && (
+            <div className="minitela">
+              {
+                <SportsFavoriteTable
+                  sportsFavorite={this.state.selectedSportsFavorite}
+                  delete={this.removeSportsFavorite}
+                />
+              }
+            </div>
+          )}
+        </header>
+        <footer className="footer-user"></footer>
+      </div>
+    );
+  }
 }
+
 
 export default withRouter(ViewUser);

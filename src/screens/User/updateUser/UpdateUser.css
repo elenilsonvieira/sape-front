@@ -1,86 +1,92 @@
-button#btn-upd,button#btn-del{
-    position: relative;
-    left: 7%;
-    margin-left: 70px;
-}
-.container-updateuser{
-    position: relative;
-   left: 26%;
-}
-
-.span-inputs{
-    color: red;
-    font-size: 0.8rem;
-    margin-left: 50px;
-}
-
-input#regist,input#upd{
-    background-color:  rgba(165, 42, 42, 0.075);
-    
-}
-.container-updateuser{
+button#btn-upd, button#btn-del {
   position: relative;
-    left: -25px;
-       
-    
+  left: 7%;
+  margin-left: 70px;
 }
 
-.fieldset-updateUser{
-    display: flex;
-    position: relative;
-    justify-content: center;
-    width: 1000px;
-    margin-top: 10px;
-    height: 500px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
-    background-color: rgba(125, 192, 119, 0.12);
+.container-updateuser {
+  position: relative;
+  left: 26%;
 }
-.footer-updateUser{
-    position: fixed;
-    width: 100%;
-    height: 25px;
-    bottom: 0px;
-    background-color: rgb(41, 216, 25);
+
+.span-inputs {
+  color: red;
+  font-size: 0.8rem;
+  margin-left: 50px;
 }
+
+input#regist, input#upd {
+  background-color: rgba(165, 42, 42, 0.075);
+
+}
+
+.container-updateuser {
+  position: relative;
+  left: -25px;
+
+
+}
+
+.fieldset-updateUser {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 1000px;
+  margin-top: 10px;
+  height: 500px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(125, 192, 119, 0.12);
+}
+
+.footer-updateUser {
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+  background-color: rgb(41, 216, 25);
+}
+
 @media screen and (max-width: 768px) {
-    button#btn-upd,
-    button#btn-del {
-      left: 3%;
-      margin-left: 30px;
-    }
-  
-    .container-updateuser {
-      left: 10%;
-    }
-  
-    .span-inputs {
-        position: relative;
-        font-size: 0.7rem;
-        left: 45px;
-    }
-  
-    .fieldset-updateUser {
-        width: 360px;
-      height: auto;
-      padding: 10px;
-    }
+
+  button#btn-upd,
+  button#btn-del {
+    left: 3%;
+    margin-left: 30px;
   }
-  
-  /* Estilos para telas menores que 480px */
-  @media screen and (max-width: 480px) {
-    button#btn-upd,
-    button#btn-del {
-      display: block;
-      margin: 10px auto;
-    }
-  
-    .container-updateuser {
-      left: 0;
-    }
-  
-    .span-inputs {
-      font-size: 0.6rem;
-      margin-left: 10px;
-    }
+
+  .container-updateuser {
+    left: 10%;
   }
+
+  .span-inputs {
+    position: relative;
+    font-size: 0.7rem;
+    left: 45px;
+  }
+
+  .fieldset-updateUser {
+    width: 360px;
+    height: auto;
+    padding: 10px;
+  }
+}
+
+/* Estilos para telas menores que 480px */
+@media screen and (max-width: 480px) {
+
+  button#btn-upd,
+  button#btn-del {
+    display: block;
+    margin: 10px auto;
+  }
+
+  .container-updateuser {
+    left: 0;
+  }
+
+  .span-inputs {
+    font-size: 0.6rem;
+    margin-left: 10px;
+  }
+}

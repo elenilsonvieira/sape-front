@@ -3,7 +3,7 @@
 
 }
 
-.FieldSetDDsP,.FieldSetDDsS{
+.FieldSetDDsP, .FieldSetDDsS {
     display: inline-block;
     width: 200px;
     margin-top: 10px;
@@ -12,22 +12,23 @@
     left: 55px;
 }
 
-.FieldSetDDsS{
-        right: 40px;
+.FieldSetDDsS {
+    right: 40px;
 }
 
-.dds{
+.dds {
     display: inline-block;
     width: 320px;
     position: relative;
     margin-left: 95px;
 }
+
 .noMargin {
     width: 200px;
     max-width: 80%;
     vertical-align: -webkit-baseline-middle;
-   
-   
+
+
 }
 
 .App-header fieldset select {
@@ -35,14 +36,14 @@
     font-size: 1.2rem;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0.3rem;
-   
+
 }
 
 .App-header fieldset select:focus-visible {
     outline: dotted 2px rgba(18, 182, 20, 0.2)
 }
 
-.fieldset-sched{
+.fieldset-sched {
     width: 1000px;
     margin-top: 10px;
     border-radius: 10px;
@@ -52,24 +53,25 @@
     justify-items: center;
     align-content: center;
     background-color: rgba(125, 192, 119, 0.12);
-  }
+}
 
- .dds{
+.dds {
     margin-left: 20px;
-   
- }
- .foot{
+
+}
+
+.foot {
     position: fixed;
     width: 100%;
     height: 25px;
     bottom: 0px;
     background-color: rgb(21, 196, 59);
-    
-   
- }
- 
- .btnsCreateSc{
+
+
+}
+
+.btnsCreateSc {
     position: relative;
     width: 150px;
     left: 340px;
- }
+}

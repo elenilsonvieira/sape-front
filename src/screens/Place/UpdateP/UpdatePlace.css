@@ -1,40 +1,40 @@
+.field-upPlace {
+  gap: 10px;
+  width: 1000px;
+  height: 400px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(125, 192, 119, 0.12);
+}
 
-  .field-upPlace{
-    gap: 10px;
-    width: 1000px;
-    height: 400px;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
-    background-color: rgba(125, 192, 119, 0.12);
-  }
+.isPublic-upd {
+  position: relative;
+  width: 400px;
+  left: 502px;
+  bottom: 250px;
 
-  .isPublic-upd{
-    position: relative;
-    width: 400px;
-    left: 502px;
-    bottom:250px;
+}
 
-  }
-
-  .capacity-upd{
+.capacity-upd {
   position: relative;
   width: 450px;
   left: 500px;
   bottom: 230px;
-  
-  }
 
-  .btn-upPlace{
-    position: relative;
-    bottom: 200px;
-    left: 35%;
-  }
-  .footer-upPlace{
-    
-    position: fixed;
-    width: 100%;
-    height: 25px;
-    bottom: 0px;
-    background-color: rgb(41, 216, 25);
-  }
+}
+
+.btn-upPlace {
+  position: relative;
+  bottom: 200px;
+  left: 35%;
+}
+
+.footer-upPlace {
+
+  position: fixed;
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+  background-color: rgb(41, 216, 25);
+}
