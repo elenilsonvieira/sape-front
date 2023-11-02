@@ -2309,31 +2309,19 @@
     minimatch "^3.1.2"
     strip-json-comments "^3.1.1"
 
-<<<<<<< HEAD
-"@fullcalendar/core@~6.1.8":
-=======
 "@fullcalendar/core@^6.1.8", "@fullcalendar/core@~6.1.8":
->>>>>>> b409e9e15d35ee57f67e6db14f3fc3461e91ce9a
   version "6.1.8"
   resolved "https://registry.yarnpkg.com/@fullcalendar/core/-/core-6.1.8.tgz#62008f7b2785dc01f0bf8c2f0c853925eab1c03a"
   integrity sha512-i8JBIvZCWGO9dsMEDcx9bnsQZ9PtGSJdOXGgWbhLaGq2iq41OBdp9g9gM4b/Otv2oK8bL5Gl6CsMmb/HkDtA6Q==
   dependencies:
     preact "~10.12.1"
 
-<<<<<<< HEAD
-"@fullcalendar/daygrid@~6.1.8":
-=======
 "@fullcalendar/daygrid@^6.1.8", "@fullcalendar/daygrid@~6.1.8":
->>>>>>> b409e9e15d35ee57f67e6db14f3fc3461e91ce9a
   version "6.1.8"
   resolved "https://registry.yarnpkg.com/@fullcalendar/daygrid/-/daygrid-6.1.8.tgz#2ca4a10892f5e2abeac0f8a8ecc8f07c002a4bf4"
   integrity sha512-kCZxQFKb9Vqa3CZRX0v7rMSJ2mlTt4gDpyLfiNJKxUAq7W51uKurPaFZWicaXy1ESHVBxKNlbx5uNjBpyu50JQ==
 
-<<<<<<< HEAD
-"@fullcalendar/interaction@~6.1.8":
-=======
 "@fullcalendar/interaction@^6.1.8", "@fullcalendar/interaction@~6.1.8":
->>>>>>> b409e9e15d35ee57f67e6db14f3fc3461e91ce9a
   version "6.1.8"
   resolved "https://registry.yarnpkg.com/@fullcalendar/interaction/-/interaction-6.1.8.tgz#36c35bd5718f893e8215a45d48a6ef7d5fcc4650"
   integrity sha512-r6W4E9ohaA87M2uPSlmpE2WT7Fzu7LN0u2pE6D/tThruCEaAPbN8Pw5+sqclsuyTIL09mg0eSJm/ggJekTabSA==
@@ -2355,11 +2343,7 @@
   resolved "https://registry.yarnpkg.com/@fullcalendar/react/-/react-6.1.8.tgz#247b979c5ab9dd74680935fb24a3235df46c7e80"
   integrity sha512-E8GQSQyZHkjpwxQW5Vci7iZgN7f33ntuRcvfGii4Fn35t9VHGz2SEyKAWXpVf38elcKTZKVgajU9ipStd+1LEg==
 
-<<<<<<< HEAD
-"@fullcalendar/timegrid@~6.1.8":
-=======
 "@fullcalendar/timegrid@^6.1.8", "@fullcalendar/timegrid@~6.1.8":
->>>>>>> b409e9e15d35ee57f67e6db14f3fc3461e91ce9a
   version "6.1.8"
   resolved "https://registry.yarnpkg.com/@fullcalendar/timegrid/-/timegrid-6.1.8.tgz#30b9860eb900c5dc9b72ceaab98c0728018a0ff1"
   integrity sha512-3+3KHHCoNcaLs/gQt004hAqICbY5+WAffrZ0ePv+80HFB1OVh8BQ5XXLHSOUbTvXdgtUTcfBHuw9fhO31kt5gA==
@@ -8737,8 +8721,6 @@ postcss@^8.3.5, postcss@^8.4.12, postcss@^8.4.4, postcss@^8.4.7:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-<<<<<<< HEAD
-=======
 postcss@^8.4.23:
   version "8.4.24"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.24.tgz#f714dba9b2284be3cc07dbd2fc57ee4dc972d2df"
@@ -8748,7 +8730,6 @@ postcss@^8.4.23:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
->>>>>>> b409e9e15d35ee57f67e6db14f3fc3461e91ce9a
 preact@~10.12.1:
   version "10.12.1"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.12.1.tgz#8f9cb5442f560e532729b7d23d42fd1161354a21"

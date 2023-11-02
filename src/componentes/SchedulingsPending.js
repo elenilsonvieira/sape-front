@@ -19,11 +19,19 @@ export default (props) => {
         <td>
           <button
             type="button"
-            title="Cancelar Presença"
+            title="Confirmar Agendamento"
             className="btn btn-primary btn-confirmSc"
             onClick={(e) => props.approveScheduling(scheduling.id)}
           >
             Confirmar
+          </button>
+          <button
+            type="button"
+            title="Cancelar Agendamento"
+            className="btn btn-danger btn-del"
+            onClick={(e) => props.delete(scheduling.id)}
+          >
+            Deletar
           </button>
         </td>
       </tr>

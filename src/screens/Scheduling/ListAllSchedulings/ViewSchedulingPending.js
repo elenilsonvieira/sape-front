@@ -84,6 +84,23 @@ class viewSchedulingPending extends React.Component {
       });
   };
 
+  delete = (schedulingId) => {
+    console.log(
+      "🚀 ~ file: ViewSchedulingPending.js:57 ~ viewSchedulingPending ~ approveScheduling ~ schedulingId:",
+      schedulingId
+    );
+    this.service
+      .delete(schedulingId)
+      .then((Response) => {
+        showSuccessMessage("Agendamento Deletado!");
+
+        this.find();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <div>
