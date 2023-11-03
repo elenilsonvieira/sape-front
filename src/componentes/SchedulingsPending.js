@@ -5,6 +5,9 @@ import GetNameUser from "./GetUserOrNameUser";
 
 export default (props) => {
   const rows = props.schedulings?.map((scheduling) => {
+    const styleButton = {
+      padding: '5px 25px 7px 25px'
+    };
     return (
       <tr key={scheduling.id}>
         <td>{scheduling.scheduledDate}</td>
@@ -25,11 +28,14 @@ export default (props) => {
           >
             Confirmar
           </button>
-          <button
+        </td>
+        <td>
+        <button
             type="button"
             title="Cancelar Agendamento"
             className="btn btn-danger btn-del"
             onClick={(e) => props.delete(scheduling.id)}
+            style={styleButton}
           >
             Deletar
           </button>
@@ -49,7 +55,7 @@ export default (props) => {
           <th scope="col">Esporte</th>
           <th scope="col">Status</th>
           <th scope="col">Agendado por:</th>
-          <th scope="col">Confirmar Agendamento?</th>
+          <th scope="col" colSpan={2}>Confirmar Agendamento?</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>

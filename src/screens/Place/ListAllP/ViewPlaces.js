@@ -61,7 +61,7 @@ class ViewPlaces extends React.Component {
     return (
       <div>
         <header className="App-header">
-          <h1 className="title">Locais</h1>
+        <h1 className="title">Locais</h1>
           <fieldset className="field-viewplace">
             <br />
             <br />

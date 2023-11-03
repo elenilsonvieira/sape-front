@@ -1,10 +1,11 @@
 import React from "react";
 import NavbarItem from "./NavbarItem";
+import "./Components.css";
 import { AuthConsumer } from "../main/SessionProvider";
 
 function NavBar(props) {
   return (
-    <div className="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <div className="navbar navbar-expand-lg fixed-top navbar-light bg-light" >
       <div className="container">
         <a href="/" className="navbar-brand">
           SAPE
@@ -27,40 +28,19 @@ function NavBar(props) {
               href="/login"
               label="Login"
             />
-            <NavbarItem
-              render={props.isAuthenticated}
-              href="/login"
-              onClick={props.logout}
-              label="Sair"
-            />
 
             <NavbarItem
               render={props.isAuthenticated}
               href="/listPlaces"
               label="Locais"
             />
-            <NavbarItem
-              render={props.isAuthenticated}
-              href="/createPlace"
-              label="Criar Local"
-            />
-
+           
             <NavbarItem
               render={props.isAuthenticated}
               href="/listSports"
               label="Esportes"
             />
-            <NavbarItem
-              render={props.isAuthenticated}
-              href="/createSport"
-              label="Criar Esporte"
-            />
 
-            <NavbarItem
-              render={props.isAuthenticated}
-              href="/createScheduling"
-              label="Criar Agendamento"
-            />
             <NavbarItem
               render={props.isAuthenticated}
               href="/listScheduling"
@@ -69,15 +49,17 @@ function NavBar(props) {
 
             <NavbarItem
               render={props.isAuthenticated}
-              href="/viewPresent"
-              label="Agendamentos Confirmados"
+              href="/viewUser"
+              label="Perfil do Usuário"
             />
 
             <NavbarItem
               render={props.isAuthenticated}
-              href="/viewUser"
-              label="Perfil do Usuário"
+              href="/login"
+              onClick={props.logout}
+              label="Sair"
             />
+            
           </ul>
         </div>
       </div>

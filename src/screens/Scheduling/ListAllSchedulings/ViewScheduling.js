@@ -87,6 +87,10 @@ class ViewScheduling extends React.Component {
     this.props.history.push(`/viewUser/${userId}`);
   };
 
+  confirm = () => {
+    this.props.history.push("/viewPresent");
+  };
+
   componentDidMount() {
     this.find();
   }
@@ -252,7 +256,7 @@ class ViewScheduling extends React.Component {
                     type="button"
                     className="btn btn-primary btnSc"
                   >
-                    Cadastrar novo agendamento
+                  novo agendamento
                   </button>
                   <button
                     onClick={this.viewSchedulingPending}
@@ -260,7 +264,16 @@ class ViewScheduling extends React.Component {
                     className="btn btn-danger btnScPen"
                     title="Aguardando aprovação"
                   >
-                    Agendamentos pendentes
+                   Pendentes
+                  </button>
+
+                  <button
+                    onClick={this.confirm}
+                    type="button"
+                    className="btn btn-danger btnScPen"
+                    title="Agendamentos Confirmados"
+                  >
+                    Confirmados
                   </button>
                 </div>
               </h3>
