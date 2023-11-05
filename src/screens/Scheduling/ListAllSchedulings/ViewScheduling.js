@@ -12,6 +12,7 @@ import {
   showErrorMessage,
 } from "../../../componentes/Toastr";
 import axios from "axios";
+import Calendar from "../../calendar/Calendar";
 
 class ViewScheduling extends React.Component {
   state = {
@@ -267,20 +268,19 @@ class ViewScheduling extends React.Component {
             </div>
             <br />
             <br />
-            <fieldset className="field-viewsched">
-              <div className="table-schedfilter">
-                <SchedulingTable
-                  schedulings={this.state.scheduling}
-                  viewParticipants={this.viewParticipants}
-                  delete={this.delete}
-                  addIsPresent={this.addIsPresent}
-                  addParticipant={this.addParticipant}
-                  removeParticipant={this.removeParticipant}
-                  perfil={this.perfil}
+            
+            <Calendar
+                  //listEvent={this.service.findCalendar()}
+                  //schedulings={this.state.scheduling}
+                  //viewParticipants={this.viewParticipants}
+                  //delete={this.delete}
+                  //addIsPresent={this.addIsPresent}
+                  //addParticipant={this.addParticipant}
+                  //removeParticipant={this.removeParticipant}
+                  //perfil={this.perfil}
                 />
-              </div>
-            </fieldset>
           </fieldset>
+          
           <br />
         </header>
         <footer className="footer-sche"></footer>

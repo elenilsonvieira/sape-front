@@ -3347,6 +3347,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-transition-group@^4.4.1":
+  version "4.4.8"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.8.tgz#46f87d80512959cac793ecc610a93d80ef241ccf"
+  integrity sha512-QmQ22q+Pb+HQSn04NL3HtrqHwYMf4h3QKArOy5F8U5nEVMaihBs3SR10WiOM1iwPz5jIo8x/u11al+iEGZZrvg==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "18.0.9"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.0.9.tgz"
@@ -8777,6 +8784,14 @@ pretty-format@^28.1.0:
     ansi-styles "^5.0.0"
     react-is "^18.0.0"
 
+primereact@^10.0.9:
+  version "10.0.9"
+  resolved "https://registry.yarnpkg.com/primereact/-/primereact-10.0.9.tgz#ebb8f5aff1f976b1c47bcd2acc81e8b6bfd3fe7f"
+  integrity sha512-5hjCY0gVJkAhmxRkME8GCZPl0TpUMsjtrwYwxkRJlchu5oH8XaRQKbKmnehmNmiP59cmphaXVkL8vei19O9+PQ==
+  dependencies:
+    "@types/react-transition-group" "^4.4.1"
+    react-transition-group "^4.4.1"
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz"
@@ -9075,7 +9090,7 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-transition-group@^4.4.0, react-transition-group@^4.4.5:
+react-transition-group@^4.4.0, react-transition-group@^4.4.1, react-transition-group@^4.4.5:
   version "4.4.5"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.5.tgz#e53d4e3f3344da8521489fbef8f2581d42becdd1"
   integrity sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==

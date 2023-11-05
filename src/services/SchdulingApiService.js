@@ -16,6 +16,9 @@ export default class SchedulingApiService extends ApiService {
   delete(id) {
     return super.delete(`/${id}`);
   }
+  findCalendar(){
+    return this.get("/events");
+  }
 
   find() {
     return this.get("");
