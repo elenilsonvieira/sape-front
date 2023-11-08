@@ -3,65 +3,29 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import SchedulingApiService from "../../services/SchdulingApiService";
+import ptBrLocale from "@fullcalendar/core/locales/pt-br";
 
-class Calendar extends React.Component{
 
-  state = {
-    events : []
-  }
+export default (props) => {
 
-  constructor() {
-    super();
-    this.service = new SchedulingApiService();
-  }
-  componentDidMount() {
-    this.find();
-  }
+  const events = props.schedulings;
 
-  find = () => {
-    this.service
-      .findCalendar()
-      .then((Response) => {
-        const events = Response.data;
-        console.log(
-          "🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:",
-          events
-        );
-        this.setState({ events: events });
-      })
-      .catch((error) => {
-        console.log(error.Response);
-      });
-  };
-
-  
-
-  eventContent = (eventInfo) => {
+  const eventContent = (eventInfo) => {
     return (
       <div>
         <h4>{eventInfo.event.title}</h4>
         <p>{eventInfo.event.extendedProps.location}</p>
+        <button
+              type="button"
+              title="Exclude"
+              className="btn btn-danger"
+              onClick={(e) => props.delete(eventInfo.event.extendedProps.schedulingId)}
+            >
+              Excluir
+            </button>
       </div>
     );
   };
-
-  
-
- 
-
-
-    
-      //title: "futebol",
-      //location: "quadra",
-      //responsible: "rafael",
-      //start: "2023-06-25T15:00:00",
-      //end: "2023-06-25T17:00:00",
-    //},
-
-    
-    render() {
-  
     return (
       <div>
         <FullCalendar
@@ -72,15 +36,11 @@ class Calendar extends React.Component{
             center: "title",
             end: "dayGridMonth,timeGridWeek,timeGridDay",
           }}
-          events={this.state.events}
-          eventContent={this.eventContent}
+          events={events}
+          eventContent={eventContent}
           height="90vh"
+          locale={ptBrLocale}
         />
       </div>
     );
-  
-
-}
-}
-
-export default Calendar;
+};

@@ -30,7 +30,7 @@ class ViewScheduling extends React.Component {
 
   find = () => {
     this.service
-      .find()
+      .findCalendar()
       .then((Response) => {
         const scheduling = Response.data;
         console.log(
@@ -284,9 +284,9 @@ class ViewScheduling extends React.Component {
             
             <Calendar
                   //listEvent={this.service.findCalendar()}
-                  //schedulings={this.state.scheduling}
+                  schedulings={this.state.scheduling}
                   //viewParticipants={this.viewParticipants}
-                  //delete={this.delete}
+                  delete={this.delete}
                   //addIsPresent={this.addIsPresent}
                   //addParticipant={this.addParticipant}
                   //removeParticipant={this.removeParticipant}
@@ -294,7 +294,7 @@ class ViewScheduling extends React.Component {
                 />
           </fieldset>
           
-          <br />
+          <br /><br /><br />
         </header>
         <footer className="footer-sche"></footer>
       </div>
