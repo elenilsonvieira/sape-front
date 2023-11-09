@@ -285,9 +285,9 @@ class ViewScheduling extends React.Component {
             <Calendar
                   //listEvent={this.service.findCalendar()}
                   schedulings={this.state.scheduling}
-                  //viewParticipants={this.viewParticipants}
+                  viewParticipants={this.viewParticipants}
                   delete={this.delete}
-                  //addIsPresent={this.addIsPresent}
+                  addIsPresent={this.addIsPresent}
                   //addParticipant={this.addParticipant}
                   //removeParticipant={this.removeParticipant}
                   //perfil={this.perfil}

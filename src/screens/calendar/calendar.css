@@ -1,0 +1,18 @@
+.fc {
+    background-color: #ffffff; /* Cor de fundo desejada */
+    color: #333; /* Cor do texto desejada */
+  }
+
+
+/* Você também pode definir estilos personalizados para os eventos */
+.fc-event {
+    background-color: #73b3ec; /* Cor de fundo desejada para os eventos */
+    color: #fff; /* Cor do texto desejada para os eventos */
+    border-color: #4f88ba; /* Cor da borda dos eventos */
+  }
+  
+  /* Se desejar alterar a cor quando o evento estiver em foco (hover) */
+  .fc-event:hover {
+    background-color: #235a93;
+  }
+  
