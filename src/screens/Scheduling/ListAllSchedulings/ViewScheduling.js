@@ -30,7 +30,7 @@ class ViewScheduling extends React.Component {
 
   find = () => {
     this.service
-      .findCalendar()
+      .find()
       .then((Response) => {
         const scheduling = Response.data;
         console.log(
