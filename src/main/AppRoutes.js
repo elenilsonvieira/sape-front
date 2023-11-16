@@ -17,6 +17,7 @@ import ListSports from "../screens/Sport/ListAllS/ViewSports";
 
 import CreateScheduling from "../screens/Scheduling/CreateSc/CreateSc";
 import ListScheduling from "../screens/Scheduling/ListAllSchedulings/ViewScheduling";
+import UpdateSc from "../screens/Scheduling/UpdateSc/UpdateSc";
 
 import { AuthConsumer } from "./SessionProvider";
 import ViewUser from "../screens/User/viewUser/ViewUser";
@@ -75,6 +76,7 @@ function AppRoutes(props) {
             <RestrictedRoute show={props.isAuthenticated} component = { ViewPresent } path= "/viewPresent" />
             <RestrictedRoute show={props.isAuthenticated} component = { ViewParticipants } path= "/viewParticipants/:id" />
             <RestrictedRoute show={props.isAuthenticated} component = { ViewSchedulingPending } path= "/viewSchedulingPending" />
+            <RestrictedRoute show={props.isAuthenticated} component = { UpdateSc } path= "/updateScheduling/:id" />
 
 
             <RestrictedRoute show={props.isAuthenticated} component = { ViewUser } path= "/viewUser" />

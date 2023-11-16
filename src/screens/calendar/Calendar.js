@@ -78,7 +78,7 @@ export default (props) => {
             title="Deletar agendamento"
             className="btn btn-danger"
             onClick={(e) => {
-              props.delete(modalEventInfo.extendedProps.schedulingId);
+              props.delete(modalEventInfo.id);
               closeModal();
             }}
           >
@@ -88,7 +88,7 @@ export default (props) => {
             type="button"
             title="Vizualizar participantes"
             className="btn btn-info"
-            onClick={(e) => props.viewParticipants(modalEventInfo.extendedProps.schedulingId)}
+            onClick={(e) => props.viewParticipants(modalEventInfo.id)}
           >
             Participantes
           </button>
@@ -97,7 +97,7 @@ export default (props) => {
             title="Confirmar presença"
             className="btn btn-info"
             onClick={(e) => {
-              props.addIsPresent(modalEventInfo.extendedProps.schedulingId);
+              props.addIsPresent(modalEventInfo.id);
               closeModal();
             }}
           >
@@ -108,7 +108,7 @@ export default (props) => {
             title="Atualizar agendamento"
             className="btn btn-info"
             onClick={(e) => {
-              showErrorMessage("Serviço temporariamente indisponível");
+              props.edit(modalEventInfo.id);
               closeModal();
             }}
           >

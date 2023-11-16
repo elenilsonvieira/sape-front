@@ -194,6 +194,10 @@ class ViewScheduling extends React.Component {
       });
   };
 
+  edit = (schedulingId) => {
+    this.props.history.push(`/updateScheduling/${schedulingId}`);
+  }
+
   render() {
     return (
       <div>
@@ -291,6 +295,7 @@ class ViewScheduling extends React.Component {
                   //addParticipant={this.addParticipant}
                   //removeParticipant={this.removeParticipant}
                   //perfil={this.perfil}
+                  edit={this.edit}
                 />
           </fieldset>
           
