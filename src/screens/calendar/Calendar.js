@@ -76,7 +76,7 @@ export default (props) => {
           <button
             type="button"
             title="Deletar agendamento"
-            className="btn btn-danger"
+            className="btn btn-danger Buttondefault "
             onClick={(e) => {
               props.delete(modalEventInfo.id);
               closeModal();
@@ -86,8 +86,8 @@ export default (props) => {
           </button>
           <button
             type="button"
-            title="Vizualizar participantes"
-            className="btn btn-info"
+            title="Vizualizar participantes "
+            className="btn btn-info Buttondefault"
             onClick={(e) => props.viewParticipants(modalEventInfo.id)}
           >
             Participantes
@@ -95,7 +95,7 @@ export default (props) => {
           <button
             type="button"
             title="Confirmar presença"
-            className="btn btn-info"
+            className="btn btn-info Buttondefault"
             onClick={(e) => {
               props.addIsPresent(modalEventInfo.id);
               closeModal();
@@ -106,7 +106,7 @@ export default (props) => {
           <button
             type="button"
             title="Atualizar agendamento"
-            className="btn btn-info"
+            className="btn btn-info Buttondefault"
             onClick={(e) => {
               props.edit(modalEventInfo.id);
               closeModal();

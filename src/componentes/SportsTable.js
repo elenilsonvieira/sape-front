@@ -10,7 +10,7 @@ export default (props) => {
         <td>
           <td className="btn-sport">
             <button
-              className="btn btn-info"
+              className="btn btn-info bntdefault"
               type="button"
               title="Favoritar"
               onClick={(e) => props.addSportsFavorite(sport.id)}
@@ -20,7 +20,7 @@ export default (props) => {
             <button
               type="button"
               title="Exclude"
-              className="btn btn-danger"
+              className="btn btn-danger  bnt-excluir"
               onClick={(e) => props.delete(sport.id)}
             >
               Excluir
@@ -44,3 +44,4 @@ export default (props) => {
     </table>
   );
 };
+

@@ -191,7 +191,7 @@ export default class CreateSc extends React.Component {
             <button
               onClick={this.post}
               type="button"
-              className="btn btn-primary btnsCreateSc"
+              className="btn btn-primary btnsCreateSc bntdefault"
             >
               Salvar
             </button>

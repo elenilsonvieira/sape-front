@@ -113,7 +113,7 @@ export default class UpdateSport extends React.Component {
             <br />
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary bntdefault"
               onClick={this.put}
             >
               Atualizar

@@ -173,7 +173,7 @@ class ViewUser extends React.Component {
 
               <button
                 type="button"
-                className="btn btn-primary btn-perfil"
+                className="btn btn-primary btn-perfil bntdefault"
                 onClick={this.create}
               >
                 Cadastrar novo agendamento
@@ -188,7 +188,7 @@ class ViewUser extends React.Component {
 
               <button
                 type="button"
-                className="btn btn-info btn-perfil"
+                className="btn btn-info btn-perfil bntdefault"
                 onClick={this.handleShowFavorites}
               >
                 Meus esportes favoritos
