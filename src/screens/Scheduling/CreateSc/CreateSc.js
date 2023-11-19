@@ -25,6 +25,18 @@ export default class CreateSc extends React.Component {
     this.service = new SchedulingApiService();
   }
 
+  componentDidMount() {
+    // Obtém a data da URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const dateFromUrl = urlParams.get("date");
+  
+    if (dateFromUrl) {
+      console.log(dateFromUrl)
+      this.setState({ date: dateFromUrl, });
+      console.log("data do state"+this.state.date)
+    }
+  }
+
   validate = () => {
     const errors = [];
 
@@ -123,15 +135,16 @@ export default class CreateSc extends React.Component {
         <header className="App-header">
           <h1 className="title">Agendar prática</h1>
           <fieldset className="fieldset-sched">
-            <FormGroup label="Data" htmlFor="lab01" className="FieldSetSc">
-              <input
-                className="form-control noMargin"
-                type="date"
-                id="lab"
-                onChange={(e) => {
-                  this.setState({ date: e.target.value });
-                }}
-              />
+          <FormGroup label="Data" htmlFor="lab01" className="FieldSetSc">
+            <input
+              className="form-control noMargin"
+              type="date"
+              id="lab"
+              value={this.state.date}
+              onChange={(e) => {
+              this.setState({ date: e.target.value });
+              }}
+            />
             </FormGroup>
             <FormGroup
               label="Hora de Início da prática"

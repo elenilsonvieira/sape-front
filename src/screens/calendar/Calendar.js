@@ -7,6 +7,8 @@ import ptBrLocale from "@fullcalendar/core/locales/pt-br";
 import "./calendar.css";
 import { useHistory } from "react-router-dom";
 import Modal from "../../componentes/Modal";
+import { format } from 'date-fns';
+import { ptBR } from 'date-fns/locale';
 import {
   showSuccessMessage,
   showErrorMessage,
@@ -17,7 +19,10 @@ export default (props) => {
   const history = useHistory();
   const [isModalOpen, setModalOpen] = useState(false);
   const [modalEventInfo, setModalEventInfo] = useState(null);
+  const [isNewAgendamentoModalOpen, setNewAgendamentoModalOpen] = useState(false);
 
+  const [selectedDate, setSelectedDate] = useState(null);
+  
 
   const openModal = (eventInfo) => {
     setModalEventInfo(eventInfo);
@@ -27,6 +32,14 @@ export default (props) => {
   const closeModal = () => {
     setModalEventInfo(null);
     setModalOpen(false);
+  };
+
+  const openNewAgendamentoModal = () => {
+    setNewAgendamentoModalOpen(true);
+  };
+
+  const closeNewAgendamentoModal = () => {
+    setNewAgendamentoModalOpen(false);
   };
 
   const eventClickHandler = (info) => {
@@ -40,6 +53,22 @@ export default (props) => {
         <p>{eventInfo.event.extendedProps.location}</p>
       </div>
     );
+  };
+
+  const dateClickHandler = (info) => {
+    const formattedDate = format(new Date(info.dateStr), 'dd-MM-yyyy', { locale: ptBR });
+  
+    openNewAgendamentoModal();
+    setSelectedDate(formattedDate);
+    
+  };
+
+  const confirmNewAgendamento = () => {
+    if (selectedDate) {
+      const formattedDate = encodeURIComponent(selectedDate);
+      history.push(`/createScheduling?date=${formattedDate}`);
+      closeNewAgendamentoModal();
+    }
   };
 
   return (
@@ -57,19 +86,12 @@ export default (props) => {
         height="90vh"
         locale={ptBrLocale}
         eventClick={eventClickHandler}
-        dateClick={(info) => {
-          // Lidar com o clique em datas
-          const isConfirmed = window.confirm(`Deseja cadastrar um novo agendamento?`);
-          if (isConfirmed) {
-            history.push(`/createScheduling`);
-          }
-        }}
+        dateClick={dateClickHandler}
       />
 
       {isModalOpen && modalEventInfo && (
         <Modal onClose={closeModal}>
           {/* Conteúdo do modal, como informações detalhadas do evento */}
-          
           <h3>Informações do Agendamento</h3>
           <p>Esporte: {modalEventInfo.title}</p>
           <p>Local: {modalEventInfo.extendedProps.location}</p>
@@ -114,9 +136,32 @@ export default (props) => {
           >
             Atualizar
           </button>
-          {/* Adicione mais detalhes aqui */}
+        </Modal>
+      )}
+
+      {isNewAgendamentoModalOpen && (
+        <Modal
+          onClose={closeNewAgendamentoModal}
+        >
+          <h3>Cadastrar Novo Agendamento</h3>
+          <p>Deseja cadastrar um novo agendamento para a data {selectedDate}?</p>
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={confirmNewAgendamento}
+          >
+            Confirmar
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={closeNewAgendamentoModal}
+          >
+            Cancelar
+          </button>
         </Modal>
       )}
     </div>
   );
 };
+
