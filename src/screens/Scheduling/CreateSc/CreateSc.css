@@ -74,4 +74,15 @@
     position: relative;
     width: 150px;
     left: 340px;
+    
 }
+
+.Buttondefault{
+    background-color: #6DCA41;
+    border: none;
+  }
+  
+.Buttondefault:hover {
+    background-color: rgb(28, 146, 17);
+    border: none;
+  }

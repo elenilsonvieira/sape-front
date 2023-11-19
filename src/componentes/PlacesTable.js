@@ -1,5 +1,6 @@
 import React from "react";
 import "./PlacesTable.css";
+import "./Button.css";
 import { BsEyeFill } from "react-icons/bs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -24,7 +25,7 @@ export default (props) => {
             <button
               type="button"
               title="Edit"
-              className="btn btn-warning bntdefault"
+              className="btn btn-warning Buttondefault"
               onClick={(e) => props.edit(place.id)}
             >
               Atualizar

@@ -245,28 +245,28 @@ class ViewScheduling extends React.Component {
                   <button
                     onClick={this.filterSearch}
                     type="button"
-                    className="btn btn-success buttonFilter  bntdefault"
+                    className="btn btn-success buttonFilter  Buttondefault"
                   >
                     Aplicar Filtro
                   </button>
                   <button
                     onClick={this.find}
                     type="button"
-                    className="buttonFilter btn btn-info bntdefault"
+                    className="buttonFilter btn btn-info Buttondefault"
                   >
                     Mostrar Todos
                   </button>
                   <button
                     onClick={this.create}
                     type="button"
-                    className="btn btn-primary btnSc bntdefault"
+                    className="btn btn-primary btnSc Buttondefault"
                   >
                   novo agendamento
                   </button>
                   <button
                     onClick={this.viewSchedulingPending}
                     type="button"
-                    className="btn btn-danger btnScPen bntSheduling"
+                    className="btn btn-danger btnScPen bntSheduling Buttondefault"
                     title="Aguardando aprovação"
                   >
                    Pendentes
@@ -275,7 +275,7 @@ class ViewScheduling extends React.Component {
                   <button
                     onClick={this.confirm}
                     type="button"
-                    className="btn btn-danger btnScPen bntSheduling"
+                    className="btn btn-danger btnScPen bntSheduling Buttondefault"
                     title="Agendamentos Confirmados"
                   >
                     Confirmados

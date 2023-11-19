@@ -1,4 +1,5 @@
 import React from "react";
+import "./Button.css";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (props) => {
@@ -10,7 +11,7 @@ export default (props) => {
         <td>
           <td className="btn-sport">
             <button
-              className="btn btn-info bntdefault"
+              className="btn btn-info Buttondefault"
               type="button"
               title="Favoritar"
               onClick={(e) => props.addSportsFavorite(sport.id)}
@@ -20,7 +21,7 @@ export default (props) => {
             <button
               type="button"
               title="Exclude"
-              className="btn btn-danger  bnt-excluir"
+              className="btn btn-danger  bnt-excluir" 
               onClick={(e) => props.delete(sport.id)}
             >
               Excluir

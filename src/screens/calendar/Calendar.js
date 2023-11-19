@@ -147,14 +147,14 @@ export default (props) => {
           <p>Deseja cadastrar um novo agendamento para a data {selectedDate}?</p>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary Buttondefault"
             onClick={confirmNewAgendamento}
           >
             Confirmar
           </button>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-secondary Buttondefault"
             onClick={closeNewAgendamentoModal}
           >
             Cancelar

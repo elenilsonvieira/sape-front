@@ -173,11 +173,12 @@ class ViewUser extends React.Component {
 
               <button
                 type="button"
-                className="btn btn-primary btn-perfil bntdefault"
-                onClick={this.create}
+                className="btn btn-info btn-perfil Buttondefault"
+                onClick={this.handleShowFavorites}
               >
-                Cadastrar novo agendamento
+                esportes favoritos
               </button>
+
               <button
                 type="button"
                 className="btn btn-secondary btn-perfil"
@@ -186,13 +187,7 @@ class ViewUser extends React.Component {
                 Atualizar dados
               </button>
 
-              <button
-                type="button"
-                className="btn btn-info btn-perfil bntdefault"
-                onClick={this.handleShowFavorites}
-              >
-                Meus esportes favoritos
-              </button>
+              
               <br />
 
               <br />
