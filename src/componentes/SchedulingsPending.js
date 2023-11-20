@@ -7,6 +7,7 @@ export default (props) => {
   const rows = props.schedulings?.map((scheduling) => {
     const styleButton = {
       padding: '5px 25px 7px 25px'
+      
     };
     return (
       <tr key={scheduling.id}>
@@ -23,7 +24,7 @@ export default (props) => {
           <button
             type="button"
             title="Confirmar Agendamento"
-            className="btn btn-primary btn-confirmSc"
+            className="btn btn-primary btn-confirmSc bntdefault"
             onClick={(e) => props.approveScheduling(scheduling.id)}
           >
             Confirmar

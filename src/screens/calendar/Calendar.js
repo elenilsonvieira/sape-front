@@ -107,7 +107,7 @@ export default (props) => {
           <button
             type="button"
             title="Deletar agendamento"
-            className="btn btn-danger"
+            className="btn btn-danger Buttondefault "
             onClick={(e) => {
               props.delete(modalEventInfo.id);
               closeModal();
@@ -117,8 +117,8 @@ export default (props) => {
           </button>
           <button
             type="button"
-            title="Vizualizar participantes"
-            className="btn btn-info"
+            title="Vizualizar participantes "
+            className="btn btn-info Buttondefault"
             onClick={(e) => props.viewParticipants(modalEventInfo.id)}
           >
             Participantes
@@ -126,7 +126,7 @@ export default (props) => {
           <button
             type="button"
             title="Confirmar presença"
-            className="btn btn-info"
+            className="btn btn-info Buttondefault"
             onClick={(e) => {
               props.addIsPresent(modalEventInfo.id);
               closeModal();
@@ -137,7 +137,7 @@ export default (props) => {
           <button
             type="button"
             title="Atualizar agendamento"
-            className="btn btn-info"
+            className="btn btn-info Buttondefault"
             onClick={(e) => {
               props.edit(modalEventInfo.id);
               closeModal();
@@ -156,14 +156,14 @@ export default (props) => {
           <p>Deseja cadastrar um novo agendamento para a data {selectedDateModal}?</p>
           <button
             type="button"
-            className="btn btn-primary"
+            className="btn btn-primary Buttondefault"
             onClick={confirmNewAgendamento}
           >
             Confirmar
           </button>
           <button
             type="button"
-            className="btn btn-secondary"
+            className="btn btn-secondary Buttondefault"
             onClick={closeNewAgendamentoModal}
           >
             Cancelar

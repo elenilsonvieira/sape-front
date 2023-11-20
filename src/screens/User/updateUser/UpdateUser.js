@@ -153,7 +153,7 @@ export default class UpdateUser extends React.Component {
                 id="btn-upd"
                 onClick={this.put}
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-primary Buttondefault"
               >
                 Atualizar
               </button>

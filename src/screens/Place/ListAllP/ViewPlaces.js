@@ -79,9 +79,9 @@ class ViewPlaces extends React.Component {
           <button
             onClick={this.create}
             type="button"
-            className="btn-viewplace btn btn-primary"
+            className="btn-viewplace btn btn-primary Buttondefault"
           >
-            Cadastrar novo local
+            Novo Local
           </button>
         </header>
         <footer className="footer-viewplace"></footer>

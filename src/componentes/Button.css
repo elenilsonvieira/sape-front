@@ -1,0 +1,14 @@
+.Buttondefault{
+    background-color: #6DCA41;
+    border: none;
+  }
+  
+.Buttondefault:hover {
+    background-color: rgb(28, 146, 17);
+    border: none;
+  }
+
+.bnt-excluir{
+    padding: 0px 20px 0px 20px;
+  }
+
