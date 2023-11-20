@@ -18,7 +18,11 @@
     position: relative;
     top: 150px;
     right: 150px;
+
+    width: 100px;
+    height: 40px;
 }
+
 
 .forms-sport {
     position: relative;

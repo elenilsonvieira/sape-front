@@ -166,7 +166,7 @@ export default class CreatePlace extends React.Component {
             <button
               onClick={this.post}
               type="button"
-              className="btn btn-primary btn-place"
+              className="btn btn-primary btn-place Buttondefault"
             >
               Salvar
             </button>

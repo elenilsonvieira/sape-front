@@ -79,7 +79,7 @@ export default class CreateSport extends React.Component {
             <br />
             <button
               type="button"
-              className="btn btn-primary btnsSport"
+              className="btn btn-primary btnsSport Buttondefault bntsave"
               onClick={this.post}
             >
               Salvar
