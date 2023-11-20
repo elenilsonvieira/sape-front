@@ -22,7 +22,7 @@ export default (props) => {
   const [isNewAgendamentoModalOpen, setNewAgendamentoModalOpen] = useState(false);
 
   const [selectedDate, setSelectedDate] = useState(null);
-  
+  const [selectedDateModal, setSelectedDateModal] = useState(null);
 
   const openModal = (eventInfo) => {
     setModalEventInfo(eventInfo);
@@ -56,12 +56,21 @@ export default (props) => {
   };
 
   const dateClickHandler = (info) => {
-    const formattedDate = format(new Date(info.dateStr), 'dd-MM-yyyy', { locale: ptBR });
-  
+    const clickedDateUTC = new Date(info.dateStr + 'T00:00:00Z');
+    
+    const day = String(clickedDateUTC.getUTCDate()).padStart(2, '0');
+    const month = String(clickedDateUTC.getUTCMonth() + 1).padStart(2, '0');
+    const year = clickedDateUTC.getUTCFullYear();
+
+    const formattedDate = `${year}-${month}-${day}`;
+    const formattedDateModal = `${day}/${month}/${year}`;
+
     openNewAgendamentoModal();
     setSelectedDate(formattedDate);
-    
+    setSelectedDateModal(formattedDateModal);
   };
+
+
 
   const confirmNewAgendamento = () => {
     if (selectedDate) {
@@ -144,7 +153,7 @@ export default (props) => {
           onClose={closeNewAgendamentoModal}
         >
           <h3>Cadastrar Novo Agendamento</h3>
-          <p>Deseja cadastrar um novo agendamento para a data {selectedDate}?</p>
+          <p>Deseja cadastrar um novo agendamento para a data {selectedDateModal}?</p>
           <button
             type="button"
             className="btn btn-primary"

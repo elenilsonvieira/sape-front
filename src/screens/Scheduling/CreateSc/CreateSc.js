@@ -25,18 +25,35 @@ export default class CreateSc extends React.Component {
     this.service = new SchedulingApiService();
   }
 
+  async updateStateAsync(date) {
+    // Atualiza o estado e usa um callback para verificar o valor atualizado
+    await new Promise(resolve => {
+      this.setState({ date }, () => {
+        // Isso será executado após a conclusão da atualização do estado
+        console.log("data do state (updateStateAsync): " + this.state.date);
+        resolve(); // Resolvendo a Promise
+      });
+    });
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    // Verifica se o estado foi atualizado
+    if (this.state.date !== prevState.date) {
+      console.log("data do state (render): " + this.state.date);
+    }
+  }
+  
   componentDidMount() {
     // Obtém a data da URL
     const urlParams = new URLSearchParams(window.location.search);
     const dateFromUrl = urlParams.get("date");
   
     if (dateFromUrl) {
-      console.log(dateFromUrl)
-      this.setState({ date: dateFromUrl, });
-      console.log("data do state"+this.state.date)
+      console.log(dateFromUrl);
+      this.updateStateAsync(dateFromUrl);
     }
   }
-
+  
   validate = () => {
     const errors = [];
 
