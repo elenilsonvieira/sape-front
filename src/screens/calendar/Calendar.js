@@ -47,8 +47,9 @@ export default (props) => {
   };
 
   const eventContent = (eventInfo) => {
+    const status = eventInfo.event.extendedProps.status;
     return (
-      <div>
+      <div className={status === 'CONFIRMED' ? 'CONFIRMED' : 'PENDING'}>
         <h5>{eventInfo.event.title}</h5>
         <p>{eventInfo.event.extendedProps.location}</p>
       </div>

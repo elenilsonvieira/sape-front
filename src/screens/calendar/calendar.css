@@ -6,10 +6,19 @@
 
 /* Você também pode definir estilos personalizados para os eventos */
 .fc-event {
-    background-color: #6DCA41; /* Cor de fundo desejada para os eventos */
+    /* Cor de fundo desejada para os eventos */
     cursor: pointer;
     color: #fff; /* Cor do texto desejada para os eventos */
     border-color: #4f88ba; /* Cor da borda dos eventos */
+  }
+  .CONFIRMED {
+    background-color: #6DCA41;
+    /* Outros estilos para quando o componente estiver ativo */
+  }
+  
+  .PENDING {
+    background-color: red;
+    /* Outros estilos para quando o componente estiver inativo */
   }
   
   /* Se desejar alterar a cor quando o evento estiver em foco (hover) */
@@ -20,4 +29,6 @@
   button{
     background-color: #0E731D;
   }
+
+  
   

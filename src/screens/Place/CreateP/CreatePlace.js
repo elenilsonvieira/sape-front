@@ -85,6 +85,7 @@ export default class CreatePlace extends React.Component {
       })
       .then((response) => {
         showSuccessMessage("Local criado com Sucesso!");
+        console.log(response)
         this.props.history.push("/listPlaces");
       })
       .catch((error) => {

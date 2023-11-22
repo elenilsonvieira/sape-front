@@ -35,6 +35,11 @@ export default class SchedulingApiService extends ApiService {
     return this.getWithFilter(`/useFilter${filters}`);
   }
 
+  findWithCreatorAndResponsible() {
+    return this.get(`/userCreator`);
+  }
+
+
   confirmedByPlaceId(placeId) {
     return this.get(`/confirmedByPlace/${placeId}`);
   }

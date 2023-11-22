@@ -13,6 +13,8 @@ import {
 } from "../../../componentes/Toastr";
 import axios from "axios";
 import Calendar from "../../calendar/Calendar";
+import { LOGGED_USER } from "../../../services/ApiService";
+import UserApiService from "../../../services/UserApiService";
 
 class ViewScheduling extends React.Component {
   state = {
@@ -26,10 +28,27 @@ class ViewScheduling extends React.Component {
   constructor() {
     super();
     this.service = new SchedulingApiService();
+    this.serviceUser = new UserApiService();
   }
 
   find = () => {
-    this.service
+    const user = JSON.parse(localStorage.getItem("loggedUser"));
+    const userScheduling = this.serviceUser.findByRegistration(this.state.creator);
+    if (user && userScheduling){
+      this.service.findWithCreatorAndResponsible()
+      .then((Response) => {
+        const scheduling = Response.data;
+        console.log(
+          "🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:",
+          scheduling
+        );
+        this.setState({ scheduling: scheduling });
+      })
+      .catch((error) => {
+        console.log(error.Response);
+      });
+    }else{
+      this.service
       .find()
       .then((Response) => {
         const scheduling = Response.data;
@@ -42,6 +61,8 @@ class ViewScheduling extends React.Component {
       .catch((error) => {
         console.log(error.Response);
       });
+    }
+    
   };
 
   findAllParticpants = (schedulingId) => {

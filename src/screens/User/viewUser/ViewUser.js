@@ -206,6 +206,7 @@ class ViewUser extends React.Component {
               }
             </div>
           )}
+          <br/><br/><br/>
         </header>
         <footer className="footer-user"></footer>
       </div>
