@@ -21,7 +21,7 @@ export default (props) => {
         </td>
         <td>{place.public ? "Sim" : "Não"}</td>
         <td>
-          <div className="buttons-table">
+          <td className="btn-sport">
             <button
               type="button"
               title="Edit"
@@ -38,7 +38,7 @@ export default (props) => {
             >
               Excluir
             </button>
-          </div>
+          </td>
         </td>
       </tr>
     );

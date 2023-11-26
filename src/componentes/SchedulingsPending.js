@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Button.css";
 import GetName from "./GetPlaceOrSportName";
 import GetNameUser from "./GetUserOrNameUser";
 
@@ -24,7 +24,7 @@ export default (props) => {
           <button
             type="button"
             title="Confirmar Agendamento"
-            className="btn btn-primary btn-confirmSc bntdefault"
+            className="btn btn-primary btn-confirmSc Buttondefault"
             onClick={(e) => props.approveScheduling(scheduling.id)}
           >
             Confirmar

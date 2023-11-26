@@ -8,4 +8,8 @@
     --bs-btn-border-color: none;
     --bs-btn-hover-color: #fff;
     --bs-btn-hover-bg: rgb(28, 146, 17);
+    
+}
+.table-sport{
+    height: 410px;
 }
