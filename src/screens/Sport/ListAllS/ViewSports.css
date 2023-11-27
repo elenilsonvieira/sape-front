@@ -9,12 +9,13 @@
     align-content: center;
     overflow: auto;
     border-radius: 10px;
-    max-height: 700px;
+    max-height: 385px;
 
 
 
     font-size: 1.2rem;
 }
+
 
 .field-viewSport {
     width: 90%;

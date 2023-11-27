@@ -11,6 +11,8 @@ class ViewPlaces extends React.Component {
     places: [],
   };
 
+
+
   constructor() {
     super();
     this.service = new PlaceApiService();
@@ -58,6 +60,12 @@ class ViewPlaces extends React.Component {
   };
 
   render() {
+
+        const divStyle = {
+      height: '380px', // usando inline style para mudar altura da div
+    };
+
+    
     return (
       <div>
         <header className="App-header">
@@ -66,7 +74,7 @@ class ViewPlaces extends React.Component {
             <br />
             <br />
             <br />
-            <div className="table-all">
+            <div style={divStyle} className="table-all">
               <PlacesTable
                 places={this.state.places}
                 viewResponsibles={this.viewResponsibles}

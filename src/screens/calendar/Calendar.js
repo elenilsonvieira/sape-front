@@ -50,8 +50,8 @@ export default (props) => {
     const status = eventInfo.event.extendedProps.status;
     return (
       <div className={status === 'CONFIRMED' ? 'CONFIRMED' : 'PENDING'}>
-        <h5>{eventInfo.event.title}</h5>
-        <p>{eventInfo.event.extendedProps.location}</p>
+        <h5 className="textEvent">{eventInfo.event.title}</h5>
+        <p className="ptext"> {eventInfo.event.extendedProps.location}</p>
       </div>
     );
   };
