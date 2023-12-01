@@ -31,11 +31,16 @@ class ViewScheduling extends React.Component {
     this.serviceUser = new UserApiService();
   }
 
-  find = () => {
+  find = async () => {
+
+    const retorno = [];
     const user = JSON.parse(localStorage.getItem("loggedUser"));
-    const userScheduling = this.serviceUser.findByRegistration(this.state.creator);
-    if (user && userScheduling){
-      this.service.findWithCreatorAndResponsible()
+    console.log("user", user.registration);
+    
+      
+    
+      await this.service
+      .findWithCreatorAndResponsible(user.registration)
       .then((Response) => {
         const scheduling = Response.data;
         console.log(
@@ -45,23 +50,8 @@ class ViewScheduling extends React.Component {
         this.setState({ scheduling: scheduling });
       })
       .catch((error) => {
-        console.log(error.Response);
+        console.log(error.response);
       });
-    }else{
-      this.service
-      .find()
-      .then((Response) => {
-        const scheduling = Response.data;
-        console.log(
-          "🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:",
-          scheduling
-        );
-        this.setState({ scheduling: scheduling });
-      })
-      .catch((error) => {
-        console.log(error.Response);
-      });
-    }
     
   };
 
@@ -219,6 +209,20 @@ class ViewScheduling extends React.Component {
     this.props.history.push(`/updateScheduling/${schedulingId}`);
   }
 
+  confirmScheduling = (schedulingId) => {
+    this.service
+    .approveScheduling(schedulingId)
+    .then((Response) => {
+      this.find();
+      showSuccessMessage("Agendamento confirmado!");
+      console.log(Response);
+    })
+    .catch((error) => {
+      showErrorMessage(error.response);
+      console.log(error.response);
+    });
+  };
+
   render() {
     return (
       <div>
@@ -317,6 +321,7 @@ class ViewScheduling extends React.Component {
                   //removeParticipant={this.removeParticipant}
                   //perfil={this.perfil}
                   edit={this.edit}
+                  confirmScheduling={this.confirmScheduling}
                 />
           </fieldset>
           

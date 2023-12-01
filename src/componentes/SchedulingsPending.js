@@ -21,7 +21,7 @@ export default (props) => {
         <GetNameUser registration={scheduling.creator} label="user" />
 
         <td>
-          <button
+        <button
             type="button"
             title="Confirmar Agendamento"
             className="btn btn-primary btn-confirmSc Buttondefault"

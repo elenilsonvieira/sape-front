@@ -35,8 +35,8 @@ export default class SchedulingApiService extends ApiService {
     return this.getWithFilter(`/useFilter${filters}`);
   }
 
-  findWithCreatorAndResponsible() {
-    return this.get(`/userCreator`);
+  findWithCreatorAndResponsible(registration) {
+    return this.get(`/userCreator/${registration}`);
   }
 
 

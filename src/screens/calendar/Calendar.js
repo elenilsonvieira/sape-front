@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -21,10 +21,12 @@ export default (props) => {
   const [modalEventInfo, setModalEventInfo] = useState(null);
   const [isNewAgendamentoModalOpen, setNewAgendamentoModalOpen] = useState(false);
 
+
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedDateModal, setSelectedDateModal] = useState(null);
 
   const openModal = (eventInfo) => {
+    console.log('Modal Event Info:', eventInfo);
     setModalEventInfo(eventInfo);
     setModalOpen(true);
   };
@@ -48,14 +50,14 @@ export default (props) => {
 
   const eventContent = (eventInfo) => {
     const status = eventInfo.event.extendedProps.status;
+  
     return (
       <div className={status === 'CONFIRMED' ? 'CONFIRMED' : 'PENDING'}>
         <h5 className="textEvent">{eventInfo.event.title}</h5>
-        <p className="ptext"> {eventInfo.event.extendedProps.location}</p>
+        <p className="ptext">{eventInfo.event.extendedProps.location}</p>
       </div>
     );
   };
-
   const dateClickHandler = (info) => {
     const clickedDateUTC = new Date(info.dateStr + 'T00:00:00Z');
     
@@ -97,11 +99,11 @@ export default (props) => {
         locale={ptBrLocale}
         eventClick={eventClickHandler}
         dateClick={dateClickHandler}
+        slotDuration="00:15:00"
       />
 
       {isModalOpen && modalEventInfo && (
         <Modal onClose={closeModal}>
-          {/* Conteúdo do modal, como informações detalhadas do evento */}
           <h3>Informações do Agendamento</h3>
           <p>Esporte: {modalEventInfo.title}</p>
           <p>Local: {modalEventInfo.extendedProps.location}</p>
@@ -146,6 +148,20 @@ export default (props) => {
           >
             Atualizar
           </button>
+
+          {modalEventInfo.extendedProps.status === 'PENDING' && (
+          <button
+            type="button"
+            title="Confirmar agendamento no Calendário"
+            className="btn btn-info Buttondefault"
+            onClick={(e) => {
+              props.confirmScheduling(modalEventInfo.id);
+              closeModal();
+            }}
+          >
+            Confirmar Agendamento
+          </button>
+        )}
         </Modal>
       )}
 
