@@ -12,6 +12,9 @@ import {
   showErrorMessage,
 } from "../../../componentes/Toastr";
 import axios from "axios";
+import Calendar from "../../calendar/Calendar";
+import { LOGGED_USER } from "../../../services/ApiService";
+import UserApiService from "../../../services/UserApiService";
 
 class ViewScheduling extends React.Component {
   state = {
@@ -25,11 +28,19 @@ class ViewScheduling extends React.Component {
   constructor() {
     super();
     this.service = new SchedulingApiService();
+    this.serviceUser = new UserApiService();
   }
 
-  find = () => {
-    this.service
-      .find()
+  find = async () => {
+
+    const retorno = [];
+    const user = JSON.parse(localStorage.getItem("loggedUser"));
+    console.log("user", user.registration);
+    
+      
+    
+      await this.service
+      .findWithCreatorAndResponsible(user.registration)
       .then((Response) => {
         const scheduling = Response.data;
         console.log(
@@ -39,8 +50,9 @@ class ViewScheduling extends React.Component {
         this.setState({ scheduling: scheduling });
       })
       .catch((error) => {
-        console.log(error.Response);
+        console.log(error.response);
       });
+    
   };
 
   findAllParticpants = (schedulingId) => {
@@ -85,6 +97,10 @@ class ViewScheduling extends React.Component {
 
   perfil = (userId) => {
     this.props.history.push(`/viewUser/${userId}`);
+  };
+
+  confirm = () => {
+    this.props.history.push("/viewPresent");
   };
 
   componentDidMount() {
@@ -189,6 +205,24 @@ class ViewScheduling extends React.Component {
       });
   };
 
+  edit = (schedulingId) => {
+    this.props.history.push(`/updateScheduling/${schedulingId}`);
+  }
+
+  confirmScheduling = (schedulingId) => {
+    this.service
+    .approveScheduling(schedulingId)
+    .then((Response) => {
+      this.find();
+      showSuccessMessage("Agendamento confirmado!");
+      console.log(Response);
+    })
+    .catch((error) => {
+      showErrorMessage(error.response);
+      console.log(error.response);
+    });
+  };
+
   render() {
     return (
       <div>
@@ -236,52 +270,62 @@ class ViewScheduling extends React.Component {
                   <button
                     onClick={this.filterSearch}
                     type="button"
-                    className="btn btn-success buttonFilter"
+                    className="btn btn-success buttonFilter  Buttondefault"
                   >
                     Aplicar Filtro
                   </button>
                   <button
                     onClick={this.find}
                     type="button"
-                    className="buttonFilter btn btn-info"
+                    className="buttonFilter btn btn-info Buttondefault"
                   >
                     Mostrar Todos
                   </button>
                   <button
                     onClick={this.create}
                     type="button"
-                    className="btn btn-primary btnSc"
+                    className="btn btn-primary btnSc Buttondefault"
                   >
-                    Cadastrar novo agendamento
+                  novo agendamento
                   </button>
                   <button
                     onClick={this.viewSchedulingPending}
                     type="button"
-                    className="btn btn-danger btnScPen"
+                    className="btn btn-danger btnScPen bntSheduling Buttondefault"
                     title="Aguardando aprovação"
                   >
-                    Agendamentos pendentes
+                   Pendentes
+                  </button>
+
+                  <button
+                    onClick={this.confirm}
+                    type="button"
+                    className="btn btn-danger btnScPen bntSheduling Buttondefault"
+                    title="Agendamentos Confirmados"
+                  >
+                    Confirmados
                   </button>
                 </div>
               </h3>
             </div>
             <br />
             <br />
-            <fieldset className="field-viewsched">
-              <div className="table-schedfilter">
-                <SchedulingTable
+            
+            <Calendar
+                  //listEvent={this.service.findCalendar()}
                   schedulings={this.state.scheduling}
                   viewParticipants={this.viewParticipants}
                   delete={this.delete}
                   addIsPresent={this.addIsPresent}
-                  addParticipant={this.addParticipant}
-                  removeParticipant={this.removeParticipant}
-                  perfil={this.perfil}
+                  //addParticipant={this.addParticipant}
+                  //removeParticipant={this.removeParticipant}
+                  //perfil={this.perfil}
+                  edit={this.edit}
+                  confirmScheduling={this.confirmScheduling}
                 />
-              </div>
-            </fieldset>
           </fieldset>
-          <br />
+          
+          <br /><br /><br />
         </header>
         <footer className="footer-sche"></footer>
       </div>

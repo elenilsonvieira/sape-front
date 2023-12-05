@@ -9,16 +9,17 @@
     align-content: center;
     overflow: auto;
     border-radius: 10px;
-    max-height: 700px;
+    max-height: 385px;
 
 
 
     font-size: 1.2rem;
 }
 
+
 .field-viewSport {
     width: 90%;
-    height: 600px;
+    height: 400px;
     margin-top: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);

@@ -11,6 +11,8 @@ class ViewPlaces extends React.Component {
     places: [],
   };
 
+
+
   constructor() {
     super();
     this.service = new PlaceApiService();
@@ -58,15 +60,21 @@ class ViewPlaces extends React.Component {
   };
 
   render() {
+
+        const divStyle = {
+      height: '380px', // usando inline style para mudar altura da div
+    };
+
+    
     return (
       <div>
         <header className="App-header">
-          <h1 className="title">Locais</h1>
+        <h1 className="title">Locais</h1>
           <fieldset className="field-viewplace">
             <br />
             <br />
             <br />
-            <div className="table-all">
+            <div style={divStyle} className="table-all">
               <PlacesTable
                 places={this.state.places}
                 viewResponsibles={this.viewResponsibles}
@@ -79,9 +87,9 @@ class ViewPlaces extends React.Component {
           <button
             onClick={this.create}
             type="button"
-            className="btn-viewplace btn btn-primary"
+            className="btn-viewplace btn btn-primary Buttondefault"
           >
-            Cadastrar novo local
+            Novo Local
           </button>
         </header>
         <footer className="footer-viewplace"></footer>

@@ -1,4 +1,6 @@
 import React from "react";
+import "./PlacesTable.css";
+import "./Button.css";
 import { BsEyeFill } from "react-icons/bs";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -19,11 +21,11 @@ export default (props) => {
         </td>
         <td>{place.public ? "Sim" : "Não"}</td>
         <td>
-          <div className="buttons-table">
+          <td className="btn-sport">
             <button
               type="button"
               title="Edit"
-              className="btn btn-warning"
+              className="btn btn-warning Buttondefault"
               onClick={(e) => props.edit(place.id)}
             >
               Atualizar
@@ -31,21 +33,21 @@ export default (props) => {
             <button
               type="button"
               title="Exclude"
-              className="btn btn-danger"
+              className="btn btn-danger bnt-excluir"
               onClick={(e) => props.delete(place.id)}
             >
               Excluir
             </button>
-          </div>
+          </td>
         </td>
       </tr>
     );
   });
 
   return (
-    <table className="table table-hover">
+    <table className="table table-hover ">
       <thead>
-        <tr className="table-primary">
+        <tr className="table-primary ">
           <th scope="col">Nome</th>
           <th scope="col">Referência</th>
           <th scope="col">Capacidade</th>

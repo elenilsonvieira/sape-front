@@ -1,0 +1,62 @@
+.fc {
+    background-color: #ffffff; /* Cor de fundo desejada */
+    color: #333; /* Cor do texto desejada */
+  }
+
+
+/* Você também pode definir estilos personalizados para os eventos */
+.fc-event {
+    /* Cor de fundo desejada para os eventos */
+    cursor: pointer;
+    color: #fff; /* Cor do texto desejada para os eventos */
+    border-color: #4f88ba; /* Cor da borda dos eventos */
+  }
+  .textEvent{
+    text-align: center;
+    opacity: 1;
+    margin-bottom: 0px;
+
+  }
+  .ptext{
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 15px;
+    margin-bottom: 2px;
+
+  }
+  .CONFIRMED {
+    background-color: #6DCA41;
+    color: white;
+    
+    height: 50px;
+    width: 300px;
+  }
+
+  .CONFIRMED:hover{
+    background-color: rgb(28, 146, 17);
+  }
+  
+  .PENDING {
+
+
+    background-color: rgba(231, 12, 12, 0.849);
+    opacity: 0.5;
+    height: 50px;
+    width: 300px;
+  }
+
+  .PENDING:hover{
+    background-color: rgba(250, 19, 19, 0.966);
+    color: white;
+    opacity: 1;
+  }
+
+  /* Se desejar alterar a cor quando o evento estiver em foco (hover) */
+  
+
+  button{
+    background-color: #0E731D;
+  }
+
+  
+  

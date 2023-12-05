@@ -52,6 +52,12 @@
 
 .buttonFilter {
   display: inline-block;
+
+}
+.bntSheduling {
+  margin-left: 5px;
+  width: 130px;
+  height: 37px;
 }
 
 .buttonFilter {
@@ -67,7 +73,7 @@
 
 .btnScPen {
   position: relative;
-  left: 570px;
+  left: 510px;
   bottom: 136px;
 }
 

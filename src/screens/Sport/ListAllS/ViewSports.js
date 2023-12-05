@@ -72,6 +72,8 @@ class ViewSports extends React.Component {
     this.props.history.push("/createSport");
   };
 
+  
+
   addSportsFavorite = (sportId) => {
     this.userService
       .addSportsFavorite(this.getLoggedUser().id, sportId)
@@ -102,11 +104,11 @@ class ViewSports extends React.Component {
               />
             </div>
           </fieldset>
-          <br />
+         
           <button
             onClick={this.create}
             type="button"
-            className="btn btn-primary"
+            className="btn-viewplace btn btn-primary Buttondefault"
           >
             Novo Esporte
           </button>

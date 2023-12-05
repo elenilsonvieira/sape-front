@@ -1,5 +1,5 @@
 import React from "react";
-import "./CreateSc.css";
+import "./UpdateSc.css";
 import "bootswatch/dist/minty/bootstrap.css";
 import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
@@ -10,8 +10,9 @@ import {
   showErrorMessage,
 } from "../../../componentes/Toastr";
 
-export default class CreateSc extends React.Component {
+export default class UpdateSc extends React.Component {
   state = {
+    id: 0,
     date: "",
     startTime: "",
     finishTime: "",
@@ -25,35 +26,47 @@ export default class CreateSc extends React.Component {
     this.service = new SchedulingApiService();
   }
 
-  async updateStateAsync(date) {
-    // Atualiza o estado e usa um callback para verificar o valor atualizado
-    await new Promise(resolve => {
-      this.setState({ date }, () => {
-        // Isso será executado após a conclusão da atualização do estado
-        console.log("data do state (updateStateAsync): " + this.state.date);
-        resolve(); // Resolvendo a Promise
+  componentDidMount(){
+    const params = this.props.match.params;
+    const id = params.id;
+    this.findById(id);
+  }
+
+  findById = (scheduledId) => {
+    this.service.get(`/${scheduledId}`)
+      .then(response => {
+        const scheduled = response.data;
+  
+        const {
+          id,
+          scheduledDate,
+          scheduledStartTime,
+          scheduledFinishTime,
+          placeId,
+          sportId,
+          creator,
+        } = scheduled;
+  
+        
+        this.setState({
+          id,
+          date: scheduledDate,
+          startTime: scheduledStartTime,
+          finishTime: scheduledFinishTime,
+          selectedOptionPlace: placeId,
+          selectedOptionSport: sportId,
+          creator,
+        });
+      })
+      .catch(error => {
+        console.log(error.response);
       });
-    });
   }
   
-  componentDidUpdate(prevProps, prevState) {
-    // Verifica se o estado foi atualizado
-    if (this.state.date !== prevState.date) {
-      console.log("data do state (render): " + this.state.date);
-    }
-  }
   
-  componentDidMount() {
-    // Obtém a data da URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const dateFromUrl = urlParams.get("date");
   
-    if (dateFromUrl) {
-      console.log(dateFromUrl);
-      this.updateStateAsync(dateFromUrl);
-    }
-  }
   
+
   validate = () => {
     const errors = [];
 
@@ -85,7 +98,7 @@ export default class CreateSc extends React.Component {
     return errors;
   };
 
-  post = () => {
+  update = async () => {
     const errors = this.validate();
 
     if (errors.length > 0) {
@@ -101,8 +114,8 @@ export default class CreateSc extends React.Component {
       return user.registration;
     };
 
-    this.service
-      .create({
+    await this.service
+      .update(this.state.id, {
         scheduledDate: this.state.date,
         scheduledStartTime: this.state.startTime,
         scheduledFinishTime: this.state.finishTime,
@@ -111,7 +124,7 @@ export default class CreateSc extends React.Component {
         creator: getUserRegistration(),
       })
       .then((Response) => {
-        showSuccessMessage("Prática agendada com sucesso!");
+        showSuccessMessage("Prática atualizada com sucesso!");
         console.log(Response);
         this.props.history.push("/listScheduling");
       })
@@ -150,9 +163,9 @@ export default class CreateSc extends React.Component {
     return (
       <div>
         <header className="App-header">
-          <h1 className="title">Agendar prática</h1>
+          <h1 className="title">Atualizar prática</h1>
           <fieldset className="fieldset-sched">
-          <FormGroup label="Data" htmlFor="lab01" className="FieldSetSc">
+            <FormGroup label="Data" htmlFor="lab01" className="FieldSetSc">
             <input
               className="form-control noMargin"
               type="date"
@@ -172,8 +185,9 @@ export default class CreateSc extends React.Component {
                 className="form-control noMargin"
                 type="time"
                 id="lab"
+                value={this.state.startTime}
                 onChange={(e) => {
-                  this.setState({ startTime: e.target.value });
+                this.setState({ startTime: e.target.value });
                 }}
               />
             </FormGroup>
@@ -186,44 +200,47 @@ export default class CreateSc extends React.Component {
                 className="form-control noMargin"
                 type="time"
                 id="lab"
+                value={this.state.finishTime}
                 onChange={(e) => {
-                  this.setState({ finishTime: e.target.value });
+                this.setState({ finishTime: e.target.value });
                 }}
               />
             </FormGroup>
             <br />
             <br />
-            <FormGroup
-              label="Selecione o local"
-              htmlFor="lab04"
-              className="FieldSetDDsP"
-            >
+            <FormGroup 
+            label="Selecione o local" 
+            htmlFor="lab04" 
+            className="FieldSetDDsP">
               <DDPlaces
-                className="dds"
-                id="noMargin"
-                onChange={this.handleInputChangePlace}
+              className="dds"
+              id="noMargin"
+              value={this.state.selectedOptionPlace}
+              onChange={this.handleInputChangePlace}
               />
             </FormGroup>
-            <FormGroup
-              label="Selecione o esporte"
-              htmlFor="lab05"
-              className="FieldSetDDsS"
-            >
+
+            <FormGroup 
+            label="Selecione o esporte" 
+            htmlFor="lab05" 
+            className="FieldSetDDsS">
+            
               <DDSports
-                className="dds"
-                id="noMargin"
-                onChange={this.handleInputChangeSport}
+              className="dds"
+              id="noMargin"
+              value={this.state.selectedOptionSport}
+              onChange={this.handleInputChangeSport}
               />
             </FormGroup>
             <br />
             <br />
             <br />
             <button
-              onClick={this.post}
+              onClick={this.update}
               type="button"
-              className="btn btn-primary btnsCreateSc Buttondefault "
+              className="btn btn-primary btnsCreateSc"
             >
-              Salvar
+              Atualizar
             </button>
             <button
               onClick={this.cancel}
