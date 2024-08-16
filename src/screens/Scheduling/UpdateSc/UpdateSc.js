@@ -116,6 +116,7 @@ export default class UpdateSc extends React.Component {
 
     await this.service
       .update(this.state.id, {
+        id:this.state.id,
         scheduledDate: this.state.date,
         scheduledStartTime: this.state.startTime,
         scheduledFinishTime: this.state.finishTime,
