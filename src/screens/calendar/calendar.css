@@ -28,8 +28,12 @@
     background-color: #6DCA41;
     color: white;
     
-    height: 50px;
+    height: 70px;
     width: 300px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
   }
 
   .CONFIRMED:hover{
@@ -38,11 +42,14 @@
   
   .PENDING {
 
-
     background-color: rgba(231, 12, 12, 0.849);
     opacity: 0.5;
-    height: 50px;
+    height: 70px;
     width: 300px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
   }
 
   .PENDING:hover{
