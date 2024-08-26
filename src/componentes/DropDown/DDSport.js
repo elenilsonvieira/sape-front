@@ -34,7 +34,7 @@ const DDSports = (props) => {
         <TextField
           {...params}
           size="small"
-          label="Esporte"
+          label={props.title || "Esporte"}
           variant="outlined"
         />
       )}

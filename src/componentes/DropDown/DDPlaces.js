@@ -31,7 +31,7 @@ const DDPlaces = (props) => {
         props.onChange(newValue ? newValue.id : "");
       }}
       renderInput={(params) => (
-        <TextField {...params} size="small" label="Local" variant="outlined" />
+        <TextField {...params} size="small" label={props.location || "Local"} variant="outlined" />
       )}
     />
   );
