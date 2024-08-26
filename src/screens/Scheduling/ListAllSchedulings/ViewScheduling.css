@@ -1,3 +1,11 @@
+.filter-container {
+    width: 100vw;
+    height: 180vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .filterOptions {
   display: inline-block;
   width: 250px;

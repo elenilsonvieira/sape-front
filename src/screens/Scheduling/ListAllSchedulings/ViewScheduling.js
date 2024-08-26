@@ -2,7 +2,6 @@ import React from "react";
 import "./ViewScheduling.css";
 import "bootswatch/dist/minty/bootstrap.css";
 import { withRouter } from "react-router-dom";
-import SchedulingTable from "../../../componentes/SchedulingTable";
 import SchedulingApiService from "../../../services/SchdulingApiService";
 import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
@@ -200,8 +199,9 @@ class ViewScheduling extends React.Component {
     return (
       <div>
         <header className="App-header">
-          <fieldset>
-            <h1 className="title">Agendamentos</h1>
+          <h1 className="title">Agendamentos</h1>
+          <div className="filter-container">
+            <fieldset>
             <div className="card mb-3 cardScheduling">
               <h3 className="card-header">
                 Filtrar
@@ -228,13 +228,8 @@ class ViewScheduling extends React.Component {
                     htmlFor="lab"
                     className="filterOptions"
                   >
-                    <input
-                      className="form-sched"
-                      type="date"
-                      id="lab"
-                      onChange={(e) => {
-                        this.setState({ date: e.target.value });
-                      }}
+                    <DateInput
+                      onDateChange={this.handleDateChange}
                     />
                   </FormGroup>
 
@@ -283,17 +278,16 @@ class ViewScheduling extends React.Component {
             </div>
             <br />
             <br />
-            
-            <Calendar
-                  schedulings={this.state.scheduling}
-                  viewParticipants={this.viewParticipants}
-                  delete={this.delete}
-                  addIsPresent={this.addIsPresent}
-                  edit={this.edit}
-                  confirmScheduling={this.confirmScheduling}
-                />
-          </fieldset>
-          
+              <Calendar
+                schedulings={this.state.scheduling}
+                viewParticipants={this.viewParticipants}
+                delete={this.delete}
+                addIsPresent={this.addIsPresent}
+                edit={this.edit}
+                confirmScheduling={this.confirmScheduling}
+              />
+            </fieldset>
+          </div>
           <br /><br /><br />
         </header>
         <AppFooter />
