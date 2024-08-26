@@ -13,8 +13,10 @@ export default class UserApiService extends ApiService {
   delete(id) {
     return super.delete(`/${id}`);
   }
-  find(userId) {
-    return this.get(`/${userId}`);
+  
+  find(id) {
+    const url = id ? `/${id}` : '';
+    return this.get(url);
   }
   findByRegistration(userRegistration) {
     return this.get(`/registration/${userRegistration}`);

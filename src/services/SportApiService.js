@@ -19,7 +19,8 @@ export default class SportApiService extends ApiService {
   }
 
   find(id) {
-    return this.get(`/${id}`);
+    const url = id ? `/${id}` : '';
+    return this.get(url);
   }
   /* se usarmos filtros. Por hora pegamos apenas os objetos existentes no banco ou por ID.
     find(params) {
