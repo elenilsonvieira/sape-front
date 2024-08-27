@@ -57,10 +57,13 @@ class ViewSports extends React.Component {
         this.find();
       })
       .catch((error) => {
+        showErrorMessage(error.response.data);
+      })
+      .catch((error) => {
         showErrorMessage(
           "Ocorreu um erro ao excluir o esporte, tente novamente!"
         );
-        console.log(error.Response);
+        console.log(error.response);
       });
   };
 
@@ -71,8 +74,6 @@ class ViewSports extends React.Component {
   create = () => {
     this.props.history.push("/createSport");
   };
-
-  
 
   addSportsFavorite = (sportId) => {
     this.userService
@@ -104,7 +105,7 @@ class ViewSports extends React.Component {
               />
             </div>
           </fieldset>
-         
+
           <button
             onClick={this.create}
             type="button"
