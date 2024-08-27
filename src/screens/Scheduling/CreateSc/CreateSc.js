@@ -9,6 +9,8 @@ import {
   showSuccessMessage,
   showErrorMessage,
 } from "../../../componentes/Toastr";
+import DateInput from "../../../componentes/DateInput";
+import AppFooter from "../../../componentes/AppFooter";
 
 export default class CreateSc extends React.Component {
   state = {
@@ -131,11 +133,6 @@ export default class CreateSc extends React.Component {
       console.log("place selected", this.state.selectedOptionPlace);
     });
   };
-  // handleInputChangePlace = (e) => {
-  //     this.setState({selectedOptionPlace: e.target.value}, () => {
-  //         console.log("Id do Local selecionado: ", this.state.selectedOptionPlace);
-  //     });
-  // }
 
   handleInputChangeSport = (e) => {
     this.setState({ selectedOptionSport: e }, () => {
@@ -146,95 +143,95 @@ export default class CreateSc extends React.Component {
     });
   };
 
+  handleDateChange = (date) => {
+    this.setState({date: date});
+  }
+
   render() {
     return (
       <div>
         <header className="App-header">
           <h1 className="title">Agendar prática</h1>
-          <fieldset className="fieldset-sched">
-          <FormGroup label="Data" htmlFor="lab01" className="FieldSetSc">
-            <input
-              className="form-control noMargin"
-              type="date"
-              id="lab"
-              value={this.state.date}
-              onChange={(e) => {
-              this.setState({ date: e.target.value });
-              }}
-            />
-            </FormGroup>
-            <FormGroup
-              label="Hora de Início da prática"
-              htmlFor="lab02"
-              className="FieldSetSc"
-            >
-              <input
-                className="form-control noMargin"
-                type="time"
-                id="lab"
-                onChange={(e) => {
-                  this.setState({ startTime: e.target.value });
-                }}
-              />
-            </FormGroup>
-            <FormGroup
-              label="Hora de término da prática"
-              htmlFor="lab03"
-              className="FieldSetSc"
-            >
-              <input
-                className="form-control noMargin"
-                type="time"
-                id="lab"
-                onChange={(e) => {
-                  this.setState({ finishTime: e.target.value });
-                }}
-              />
-            </FormGroup>
-            <br />
-            <br />
-            <FormGroup
-              label="Selecione o local"
-              htmlFor="lab04"
-              className="FieldSetDDsP"
-            >
-              <DDPlaces
-                className="dds"
-                id="noMargin"
-                onChange={this.handleInputChangePlace}
-              />
-            </FormGroup>
-            <FormGroup
-              label="Selecione o esporte"
-              htmlFor="lab05"
-              className="FieldSetDDsS"
-            >
-              <DDSports
-                className="dds"
-                id="noMargin"
-                onChange={this.handleInputChangeSport}
-              />
-            </FormGroup>
-            <br />
-            <br />
-            <br />
-            <button
-              onClick={this.post}
-              type="button"
-              className="btn btn-primary btnsCreateSc Buttondefault "
-            >
-              Salvar
-            </button>
-            <button
-              onClick={this.cancel}
-              type="button"
-              className="btn btn-danger btnsCreateSc"
-            >
-              Cancelar
-            </button>
-          </fieldset>
+          <div className="form-container">
+            <fieldset className="fieldset-sched">
+            <FormGroup label="Data" htmlFor="lab01" className="FieldSetSc">
+                <DateInput
+                  onDateChange={this.handleDateChange}
+                />
+              </FormGroup>
+              <FormGroup
+                label="Hora de Início da prática"
+                htmlFor="lab02"
+                className="FieldSetSc"
+              >
+                <input
+                  className="form-control noMargin"
+                  type="time"
+                  id="lab"
+                  onChange={(e) => {
+                    this.setState({ startTime: e.target.value });
+                  }}
+                />
+              </FormGroup>
+              <FormGroup
+                label="Hora de término da prática"
+                htmlFor="lab03"
+                className="FieldSetSc"
+              >
+                <input
+                  className="form-control noMargin"
+                  type="time"
+                  id="lab"
+                  onChange={(e) => {
+                    this.setState({ finishTime: e.target.value });
+                  }}
+                />
+              </FormGroup>
+              <br />
+              <br />
+              <FormGroup
+                label="Selecione o local"
+                htmlFor="lab04"
+                className="FieldSetDDsP"
+              >
+                <DDPlaces
+                  className="dds"
+                  id="noMargin"
+                  onChange={this.handleInputChangePlace}
+                />
+              </FormGroup>
+              <FormGroup
+                label="Selecione o esporte"
+                htmlFor="lab05"
+                className="FieldSetDDsS"
+              >
+                <DDSports
+                  className="dds"
+                  id="noMargin"
+                  onChange={this.handleInputChangeSport}
+                />
+              </FormGroup>
+              <br />
+              <br />
+              <br />
+              <button
+                onClick={this.post}
+                type="button"
+                className="btn btn-primary btnsCreateSc Buttondefault "
+              >
+                Salvar
+              </button>
+              <button
+                onClick={this.cancel}
+                type="button"
+                className="btn btn-danger btnsCreateSc"
+              >
+                Cancelar
+              </button>
+            </fieldset>
+          </div>
         </header>
-        <footer className="foot"></footer>
+        <AppFooter />
       </div>
     );
   }

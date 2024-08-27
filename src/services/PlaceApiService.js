@@ -18,7 +18,8 @@ export default class PlaceApiService extends ApiService {
   }
 
   find(id) {
-    return this.get(`/${id}`);
+    const url = id ? `/${id}` : '';
+    return this.get(url);
   }
 
   getResponsibles(placeId) {
