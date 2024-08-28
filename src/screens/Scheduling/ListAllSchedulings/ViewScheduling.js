@@ -138,11 +138,7 @@ class ViewScheduling extends React.Component {
   };
 
   addParticipant = (schedulingId) => {
-    axios
-      .patch(
-        `http://localhost:8080/api/scheduling/${schedulingId}/addParticipant`,
-        { matricula: this.getUserRegistration() }
-      )
+    this.service.addIsPresent(schedulingId, this.getUserRegistration())
       .then((response) => {
         showSuccessMessage(
           "Você demonstrou interesse em participar da prática!"

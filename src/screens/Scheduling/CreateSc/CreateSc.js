@@ -99,7 +99,6 @@ export default class CreateSc extends React.Component {
 
     const getUserRegistration = () => {
       const user = JSON.parse(localStorage.getItem("loggedUser"));
-
       return user.registration;
     };
 
@@ -112,14 +111,12 @@ export default class CreateSc extends React.Component {
         sportId: this.state.selectedOptionSport,
         creator: getUserRegistration(),
       })
-      .then((Response) => {
+      .then((response) => {
         showSuccessMessage("Prática agendada com sucesso!");
-        console.log(Response);
         this.props.history.push("/listScheduling");
       })
       .catch((error) => {
         showErrorMessage(error.response.data);
-        console.log(error.Response);
       });
   };
 
@@ -128,19 +125,11 @@ export default class CreateSc extends React.Component {
   };
 
   handleInputChangePlace = (e) => {
-    console.log("place:", e);
-    this.setState({ selectedOptionPlace: e }, () => {
-      console.log("place selected", this.state.selectedOptionPlace);
-    });
+    this.setState({ selectedOptionPlace: e });
   };
 
   handleInputChangeSport = (e) => {
-    this.setState({ selectedOptionSport: e }, () => {
-      console.log(
-        "Id do Esporte selecionado: ",
-        this.state.selectedOptionSport
-      );
-    });
+    this.setState({ selectedOptionSport: e });
   };
 
   handleDateChange = (date) => {
