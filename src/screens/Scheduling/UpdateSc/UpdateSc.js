@@ -4,7 +4,7 @@ import "bootswatch/dist/minty/bootstrap.css";
 import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 import {
   showSuccessMessage,
   showErrorMessage,

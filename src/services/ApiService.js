@@ -48,9 +48,9 @@ export default class ApiService {
     return httpClient.get(url);
   }
 
-  delete(url) {
+  delete(url, params = {}) {
     url = this.builderUrl(url);
-    return httpClient.delete(url);
+    return httpClient.delete(url, params);
   }
 
   patch(url, params) {

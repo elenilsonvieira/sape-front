@@ -1,14 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import SchedulingsPending from "../../../componentes/SchedulingsPending";
-
-import SchedulingUsertable from "../../../componentes/SchedulingUserTable";
-
-import {
-  showErrorMessage,
-  showSuccessMessage,
-} from "../../../componentes/Toastr";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import {showErrorMessage, showSuccessMessage} from "../../../componentes/Toastr";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 
 class viewSchedulingPending extends React.Component {
   state = {

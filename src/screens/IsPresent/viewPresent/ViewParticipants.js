@@ -3,7 +3,7 @@ import { useParams, withRouter } from "react-router-dom";
 import UsersPresent from "../../../componentes/UsersPresent";
 import "./ViewParticipants.css";
 import { showErrorMessage } from "../../../componentes/Toastr";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 
 class ViewParticipants extends React.Component {
   state = {
