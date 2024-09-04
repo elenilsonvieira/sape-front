@@ -11,11 +11,8 @@
   border-radius: 10px;
   max-height: 700px;
 
-
   font-size: 1.2rem;
 }
-
-
 
 .table {
   width: 100%;
@@ -25,8 +22,6 @@
 .table thead {
   position: sticky;
   top: 0;
-
-
 }
 
 .table th {
@@ -34,8 +29,6 @@
   position: sticky;
   top: 0;
   z-index: 1;
-
-
 }
 
 .field-usersched {

@@ -11,11 +11,11 @@ export default (props) => {
         <td>{scheduling.scheduledDate}</td>
         <td>{scheduling.scheduledStartTime}</td>
         <td>{scheduling.scheduledFinishTime}</td>
-        <GetName id={scheduling.placeId} label="place" />
-        <GetName id={scheduling.sportId} label="sport" />
-        <td>{scheduling.status}</td>
+        <td>{scheduling.location} </td>
+        <td>{scheduling.title} </td>
+        <td> {scheduling.creator}</td>
+        {/* <td>{scheduling.status}</td> */}
 
-        <GetNameUser registration={scheduling.creator} label="user" />
 
         <td>
           <BsEyeFill
@@ -49,11 +49,10 @@ export default (props) => {
           <th scope="col">Fim</th>
           <th scope="col">Local</th>
           <th scope="col">Esporte</th>
-          <th scope="col">Status</th>
-          <th scope="col">Agendado por:</th>
+          <th scope="col">Agendado por</th>
           <th scope="col">Participantes</th>
-
-          <th scope="col">Presença Confirmada?</th>
+          {/* <th></th> */}
+          <th scope="col">Presença Confirmada</th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>
