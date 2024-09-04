@@ -7,7 +7,7 @@ import {
   showErrorMessage,
   showSuccessMessage,
 } from "../../../componentes/Toastr";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 
 class ViewPresent extends React.Component {
   state = {

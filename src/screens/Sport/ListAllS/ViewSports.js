@@ -76,14 +76,13 @@ class ViewSports extends React.Component {
   };
 
   addSportsFavorite = (sportId) => {
-    this.userService
-      .addSportsFavorite(this.getLoggedUser().id, sportId)
-
-      .then((Response) => {
+    this.userService.addSportsFavorite(this.getLoggedUser().id, sportId)
+      .then((response) => {
         showSuccessMessage("Você demonstrou interesse nesse esporte!");
       })
       .catch((error) => {
-        showErrorMessage(error.response.data);
+        console.log(error.response.data);
+        showErrorMessage(error.response.data.detailMessage);
       });
   };
 

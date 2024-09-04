@@ -2,7 +2,7 @@ import React from "react";
 import "./ViewScheduling.css";
 import "bootswatch/dist/minty/bootstrap.css";
 import { withRouter } from "react-router-dom";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
@@ -10,10 +10,9 @@ import {
   showSuccessMessage,
   showErrorMessage,
 } from "../../../componentes/Toastr";
-import axios from "axios";
 import Calendar from "../../calendar/Calendar";
 import { LOGGED_USER } from "../../../services/ApiService";
-import UserApiService from "../../../services/UserApiService";
+import StorageService from "../../../services/StorageService";
 import AppFooter from "../../../componentes/AppFooter";
 import DateInput from "../../../componentes/DateInput";
 
@@ -29,22 +28,23 @@ class ViewScheduling extends React.Component {
   constructor() {
     super();
     this.service = new SchedulingApiService();
-    this.serviceUser = new UserApiService();
+    this.storageService = new StorageService();
+  }
+
+  getUserRegistration = () => {
+    return this.storageService.getItem(LOGGED_USER).registration;
   }
 
   find = async () => {
-    const user = JSON.parse(localStorage.getItem("loggedUser"));
-    console.log("user", user.registration);
-    
-      await this.service
-      .findWithCreatorAndResponsible(user.registration)
-      .then((Response) => {
-        const scheduling = Response.data;
-        this.setState({ scheduling: scheduling });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+    await this.service
+    .findWithCreatorAndResponsible(this.getUserRegistration())
+    .then((Response) => {
+      const scheduling = Response.data;
+      this.setState({ scheduling: scheduling });
+    })
+    .catch((error) => {
+      console.log(error.response);
+    });
   };
 
   findAllParticpants = (schedulingId) => {
@@ -61,14 +61,13 @@ class ViewScheduling extends React.Component {
 
   delete = (schedulingId) => {
     this.service
-      .delete(schedulingId)
-      .then((Response) => {
+      .delete(schedulingId, this.getUserRegistration())
+      .then((response) => {
         showSuccessMessage("Agendamento excluído com sucesso!");
         this.find();
       })
       .catch((error) => {
-        showErrorMessage(error.response.data);
-        console.log(error.Response);
+        showErrorMessage(error.response.data.detailMessage);
       });
   };
 
@@ -138,11 +137,7 @@ class ViewScheduling extends React.Component {
   };
 
   addParticipant = (schedulingId) => {
-    axios
-      .patch(
-        `http://localhost:8080/api/scheduling/${schedulingId}/addParticipant`,
-        { matricula: this.getUserRegistration() }
-      )
+    this.service.addIsPresent(schedulingId, this.getUserRegistration())
       .then((response) => {
         showSuccessMessage(
           "Você demonstrou interesse em participar da prática!"
