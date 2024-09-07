@@ -13,8 +13,12 @@ export default class SchedulingApiService extends ApiService {
     return this.put(`/${id}`, object);
   }
 
-  delete(id) {
-    return super.delete(`/${id}`);
+  delete(id, userRegistration) {
+    return super.delete(`/${id}`, {
+      headers: {
+        'userRegistration': userRegistration
+      }
+    });
   }
 
   find() {

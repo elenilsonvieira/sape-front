@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-import axios from "axios";
+import UserApiService from "../../../src/services/UserApiService";
+import { showErrorMessage} from "../../../src/componentes/Toastr";
 
 const DDUsers = (props) => {
   const [users, setUsers] = useState([]);
+  const service = new UserApiService();
 
   useEffect(() => {
-    findPlaces();
+    findUsers();
   }, []);
 
-  function findPlaces() {
-    axios
-      .get("http://localhost:8080/api/user")
+  function findUsers() {
+    service.find("")
       .then((response) => {
         const users = response.data;
         setUsers(users);
-        console.log("users", users);
       })
       .catch((error) => {
-        console.log(error.response);
+        showErrorMessage(error.response.data);
       });
   }
 

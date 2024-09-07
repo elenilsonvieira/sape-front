@@ -7,7 +7,7 @@ import {
   showErrorMessage,
   showSuccessMessage,
 } from "../../../componentes/Toastr";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 
 class ViewPresent extends React.Component {
   state = {
@@ -120,7 +120,7 @@ class ViewPresent extends React.Component {
     return (
       <div>
         <header className="App-header">
-          <h1 className="title">Participação Confirmada</h1>
+          <h1 className="title">Agendamentos Confirmados</h1>
           <fieldset className="field-usersched">
             <br />
             <br />

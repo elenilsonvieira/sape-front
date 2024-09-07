@@ -6,22 +6,21 @@ import GetNameUser from "./GetUserOrNameUser";
 export default (props) => {
   const rows = props.schedulings?.map((scheduling) => {
     const styleButton = {
-      padding: '5px 25px 7px 25px'
-      
+      padding: "5px 25px 7px 25px",
     };
     return (
       <tr key={scheduling.id}>
         <td>{scheduling.scheduledDate}</td>
         <td>{scheduling.scheduledStartTime}</td>
         <td>{scheduling.scheduledFinishTime}</td>
-        <GetName id={scheduling.placeId} label="place" />
-        <GetName id={scheduling.sportId} label="sport" />
+        <td>{scheduling.location} </td>
+        <td>{scheduling.title} </td>
         <td>{scheduling.status}</td>
 
-        <GetNameUser registration={scheduling.creator} label="user" />
+        <td> {scheduling.creator}</td>
 
         <td>
-        <button
+          <button
             type="button"
             title="Confirmar Agendamento"
             className="btn btn-primary btn-confirmSc Buttondefault"
@@ -31,7 +30,7 @@ export default (props) => {
           </button>
         </td>
         <td>
-        <button
+          <button
             type="button"
             title="Cancelar Agendamento"
             className="btn btn-danger btn-del"
@@ -56,7 +55,9 @@ export default (props) => {
           <th scope="col">Esporte</th>
           <th scope="col">Status</th>
           <th scope="col">Agendado por:</th>
-          <th scope="col" colSpan={2}>Confirmar Agendamento?</th>
+          <th scope="col" colSpan={2}>
+            Confirmar Agendamento?
+          </th>
         </tr>
       </thead>
       <tbody>{rows}</tbody>

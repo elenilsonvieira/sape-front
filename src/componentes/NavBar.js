@@ -2,8 +2,16 @@ import React from "react";
 import NavbarItem from "./NavbarItem";
 import "./Components.css";
 import { AuthConsumer } from "../main/SessionProvider";
+import StorageService from "../services/StorageService";
+import { LOGGED_USER } from "../services/ApiService";
 
 function NavBar(props) {
+  const storageService = new StorageService();
+
+  const getUserName = () => {
+    return storageService.getItem(LOGGED_USER).name;
+  }
+
   return (
     <div className="navbar navbar-expand-lg fixed-top navbar-light bg-light" >
       <div className="container">
@@ -62,6 +70,15 @@ function NavBar(props) {
             
           </ul>
         </div>
+        {
+          props.isAuthenticated && (
+            <div style={{
+              paddingTop: '1rem'
+            }}>
+              <p>{getUserName()}</p>
+            </div>
+          )
+        }
       </div>
     </div>
   );

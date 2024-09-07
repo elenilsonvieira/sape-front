@@ -4,7 +4,7 @@ import "bootswatch/dist/minty/bootstrap.css";
 import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 import {
   showSuccessMessage,
   showErrorMessage,
@@ -17,7 +17,9 @@ export default class UpdateSc extends React.Component {
     startTime: "",
     finishTime: "",
     selectedOptionPlace: "",
+    location:"",
     selectedOptionSport: "",
+    title: "",
     creator: "",
   };
 
@@ -43,7 +45,9 @@ export default class UpdateSc extends React.Component {
           scheduledStartTime,
           scheduledFinishTime,
           placeId,
+          location,
           sportId,
+          title,
           creator,
         } = scheduled;
   
@@ -54,7 +58,9 @@ export default class UpdateSc extends React.Component {
           startTime: scheduledStartTime,
           finishTime: scheduledFinishTime,
           selectedOptionPlace: placeId,
+          location:location,
           selectedOptionSport: sportId,
+          title:title,
           creator,
         });
       })
@@ -116,6 +122,7 @@ export default class UpdateSc extends React.Component {
 
     await this.service
       .update(this.state.id, {
+        id:this.state.id,
         scheduledDate: this.state.date,
         scheduledStartTime: this.state.startTime,
         scheduledFinishTime: this.state.finishTime,
@@ -216,6 +223,7 @@ export default class UpdateSc extends React.Component {
               className="dds"
               id="noMargin"
               value={this.state.selectedOptionPlace}
+              location={this.state.location}
               onChange={this.handleInputChangePlace}
               />
             </FormGroup>
@@ -229,6 +237,7 @@ export default class UpdateSc extends React.Component {
               className="dds"
               id="noMargin"
               value={this.state.selectedOptionSport}
+              title={this.state.title}
               onChange={this.handleInputChangeSport}
               />
             </FormGroup>

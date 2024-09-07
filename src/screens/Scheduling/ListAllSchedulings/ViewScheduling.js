@@ -2,8 +2,7 @@ import React from "react";
 import "./ViewScheduling.css";
 import "bootswatch/dist/minty/bootstrap.css";
 import { withRouter } from "react-router-dom";
-import SchedulingTable from "../../../componentes/SchedulingTable";
-import SchedulingApiService from "../../../services/SchdulingApiService";
+import SchedulingApiService from "../../../services/SchedulingApiService";
 import FormGroup from "../../../componentes/FormGroup";
 import DDPlaces from "../../../componentes/DropDown/DDPlaces";
 import DDSports from "../../../componentes/DropDown/DDSport";
@@ -11,10 +10,11 @@ import {
   showSuccessMessage,
   showErrorMessage,
 } from "../../../componentes/Toastr";
-import axios from "axios";
 import Calendar from "../../calendar/Calendar";
 import { LOGGED_USER } from "../../../services/ApiService";
-import UserApiService from "../../../services/UserApiService";
+import StorageService from "../../../services/StorageService";
+import AppFooter from "../../../componentes/AppFooter";
+import DateInput from "../../../componentes/DateInput";
 
 class ViewScheduling extends React.Component {
   state = {
@@ -28,31 +28,23 @@ class ViewScheduling extends React.Component {
   constructor() {
     super();
     this.service = new SchedulingApiService();
-    this.serviceUser = new UserApiService();
+    this.storageService = new StorageService();
+  }
+
+  getUserRegistration = () => {
+    return this.storageService.getItem(LOGGED_USER).registration;
   }
 
   find = async () => {
-
-    const retorno = [];
-    const user = JSON.parse(localStorage.getItem("loggedUser"));
-    console.log("user", user.registration);
-    
-      
-    
-      await this.service
-      .findWithCreatorAndResponsible(user.registration)
-      .then((Response) => {
-        const scheduling = Response.data;
-        console.log(
-          "🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:",
-          scheduling
-        );
-        this.setState({ scheduling: scheduling });
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
-    
+    await this.service
+    .findWithCreatorAndResponsible(this.getUserRegistration())
+    .then((Response) => {
+      const scheduling = Response.data;
+      this.setState({ scheduling: scheduling });
+    })
+    .catch((error) => {
+      console.log(error.response);
+    });
   };
 
   findAllParticpants = (schedulingId) => {
@@ -60,10 +52,6 @@ class ViewScheduling extends React.Component {
       .findAllParticpants(schedulingId)
       .then((Response) => {
         const users = Response.data;
-        console.log(
-          "🚀 ~ file: ViewScheduling.js:32 ~ ViewScheduling ~ scheduling:",
-          users
-        );
         this.setState({ users: users });
       })
       .catch((error) => {
@@ -73,14 +61,13 @@ class ViewScheduling extends React.Component {
 
   delete = (schedulingId) => {
     this.service
-      .delete(schedulingId)
-      .then((Response) => {
+      .delete(schedulingId, this.getUserRegistration())
+      .then((response) => {
         showSuccessMessage("Agendamento excluído com sucesso!");
         this.find();
       })
       .catch((error) => {
-        showErrorMessage(error.response.data);
-        console.log(error.Response);
+        showErrorMessage(error.response.data.detailMessage);
       });
   };
 
@@ -117,17 +104,11 @@ class ViewScheduling extends React.Component {
   };
 
   handleInputChangePlace = (place) => {
-    console.log("place:", place);
-    this.setState({ selectedPlace: place }, () => {
-      console.log("place selected", this.state.selectedPlace);
-    });
+    this.setState({ selectedPlace: place });
   };
 
   handleInputChangeSport = (sport) => {
-    console.log("place:", sport);
-    this.setState({ selectedSport: sport }, () => {
-      console.log("place selected", this.state.selectedSport);
-    });
+    this.setState({ selectedSport: sport });
   };
 
   filterSearch = () => {
@@ -156,52 +137,36 @@ class ViewScheduling extends React.Component {
   };
 
   addParticipant = (schedulingId) => {
-    console.log("id1= " + schedulingId);
-    // this.service.addParticipant(schedulingId)
-    axios
-      .patch(
-        `http://localhost:8080/api/scheduling/${schedulingId}/addParticipant`,
-        { matricula: this.getUserRegistration() }
-      )
-      .then((Response) => {
+    this.service.addIsPresent(schedulingId, this.getUserRegistration())
+      .then((response) => {
         showSuccessMessage(
           "Você demonstrou interesse em participar da prática!"
         );
-        console.log(Response);
       })
       .catch((error) => {
         showErrorMessage(error.response);
-        console.log(error.Response);
       });
   };
 
   removeParticipant = (schedulingId) => {
     this.service
       .removeParticipant(schedulingId)
-      .then((Response) => {
+      .then((response) => {
         showSuccessMessage("Interesse em participar da prática retirado!");
-        console.log(Response);
       })
       .catch((error) => {
         showErrorMessage(error.response.data);
-        console.log(error.Response);
       });
   };
 
   addIsPresent = (schedulingId) => {
-    console.log(
-      "🚀 ~ file: ViewScheduling.js:138 ~ ViewScheduling ~ schedulingId:",
-      schedulingId
-    );
     this.service
       .addIsPresent(schedulingId, this.getUserRegistration())
-      .then((Response) => {
+      .then((response) => {
         showSuccessMessage("Presença confirmada nessa prática!");
-        console.log(Response);
       })
       .catch((error) => {
         showErrorMessage(error.response);
-        console.log(error.response);
       });
   };
 
@@ -212,23 +177,26 @@ class ViewScheduling extends React.Component {
   confirmScheduling = (schedulingId) => {
     this.service
     .approveScheduling(schedulingId)
-    .then((Response) => {
+    .then((response) => {
       this.find();
       showSuccessMessage("Agendamento confirmado!");
-      console.log(Response);
     })
     .catch((error) => {
       showErrorMessage(error.response);
-      console.log(error.response);
     });
   };
+
+  handleDateChange = (date) => {
+    this.setState({date: date});
+  }
 
   render() {
     return (
       <div>
         <header className="App-header">
-          <fieldset>
-            <h1 className="title">Agendamentos</h1>
+          <h1 className="title">Agendamentos</h1>
+          <div className="filter-container">
+            <fieldset>
             <div className="card mb-3 cardScheduling">
               <h3 className="card-header">
                 Filtrar
@@ -255,13 +223,8 @@ class ViewScheduling extends React.Component {
                     htmlFor="lab"
                     className="filterOptions"
                   >
-                    <input
-                      className="form-sched"
-                      type="date"
-                      id="lab"
-                      onChange={(e) => {
-                        this.setState({ date: e.target.value });
-                      }}
+                    <DateInput
+                      onDateChange={this.handleDateChange}
                     />
                   </FormGroup>
 
@@ -286,7 +249,7 @@ class ViewScheduling extends React.Component {
                     type="button"
                     className="btn btn-primary btnSc Buttondefault"
                   >
-                  novo agendamento
+                  Novo Agendamento
                   </button>
                   <button
                     onClick={this.viewSchedulingPending}
@@ -310,24 +273,19 @@ class ViewScheduling extends React.Component {
             </div>
             <br />
             <br />
-            
-            <Calendar
-                  //listEvent={this.service.findCalendar()}
-                  schedulings={this.state.scheduling}
-                  viewParticipants={this.viewParticipants}
-                  delete={this.delete}
-                  addIsPresent={this.addIsPresent}
-                  //addParticipant={this.addParticipant}
-                  //removeParticipant={this.removeParticipant}
-                  //perfil={this.perfil}
-                  edit={this.edit}
-                  confirmScheduling={this.confirmScheduling}
-                />
-          </fieldset>
-          
+              <Calendar
+                schedulings={this.state.scheduling}
+                viewParticipants={this.viewParticipants}
+                delete={this.delete}
+                addIsPresent={this.addIsPresent}
+                edit={this.edit}
+                confirmScheduling={this.confirmScheduling}
+              />
+            </fieldset>
+          </div>
           <br /><br /><br />
         </header>
-        <footer className="footer-sche"></footer>
+        <AppFooter />
       </div>
     );
   }

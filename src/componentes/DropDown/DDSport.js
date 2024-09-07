@@ -1,26 +1,26 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
-const DDSports = (props) => {
-  const [sports, setSports] = React.useState([]); //array vazio aqui no final para prevenir erro de undefined tentando ser mapeado.
+import SportApiService from "../../services/SportApiService";
+import { showErrorMessage} from "../../../src/componentes/Toastr";
 
-  function findPlaces() {
-    axios
-      .get("http://localhost:8080/api/sport")
-      .then((Response) => {
-        const places = Response.data;
-        setSports(places);
-        console.log("sports", places);
+const DDSports = (props) => {
+  const [sports, setSports] = useState([]);
+  const service = new SportApiService();
+
+  function findSports() {
+    service.find("")
+      .then((response) => {
+        const sports = response.data;
+        setSports(sports);
       })
       .catch((error) => {
-        console.log(error.Response);
+        showErrorMessage(error.response.data);
       });
   }
 
-  React.useEffect(() => {
-    //componentDidMount das funções.
-    findPlaces();
+  useEffect(() => {
+    findSports();
   }, []);
 
   return (
@@ -34,7 +34,7 @@ const DDSports = (props) => {
         <TextField
           {...params}
           size="small"
-          label="Esporte"
+          label={props.title || "Esporte"}
           variant="outlined"
         />
       )}
