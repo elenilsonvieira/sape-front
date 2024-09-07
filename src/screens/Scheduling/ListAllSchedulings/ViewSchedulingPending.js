@@ -65,7 +65,6 @@ class viewSchedulingPending extends React.Component {
       .findAllSchedulingPendingByPlaceResponsible(this.getUserRegistration()) // pega todos
       .then((Response) => {
         const schedulingsPending = Response.data;
-
         this.setState({ schedulingsPending });
         console.log(
           "🚀 ~ file: ViewParticipants.js:60 ~ ViewParticipants ~ users:",

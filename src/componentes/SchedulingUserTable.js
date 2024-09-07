@@ -14,8 +14,6 @@ export default (props) => {
         <td>{scheduling.location} </td>
         <td>{scheduling.title} </td>
         <td> {scheduling.creator}</td>
-        {/* <td>{scheduling.status}</td> */}
-
 
         <td>
           <BsEyeFill
