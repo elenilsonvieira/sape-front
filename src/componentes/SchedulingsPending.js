@@ -15,8 +15,6 @@ export default (props) => {
         <td>{scheduling.scheduledFinishTime}</td>
         <td>{scheduling.location} </td>
         <td>{scheduling.title} </td>
-        <td>{scheduling.status}</td>
-
         <td> {scheduling.creator}</td>
 
         <td>
@@ -53,7 +51,6 @@ export default (props) => {
           <th scope="col">Fim</th>
           <th scope="col">Local</th>
           <th scope="col">Esporte</th>
-          <th scope="col">Status</th>
           <th scope="col">Agendado por:</th>
           <th scope="col" colSpan={2}>
             Confirmar Agendamento?
