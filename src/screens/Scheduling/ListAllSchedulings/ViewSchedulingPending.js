@@ -98,7 +98,7 @@ class viewSchedulingPending extends React.Component {
     return (
       <div>
         <header className="App-header">
-          <h1 className="title">Agendamentos Aguardando Confirmação</h1>
+          <h1 className="title">Agendamentos Pendentes</h1>
           <fieldset className="field-pendingsc">
             <br />
             <br />
