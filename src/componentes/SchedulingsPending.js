@@ -51,9 +51,9 @@ export default (props) => {
           <th scope="col">Fim</th>
           <th scope="col">Local</th>
           <th scope="col">Esporte</th>
-          <th scope="col">Agendado por:</th>
+          <th scope="col">Agendado por</th>
           <th scope="col" colSpan={2}>
-            Confirmar Agendamento?
+            Confirmar Agendamento
           </th>
         </tr>
       </thead>
