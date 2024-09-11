@@ -53,7 +53,7 @@ export default (props) => {
           <th scope="col">Esporte</th>
           <th scope="col">Agendado por</th>
           <th scope="col" colSpan={2}>
-            Confirmar Agendamento?
+            Confirmar Agendamento
           </th>
         </tr>
       </thead>
