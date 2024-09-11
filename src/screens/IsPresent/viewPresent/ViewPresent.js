@@ -1,13 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
 import SchedulingUsertable from "../../../componentes/SchedulingUserTable";
-
-import {
-  showErrorMessage,
-  showSuccessMessage,
-} from "../../../componentes/Toastr";
+import {showErrorMessage, showSuccessMessage} from "../../../componentes/Toastr";
 import SchedulingApiService from "../../../services/SchedulingApiService";
+import UserApiService from "../../../services/UserApiService";
 
 class ViewPresent extends React.Component {
   state = {
@@ -18,6 +14,7 @@ class ViewPresent extends React.Component {
   constructor() {
     super();
     this.service = new SchedulingApiService();
+    this.userService = new UserApiService();
   }
 
   componentDidMount() {
@@ -76,36 +73,29 @@ class ViewPresent extends React.Component {
       });
   };
 
-  findSchedulingsUser = () => {
-    this.service
-      .confirmedByUser(this.getUserRegistration())
-      .then((Response) => {
-        const schedulings = Response.data;
-        this.state.schedulingUser = schedulings;
-        this.setState({ schedulings });
-        console.log(this.state.schedulingUser);
-      })
-      .catch((error) => {
-        console.log(error.response);
-      });
+  findUserCreatorName = async (registration) => {
+    const response = await this.userService.findByRegistration(registration);
+    return response.data.name;
+  }
+
+  findSchedulingsUser = async () => {
+    const response = await this.service.confirmedByUser(this.getUserRegistration());
+    const schedulings = response.data;
+
+    for (const scheduling of schedulings) {
+      const schedulingCreator = await this.findUserCreatorName(scheduling.creator);
+      scheduling.creator = schedulingCreator;
+    }
+        
+    this.setState({schedulingUser: schedulings });
   };
 
   find = (schedulingId) => {
-    console.log(
-      "🚀 ~ file: ViewParticipants.js:43 ~ ViewParticipants ~ schedulingId:",
-      schedulingId
-    );
     this.service
-      .findAllParticpants(schedulingId) // pega todos
-      .then((Response) => {
-        const users = Response.data;
-
+      .findAllParticpants(schedulingId)
+      .then((response) => {
+        const users = response.data;
         this.setState({ users });
-        console.log(
-          "🚀 ~ file: ViewParticipants.js:60 ~ ViewParticipants ~ users:",
-          users
-        );
-        this.state.users = users;
       })
       .catch((error) => {
         console.log(error);
