@@ -33,7 +33,7 @@ export default class UpdatePlace extends React.Component {
         const placeName = place.name;
         const placeReference = place.reference;
         const capacityMax = place.maximumCapacityParticipants;
-        const isPublic = place.isPublic;
+        const isPublic = place.public;
         const responsibles = place.responsibles;
 
         this.setState({
@@ -44,7 +44,7 @@ export default class UpdatePlace extends React.Component {
           isPublic,
           responsibles,
         });
-        console.log(place);
+        console.log(this.state.capacityMax);
       })
       .catch((error) => {
         console.log(error.response);
@@ -156,6 +156,7 @@ export default class UpdatePlace extends React.Component {
                 min={1}
                 max={250}
                 autoComplete="off"
+                value={this.state.capacityMax}
                 onChange={(e) => {
                   this.setState({ capacityMax: e.target.value });
                 }}
@@ -170,9 +171,8 @@ export default class UpdatePlace extends React.Component {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
                 id="flexCheckDefault"
-                defaultChecked={this.state.isPublic}
+                checked={this.state.isPublic}
                 onChange={this.handleChange}
               />
             </FormGroup>
