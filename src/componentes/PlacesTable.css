@@ -1,15 +1,18 @@
-.table-primary{
-    --bs-table-bg: #6DCA41;
-    --bs-table-border-color: none;
+.table-primary {
+  --bs-table-bg: #6dca41;
+  --bs-table-border-color: none;
 }
-.bntdefault{
-    --bs-btn-color: #fff;
-    --bs-btn-bg: #6DCA41;
-    --bs-btn-border-color: none;
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: rgb(28, 146, 17);
+.bntdefault {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #6dca41;
+  --bs-btn-border-color: none;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: rgb(28, 146, 17);
+}
+.table-sport {
+  height: 410px;
+}
 
-}
-.table-sport{
-    height: 410px;
+.columnOverflow {
+  overflow: auto;
 }

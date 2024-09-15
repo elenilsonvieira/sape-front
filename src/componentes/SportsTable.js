@@ -6,7 +6,7 @@ export default (props) => {
   const rows = props.sports.map((sport) => {
     return (
       <tr key={sport.id}>
-        <td>{sport.name}</td>
+        <td className="columnOverflow">{sport.name}</td>
         <td></td>
         <td>
           <td className="btn-sport">

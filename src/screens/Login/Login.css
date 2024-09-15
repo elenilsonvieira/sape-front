@@ -4,23 +4,21 @@
   height: 1053px;
   left: -30px;
   top: 29px;
-
 }
 
 .set02 h3 {
-  background-color: #6DCA41;
+  background-color: #6dca41;
   align-items: center;
   justify-content: space-evenly;
   font-family: sans-serif;
   text-align: center;
   margin-top: 150px;
-  font-family: 'Imprima';
+  font-family: "Imprima";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
   line-height: 111px;
   color: #dde1db;
-
 }
 
 .set02 h1 {
@@ -30,7 +28,7 @@
   left: 345px;
   top: 170px;
   margin-top: 100px;
-  font-family: 'Imprima';
+  font-family: "Imprima";
   font-style: normal;
   font-weight: 400;
   font-size: 93px;
@@ -38,7 +36,6 @@
   text-align: center;
 
   color: #0c0c0c;
-
 }
 
 .set02 h2 {
@@ -48,15 +45,14 @@
   left: 835px;
   top: 80px;
   margin-top: 100px;
-  font-family: 'Imprima';
+  font-family: "Imprima";
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 23px;
   text-align: left;
 
-  color: #6DCA41;
-
+  color: #6dca41;
 }
 
 #lab1 {
@@ -66,25 +62,24 @@
   left: 905px;
   top: 320px;
 
-  font-family: 'Imprima';
+  font-family: "Imprima";
   font-style: normal;
   font-weight: 40px;
   font-size: 30px;
   line-height: 15px;
 
   color: #606b5a;
-
 }
 
 #input1 {
   position: absolute;
+  text-align: start;
   width: 280px;
   height: 40px;
   left: 850px;
   top: 360px;
   background-color: #c1ccbc;
   border-radius: 5px;
-
 }
 
 #lab2 {
@@ -94,26 +89,26 @@
   left: 905px;
   top: 410px;
 
-  font-family: 'Imprima';
+  font-family: "Imprima";
   font-style: normal;
   font-weight: 40px;
   font-size: 30px;
   line-height: 15px;
 
   color: #606b5a;
-
 }
 
 #input2 {
   position: absolute;
+  text-align: start;
   width: 280px;
   height: 40px;
   left: 905px;
   top: 440px;
   border: 5px;
+  padding-left: 10px;
   background-color: #c1ccbc;
   border-radius: 5px;
-
 }
 
 .set02 button {
@@ -123,16 +118,15 @@
   left: 930px;
   top: 505px;
   font-weight: bolder;
-  background: #6DCA41;
+  background: #6dca41;
   border-radius: 20px;
-  transition: .5s;
-
+  transition: 0.5s;
 }
 
 .set02 button:hover {
   background-color: #ffffff;
-  color: #6DCA41;
-  border-color: #6DCA41;
+  color: #6dca41;
+  border-color: #6dca41;
 }
 
 #h1 {
@@ -140,5 +134,4 @@
   width: 0px;
   height: 0px;
   left: 250px;
-
 }

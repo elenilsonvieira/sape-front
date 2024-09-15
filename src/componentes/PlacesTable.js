@@ -8,8 +8,8 @@ export default (props) => {
   const rows = props.places.map((place) => {
     return (
       <tr key={place.id}>
-        <td>{place.name}</td>
-        <td>{place.reference}</td>
+        <td className="columnOverflow">{place.name}</td>
+        <td className="columnOverflow">{place.reference}</td>
         <td>{place.maximumCapacityParticipants}</td>
         <td>
           <BsEyeFill

@@ -1,13 +1,11 @@
 import React from "react";
 import { BsEyeFill } from "react-icons/bs";
-import GetName from "./GetPlaceOrSportName";
-import GetNameUser from "./GetUserOrNameUser";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default (props) => {
   const rows = props.schedulings?.map((scheduling) => {
     return (
-      <tr key={scheduling.id}>
+        <tr key={scheduling.id}>
         <td>{scheduling.scheduledDate}</td>
         <td>{scheduling.scheduledStartTime}</td>
         <td>{scheduling.scheduledFinishTime}</td>
@@ -49,7 +47,6 @@ export default (props) => {
           <th scope="col">Esporte</th>
           <th scope="col">Agendado por</th>
           <th scope="col">Participantes</th>
-          {/* <th></th> */}
           <th scope="col">Presença Confirmada</th>
         </tr>
       </thead>
