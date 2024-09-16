@@ -15,7 +15,7 @@ export default (props) => {
         <td>{scheduling.scheduledFinishTime}</td>
         <td>{scheduling.location} </td>
         <td>{scheduling.title} </td>
-        <td> {scheduling.creator}</td>
+        <td className="columnOverflow">{scheduling.creator}</td>
 
         <td>
           <button
