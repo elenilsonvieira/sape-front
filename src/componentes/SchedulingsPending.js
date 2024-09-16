@@ -13,8 +13,8 @@ export default (props) => {
         <td>{scheduling.scheduledDate}</td>
         <td>{scheduling.scheduledStartTime}</td>
         <td>{scheduling.scheduledFinishTime}</td>
-        <td>{scheduling.location} </td>
-        <td>{scheduling.title} </td>
+        <td className="columnOverflow">{scheduling.location} </td>
+        <td className="columnOverflow">{scheduling.title} </td>
         <td className="columnOverflow">{scheduling.creator}</td>
 
         <td>
